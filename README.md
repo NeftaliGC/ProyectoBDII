@@ -39,7 +39,6 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 - [ ] Crear generador de horas - @cruzz9
 - [ ] Crear generador de precios de medicamentos - @cruzz9
 - [ ] Crear generador de salarios - @cruzz9
-- [ ] Separar el generador de fechas a una clase aparte - @neftaligc
 - [ ] Separar el generador de nombres de proveedores a una clase aparte - @neftaligc
 - [ ] Crear el generador de emails para proveedores (En la clase emailGenerator) - @neftaligc
 - [ ] Crear el generador de numeros del sat - @neftaligc
@@ -54,6 +53,7 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 - [x] Crear generador de numeros telefonicos
 - [x] Crear generador de codigos postales
 - [x] Crear generador de RFCs
+- [x] Separar el generador de fechas a una clase aparte - @neftaligc
 
 El proyecto tiene la siguiente estructura:
 En la carpeta `src` se encuentran los archivos de código fuente.
