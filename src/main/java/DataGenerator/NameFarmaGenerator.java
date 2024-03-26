@@ -3,14 +3,15 @@ package DataGenerator;
 import java.io.*;
 import java.util.Random;
 
-public class ProvidersGenerator {
+public class NameFarmaGenerator {
 
     Random random = new Random();
 
-    String generateRandomProviderName() {
+    String generateRandomNameFarma() {
         String name = "";
-        String filePath = "src/main/resources/data/namesProviders.txt";
-        int randomNum = random.nextInt(10) + 1;
+        String filePath = "src/main/resources/data/namesFarmacias.txt";
+        // Si se desea cambiar el rango de nombres, se debe cambiar el valor del random.nextInt
+        int randomNum = random.nextInt(5) + 1;
 
         try {
             BufferedReader br = new BufferedReader(new FileReader(filePath));
@@ -29,6 +30,11 @@ public class ProvidersGenerator {
         }
 
         return name;
+    }
+
+    public static void main(String[] args) {
+        NameFarmaGenerator nameFarmaGenerator = new NameFarmaGenerator();
+        System.out.println(nameFarmaGenerator.generateRandomNameFarma());
     }
 
 }
