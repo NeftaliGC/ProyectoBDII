@@ -6,20 +6,10 @@
 ## Tareas por hacer
 Sientete libre de añadir tareas por hacer en esta sección si consideras que hacen falta o si algo debe ser modificado.
 
-- [ ] Crear generador de direcciones
-- [ ] Separar el generador de fechas a una clase aparte
-- [ ] Separar el generador de nombres de proveedores a una clase aparte
-- [ ] Crear generador de emails para proveedores (En la clase emailGenerator)
-- [ ] Crear generador de puestos de empleo
-- [ ] Crear generador de salarios
 - [ ] Crear generador de IDs (tanto numericos como alfanumericos para claves primarias unicas y compuestas)
-- [ ] Crear generador de horas
-- [ ] Crear generador de numeros del sat
 - [ ] Crear generador de metodos de pago
-- [ ] Crear generador de nombres de farmacias
 - [ ] Crear generador de nombres de medicamentos
 - [ ] Crear generador de descripciones de medicamentos
-- [ ] Crear generador de precios de medicamentos
 - [ ] Aumentar los nombres de proveedores hasta los que sean necesarios
 - [ ] Crear generador de receta medica
 > Recuerda que los generadores de tablas con referencias a otras deberan usar los registros generados por los generadores de las tablas referenciadas.
@@ -49,6 +39,11 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 - [ ] Crear generador de horas - @cruzz9
 - [ ] Crear generador de precios de medicamentos - @cruzz9
 - [ ] Crear generador de salarios - @cruzz9
+- [ ] Separar el generador de fechas a una clase aparte - @neftaligc
+- [ ] Separar el generador de nombres de proveedores a una clase aparte - @neftaligc
+- [ ] Crear el generador de emails para proveedores (En la clase emailGenerator) - @neftaligc
+- [ ] Crear el generador de numeros del sat - @neftaligc
+- [ ] Crear el generador de nombres de farmacias - @neftaligc
 
 
 
