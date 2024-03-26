@@ -14,41 +14,20 @@ public class FullNamesGenerator {
         return fullName;
     }
 
-    String generateRandomProviderName() {
-        String name = "";
-        String filePath = "src/main/resources/data/providers.txt";
-        int randomNum = random.nextInt(10) + 1;
-
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(filePath));
-            int currentLine = 1;
-
-            while ((name = br.readLine()) != null) {
-                if (currentLine == randomNum) {
-                    break;
-                }
-                currentLine++;
-            }
-
-            br.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return name;
-    }
-
     String generateRandomName_LastName(String opc) {
         // numero aleatorio entre 1 y 2000
         String name = "";
         String filePath;
-        if (opc == "name") {
-            filePath = "src/main/resources/data/names.txt";
-        } else if (opc == "lastName") {
-            filePath = "src/main/resources/data/lastNames.txt";
-        } else {
-            filePath = "src/main/resources/data/names.txt";
+
+        switch(opc) {
+            case "lastName":
+                filePath = "src/main/resources/data/lastNames.txt";
+                break;
+            case "name":
+            default:
+                filePath = "src/main/resources/data/names.txt";
         }
+
         int randomNum = random.nextInt(2000) + 1;
 
         try {

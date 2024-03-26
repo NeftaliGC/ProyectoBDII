@@ -13,7 +13,8 @@ public class EmailGenerator {
     String simbols = ".-_";
     String numbers = "123456789";
 
-    String generateEmail(String nombre, String apellidoPaterno, String apellidoMaterno) {
+    // Este metodo genera un correo personal a partir de un nombre y apellidos
+    String generatePersonalEmail(String nombre, String apellidoPaterno, String apellidoMaterno) {
         String email = "";
         email += nombre.substring(0, 1);
         email += apellidoPaterno;
@@ -26,7 +27,6 @@ public class EmailGenerator {
             }
         }
 
-        email += "@";
         email += generateDomain();
 
         email = email.toLowerCase();
@@ -35,6 +35,29 @@ public class EmailGenerator {
         return email;
     }
 
+    // Este metodo genera un correo profesional a partir del nombre de la empresa
+    public String generateProfessionalEmail(String company) {
+        String email = "services.provider";
+        email += "@";
+
+        // Debido a que las tendran un dominio personalizado, se tomara el nombre de la empresa
+        if (company.contains(" ")) {
+            // Si el nombre de la empresa tiene espacios, se separa en partes
+            String[] parts = company.split(" ");
+            // Por consideracion de la longitud se tomara el nombre en primera posicion de la compania
+            email += parts[1].toLowerCase();
+        } else {
+            // Si no tiene espacios, se toma el nombre completo
+            email += company.toLowerCase();
+        }
+
+        email += ".com";
+
+        return email;
+    }
+
+
+    // Este metodo genera un dominio aleatorio
     private String generateDomain() {
         String domain = "";
         List<String> domains = new ArrayList<>();
@@ -53,14 +76,16 @@ public class EmailGenerator {
             e.printStackTrace();
         }
 
+        domain = "@" + domain;
+
         return domain;
     }
 
     public static void main(String[] args) {
         EmailGenerator emailGenerator = new EmailGenerator();
         for (int i = 0; i < 20; i++) {
-            String[] fullName = new FullNamesGenerator().generateFullName();
-            System.out.println(emailGenerator.generateEmail(fullName[0], fullName[1], fullName[2]));
+            String fullName = new ProvidersGenerator().generateRandomProviderName();
+            System.out.println(emailGenerator.generateProfessionalEmail( fullName));
         }
     }
 }

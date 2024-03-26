@@ -6,22 +6,13 @@
 ## Tareas por hacer
 Sientete libre de añadir tareas por hacer en esta sección si consideras que hacen falta o si algo debe ser modificado.
 
-- [ ] Crear generador de direcciones
-- [ ] Separar el generador de fechas a una clase aparte
-- [ ] Separar el generador de nombres de proveedores a una clase aparte
-- [ ] Crear generador de emails para proveedores (En la clase emailGenerator)
-- [ ] Crear generador de puestos de empleo
-- [ ] Crear generador de salarios
 - [ ] Crear generador de IDs (tanto numericos como alfanumericos para claves primarias unicas y compuestas)
-- [ ] Crear generador de horas
-- [ ] Crear generador de numeros del sat
 - [ ] Crear generador de metodos de pago
-- [ ] Crear generador de nombres de farmacias
 - [ ] Crear generador de nombres de medicamentos
 - [ ] Crear generador de descripciones de medicamentos
-- [ ] Crear generador de precios de medicamentos
 - [ ] Aumentar los nombres de proveedores hasta los que sean necesarios
 - [ ] Crear generador de receta medica
+- [ ] Aumentar los nombres de farmacias hasta los que sean necesarios
 > Recuerda que los generadores de tablas con referencias a otras deberan usar los registros generados por los generadores de las tablas referenciadas.
 Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero los registros de la tabla Empleado y con esos registros generar los registros de la tabla Historial_Empleado.
 - [ ] Crear generador de registros para la tabla Inventario
@@ -40,7 +31,7 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 - [ ] Crear generador de registros para la tabla Lote
 - [ ] Crear generador de registros para la tabla Control_Inventario
 - [ ] Crear generador de registros para la tabla Registro_Reposicion
-  // Tareas por hacer para el proyecto principal (Frontend y Backend) aun por definir
+  </br>// Tareas por hacer para el proyecto principal (Frontend y Backend) aun por definir
 ## Tareas en proceso
 > Añade aqui la tarea que estas realizando actualmente con un guion seguida por tu usuario de github o tu nombre.
 > Ejemplo: - [ ] Hacer que el proyecto se vea cool - @usuario
@@ -49,6 +40,7 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 - [ ] Crear generador de horas - @cruzz9
 - [ ] Crear generador de precios de medicamentos - @cruzz9
 - [ ] Crear generador de salarios - @cruzz9
+- [ ] Crear el generador de numeros del sat - @neftaligc
 
 
 
@@ -59,8 +51,12 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 - [x] Crear generador de numeros telefonicos
 - [x] Crear generador de codigos postales
 - [x] Crear generador de RFCs
+- [x] Separar el generador de fechas a una clase aparte - @neftaligc
+- [x] Separar el generador de nombres de proveedores a una clase aparte - @neftaligc
+- [x] Crear el generador de emails para proveedores (En la clase emailGenerator) - @neftaligc
+- [x] Crear el generador de nombres de farmacias - @neftaligc
 
-El proyecto tiene la siguiente estructura:
+  El proyecto tiene la siguiente estructura:
 En la carpeta `src` se encuentran los archivos de código fuente.
 donde `Java` es la carpeta que contiene los archivos de código fuente en Java.
 se encotraran con las carpetas `DataGenerator` que servira para crear el programa
