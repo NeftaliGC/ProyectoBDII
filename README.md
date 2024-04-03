@@ -21,13 +21,11 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 - [ ] Crear generador de registros para la tabla Ticket
 - [ ] Crear generador de registros para la tabla Devolucion
 - [ ] Crear generador de registros para la tabla Venta
-- [ ] Crear generador de registros para la tabla Producto
-- [ ] Crear generador de registros para la tabla Categoria
-- [ ] Crear generador de registros para la tabla Lote
 - [ ] Crear generador de registros para la tabla Control_Inventario
 - [ ] Crear generador de registros para la tabla Registro_Reposicion
 - [ ] Crear interfaz grafica de login @anorak1221
   </br>// Tareas por hacer para el proyecto principal (Frontend y Backend) aun por definir
+
 ## Tareas en proceso
 > Añade aqui la tarea que estas realizando actualmente con un guion seguida por tu usuario de github o tu nombre.
 > Ejemplo: - [ ] Hacer que el proyecto se vea cool - @usuario
@@ -37,11 +35,10 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 - [ ] Crear generador de precios de medicamentos - @cruzz9
 - [ ] Crear generador de salarios - @cruzz9
 - [ ] Crear el generador de numeros del sat - @neftaligc
-- [ ] Crear generador de IDs (tanto numericos como alfanumericos para claves primarias unicas y compuestas) - @JFT-314
-- [ ] Crear generador de metodos de pago - @JFT-314
-- [ ] Crear generador de nombres de medicamentos - @JFT-314
-- [ ] Crear generador de descripciones de medicamentos - @JFT-314
 - [ ] Crear generador de receta medica - @JFT-314
+- [ ] Crear generador de registros para la tabla Categoria - @JFT-314
+- [ ] Crear generador de registros para la tabla Lote - @JFT-314
+- [ ] Crear generador de registros para la tabla Producto - @JFT-314
 
 
 ## Tareas realizadas
@@ -55,7 +52,12 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 - [x] Separar el generador de nombres de proveedores a una clase aparte - @neftaligc
 - [x] Crear el generador de emails para proveedores (En la clase emailGenerator) - @neftaligc
 - [x] Crear el generador de nombres de farmacias - @neftaligc
+- [x] Crear generador de nombres de medicamentos - @JFT-314
+- [x] Crear generador de descripciones de medicamentos - @JFT-314
+- [x] Crear generador de IDs (tanto numericos como alfanumericos para claves primarias unicas y compuestas) - @JFT-314
+- [X] Crear generador de metodos de pago - @JFT-314
 
+## Estructura del proyecto
   El proyecto tiene la siguiente estructura:
 En la carpeta `src` se encuentran los archivos de código fuente.
 donde `Java` es la carpeta que contiene los archivos de código fuente en Java.
