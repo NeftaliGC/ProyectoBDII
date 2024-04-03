@@ -38,8 +38,6 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 - [ ] Crear el generador de numeros del sat - @neftaligc
 - [ ] Crear generador de IDs (tanto numericos como alfanumericos para claves primarias unicas y compuestas) - @JFT-314
 - [ ] Crear generador de metodos de pago - @JFT-314
-- [ ] Crear generador de nombres de medicamentos - @JFT-314
-- [ ] Crear generador de descripciones de medicamentos - @JFT-314
 - [ ] Crear generador de receta medica - @JFT-314
 
 
@@ -54,6 +52,8 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 - [x] Separar el generador de nombres de proveedores a una clase aparte - @neftaligc
 - [x] Crear el generador de emails para proveedores (En la clase emailGenerator) - @neftaligc
 - [x] Crear el generador de nombres de farmacias - @neftaligc
+- [x] Crear generador de nombres de medicamentos - @JFT-314
+- [x] Crear generador de descripciones de medicamentos - @JFT-314
 
   El proyecto tiene la siguiente estructura:
 En la carpeta `src` se encuentran los archivos de código fuente.
