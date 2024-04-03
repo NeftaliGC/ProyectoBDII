@@ -10,8 +10,8 @@ Sientete libre de añadir tareas por hacer en esta sección si consideras que ha
 - [ ] Aumentar los nombres de farmacias hasta los que sean necesarios
 > Recuerda que los generadores de tablas con referencias a otras deberan usar los registros generados por los generadores de las tablas referenciadas.
 Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero los registros de la tabla Empleado y con esos registros generar los registros de la tabla Historial_Empleado.
-- [ ] Crear generador de registros para la tabla Inventario
-- [ ] Crear generador de registros para la tabla Cliente
+- [ ] Crear generador de registros para la tabla Inventario @anorak1221
+- [ ] Crear generador de registros para la tabla Cliente @anorak1221
 - [ ] Crear generador de registros para la tabla Empleado
 - [ ] Crear generador de registros para la tabla Proveedor
 - [ ] Crear generador de registros para la tabla Factura
@@ -26,6 +26,7 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 - [ ] Crear generador de registros para la tabla Lote
 - [ ] Crear generador de registros para la tabla Control_Inventario
 - [ ] Crear generador de registros para la tabla Registro_Reposicion
+- [ ] Crear interfaz grafica de login @anorak1221
   </br>// Tareas por hacer para el proyecto principal (Frontend y Backend) aun por definir
 ## Tareas en proceso
 > Añade aqui la tarea que estas realizando actualmente con un guion seguida por tu usuario de github o tu nombre.
