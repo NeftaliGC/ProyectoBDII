@@ -111,6 +111,10 @@ public class DrugGenerator {
         }
         return res;
     }
+    
+    public List<Drug> getAllDrugs(){
+        return drugs;
+    }
 
     public static void main(String[] args) {
 
@@ -121,7 +125,12 @@ public class DrugGenerator {
         String descr = g.getDescription(name);
         System.out.printf("%s\n%s\n%s\n%s", name, aplic, type, descr);
         
-
+        ArrayList<Drug> all = (ArrayList<Drug>) g.getAllDrugs();
+        
+        for (Drug drug : all) {
+            
+            System.out.println(drug);
+        }
 
     }
 
