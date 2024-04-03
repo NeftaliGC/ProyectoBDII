@@ -36,8 +36,6 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 - [ ] Crear generador de precios de medicamentos - @cruzz9
 - [ ] Crear generador de salarios - @cruzz9
 - [ ] Crear el generador de numeros del sat - @neftaligc
-- [ ] Crear generador de IDs (tanto numericos como alfanumericos para claves primarias unicas y compuestas) - @JFT-314
-- [ ] Crear generador de metodos de pago - @JFT-314
 - [ ] Crear generador de receta medica - @JFT-314
 
 
@@ -54,6 +52,8 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 - [x] Crear el generador de nombres de farmacias - @neftaligc
 - [x] Crear generador de nombres de medicamentos - @JFT-314
 - [x] Crear generador de descripciones de medicamentos - @JFT-314
+- [x] Crear generador de IDs (tanto numericos como alfanumericos para claves primarias unicas y compuestas) - @JFT-314
+- [X] Crear generador de metodos de pago - @JFT-314
 
   El proyecto tiene la siguiente estructura:
 En la carpeta `src` se encuentran los archivos de código fuente.
