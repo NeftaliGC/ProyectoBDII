@@ -134,7 +134,7 @@ public class DrugGenerator {
 
     }
 
-    private class Drug {
+    public class Drug {
 
         private final String name;
         private final String aplicacion;

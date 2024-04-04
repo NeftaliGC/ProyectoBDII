@@ -36,10 +36,14 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 - [ ] Crear generador de registros para la tabla Categoria - @JFT-314
 - [ ] Crear generador de registros para la tabla Lote - @JFT-314
 - [ ] Crear generador de registros para la tabla Producto - @JFT-314
+<<<<<<< HEAD
 - [ ] Crear interfaz grafica de login @anorak1221
 - [ ] Crear generador de registros para la tabla Cliente @anorak1221
 - [ ] Crear generador de registros para la tabla Inventario @anorak1221
 
+=======
+- [ ] Crear generador de registros para la tabla Proveedor - @neftaligc
+>>>>>>> 71b039a3c004e8aa67c74e1194a27e510085b6cd
 
 ## Tareas realizadas
 - [x] Crear generador de nombres de personas y proveedores
