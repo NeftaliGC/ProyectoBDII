@@ -28,7 +28,6 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 > Ejemplo: - [ ] Hacer que el proyecto se vea cool - @usuario
 - [ ] Crear generador de direcciones - @cruzz9
 - [ ] Crear generador de puestos de empleo - @cruzz9
-- [ ] Crear generador de horas - @cruzz9
 - [ ] Crear generador de precios de medicamentos - @cruzz9
 - [ ] Crear generador de salarios - @cruzz9
 - [ ] Crear el generador de numeros del sat - @neftaligc
@@ -67,6 +66,8 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 - [x] Crear generador de descripciones de medicamentos - @JFT-314
 - [x] Crear generador de IDs (tanto numericos como alfanumericos para claves primarias unicas y compuestas) - @JFT-314
 - [X] Crear generador de metodos de pago - @JFT-314
+- [X] Crear generador de horas - @cruzz9
+
 
 ## Estructura del proyecto
   El proyecto tiene la siguiente estructura:
