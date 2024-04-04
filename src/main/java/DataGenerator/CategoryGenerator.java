@@ -4,7 +4,12 @@
  */
 package DataGenerator;
 
-import java.util.HashSet;
+import java.io.IOException;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
 
 /**
  *
@@ -12,24 +17,91 @@ import java.util.HashSet;
  */
 public class CategoryGenerator {
 
+    private final List<Category> categories;
+    private final static Random RANDOM = new Random();
+
+    private final String path = "src/main/resources/data/categories.txt";
+
     public CategoryGenerator() {
-        DrugGenerator d = new DrugGenerator();
+        categories = new ArrayList<>();
 
-        HashSet<String> categorias = new HashSet<>();
+        try {
+            Scanner scanner = new Scanner(Paths.get(path));
 
-        for (DrugGenerator.Drug next : d.getAllDrugs()) {
-            String cats []= next.getType().split(",");
-            for (String cat : cats) {
-                categorias.add(cat.trim());
+            while (scanner.hasNext()) {
+                String categoryLine[] = scanner.nextLine().split("@");
+
+                if (categoryLine[0].equals("#")) {
+                    break;
+                } else {
+                    categories.add(
+                            new Category(
+                                    categoryLine[0].trim(),
+                                    categoryLine[1].trim()));
+                }
+
             }
-        }
-        for (String categoria : categorias) {
-            System.out.println(categoria);
+        } catch (IOException ex) {
+            System.err.println(ex);
         }
     }
-    
+
+    public String getDescription(String categoryName) {
+        String res = null;
+        for (Category category : categories) {
+            if (category.getName().equals(categoryName)) {
+                res = category.getDescription();
+                break;
+            }
+        }
+        return res;
+    }
+
+    public String getRandomCategoryName() {
+        return categories.get(
+                RANDOM.nextInt(
+                        categories.size())).getName();
+    }
+
+    public List<Category> getAllCategories() {
+        return categories;
+    }
+
     public static void main(String[] args) {
         CategoryGenerator c = new CategoryGenerator();
+        String cat = c.getRandomCategoryName();
+        String desc = c.getDescription(cat);
+        System.out.println(cat + " - " + desc);
+    }
+
+    public class Category {
+
+        private final String name;
+        private final String description;
+
+        public Category(
+                String name,
+                String description) {
+
+            this.name = name;
+            this.description = description;
+        }
+
+        @Override
+        public String toString() {
+            return String.format("%s - %s",
+                    name,
+                    description);
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
     }
 
 }

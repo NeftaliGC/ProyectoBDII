@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -20,13 +21,19 @@ public class DatabaseAccess {
 
     public DatabaseAccess() {
         try {
+            
+            CategoryGenerator c = new CategoryGenerator();
+            List<CategoryGenerator.Category> categories = c.getAllCategories();
+            IdGenerator i = new IdGenerator();
+            
             DriverDB driverDB = new DriverDB("jesus", "1234", "farmacia");
             CategoriaSQL transaction = new CategoriaSQL(driverDB);
-            transaction.executeSelect();
+            
+            for (CategoryGenerator.Category category : categories) {
+                transaction.executeInsert(i.getID(15, IdGenerator.ALPHANUMERIC), category.getName(), category.getDescription());
+            }
 
-            IdGenerator i = new IdGenerator();
-
-            //transaction.executeInsert(i.getID(14, IdGenerator.ALPHANUMERIC), "fese", "1sd4");
+            
 
         } catch (SQLException ex) {
             System.err.println(ex);
