@@ -37,7 +37,7 @@ public class EmailGenerator {
 
     // Este metodo genera un correo profesional a partir del nombre de la empresa
     public String generateProfessionalEmail(String company) {
-        String email = "services.provider";
+        String email = "provider";
         email += "@";
 
         // Debido a que las tendran un dominio personalizado, se tomara el nombre de la empresa

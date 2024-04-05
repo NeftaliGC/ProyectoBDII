@@ -17,62 +17,48 @@ public class GeneradorProveedor {
         String password = "";
 
         // Instancias de las clases de generación de datos
-        FullNamesGenerator fullNamesGenerator = new FullNamesGenerator();
+        IdGenerator idGenerator = new IdGenerator();
+        ProvidersGenerator providersGenerator = new ProvidersGenerator();
         RFCGenerator rfcGenerator = new RFCGenerator();
         EmailGenerator emailGenerator = new EmailGenerator();
         PhoneNumberGenerator phoneNumberGenerator = new PhoneNumberGenerator();
-        PostalCodeGenerator postalCodeGenerator = new PostalCodeGenerator();
 
-        try {
-            // Leer los archivos de texto
-            List<String> direcciones = Files.readAllLines(Paths.get("src/main/resources/data/addresses.txt"));
+        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+            if (conn != null) {
+                System.out.println("¡Conectado a la base de datos!");
 
-            Random rand = new Random();
+                //Esoesificar el esquema con la tabla que contenga a proveedor
+                String sql = "INSERT INTO schema.proveedor (id_proveedor, Rfc, Nombre, Telefono, correo_electronico) VALUES (?, ?, ?, ?, ?)";
 
-            try (Connection conn = DriverManager.getConnection(url, user, password)) {
-                if (conn != null) {
-                    System.out.println("¡Conectado a la base de datos!");
+                PreparedStatement statement = conn.prepareStatement(sql);
+                String[] proveedores = new String[10];
+                proveedores = providersGenerator.getAllProvidersList();
 
-                    //Esoesificar el esquema con la tabla que contenga a cliente
-                    String sql = "INSERT INTO schema.cliente (rfc_cliente, nombre, primer_apellido, segundo_apellido, telefono, correo_electronico, direccion, codigo_postal) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                for (int i = 0; i < 9; i++) { // Generar 10 proveedores
+                    // Generar datos aleatorios
+                    int id = Integer.parseInt(idGenerator.getID(3,1));
+                    String Nombreproveedor = proveedores[i];
+                    String rfc = rfcGenerator.generateRFC(Nombreproveedor);
+                    String correo = emailGenerator.generateProfessionalEmail(Nombreproveedor);
+                    long telefono = Long.parseLong(phoneNumberGenerator.generatePhoneNumber(true));
 
-                    PreparedStatement statement = conn.prepareStatement(sql);
+                    statement.setInt(1, id);
+                    statement.setString(2, rfc);
+                    statement.setString(3, Nombreproveedor);
+                    statement.setLong(4, telefono);
+                    statement.setString(5, correo);
 
-                    for (int i = 0; i < 999900; i++) { // Generar 100 clientes
-                        // Generar datos aleatorios
-                        String[] nombreCompleto = fullNamesGenerator.generateFullName();
-                        String nombre = nombreCompleto[0];
-                        String apellido1 = nombreCompleto[1];
-                        String apellido2 = nombreCompleto[2];
-                        String rfc = rfcGenerator.generateRFC(nombre, apellido1, apellido2);
-                        String correo = emailGenerator.generatePersonalEmail(nombre, apellido1, apellido2);
-                        String codigoPostal = postalCodeGenerator.generatePostalCode();
-                        long telefono = Long.parseLong(phoneNumberGenerator.generatePhoneNumber(true));
-                        String direccion = direcciones.get(rand.nextInt(direcciones.size()));
-
-                        statement.setString(1, rfc);
-                        statement.setString(2, nombre);
-                        statement.setString(3, apellido1);
-                        statement.setString(4, apellido2);
-                        statement.setLong(5, telefono);
-                        statement.setString(6, correo);
-                        statement.setString(7, direccion);
-                        statement.setInt(8, Integer.parseInt(codigoPostal));
-
-                        // Ejecutar la inserción
-                        int rowsInserted = statement.executeUpdate();
-                        if (rowsInserted > 0) {
-                            System.out.println("¡Se insertó un nuevo usuario correctamente!");
-                        }
+                    // Ejecutar la inserción
+                    int rowsInserted = statement.executeUpdate();
+                    if (rowsInserted > 0) {
+                        System.out.println("¡Se insertó un nuevo proveedor correctamente!");
                     }
-                } else {
-                    System.out.println("¡Error al establecer la conexión!");
                 }
-            } catch (SQLException e) {
-                System.err.format("Estado SQL: %s\n%s", e.getSQLState(), e.getMessage());
+            } else {
+                System.out.println("¡Error al establecer la conexión!");
             }
-        } catch (Exception e) {
-            System.err.println("Error leyendo los archivos de texto: " + e.getMessage());
+        } catch (SQLException e) {
+            System.err.format("Estado SQL: %s\n%s", e.getSQLState(), e.getMessage());
         }
     }
 }

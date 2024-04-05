@@ -14,7 +14,7 @@ public class GeneradorClientes {
         //Cambiar conexion
         String url = "jdbc:postgresql://localhost:5432/postgres";
         String user = "postgres";
-        String password = "Nintech1904";
+        String password = "";
 
         // Instancias de las clases de generación de datos
         FullNamesGenerator fullNamesGenerator = new FullNamesGenerator();
@@ -34,7 +34,7 @@ public class GeneradorClientes {
                     System.out.println("¡Conectado a la base de datos!");
 
                     //Esoesificar el esquema con la tabla que contenga a cliente
-                    String sql = "INSERT INTO farmacia.cliente (rfc_cliente, nombre, primer_apellido, segundo_apellido, telefono, correo_electronico, direccion, codigo_postal) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                    String sql = "INSERT INTO schema.cliente (rfc_cliente, nombre, primer_apellido, segundo_apellido, telefono, correo_electronico, direccion, codigo_postal) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
                     PreparedStatement statement = conn.prepareStatement(sql);
 
