@@ -21,7 +21,11 @@ public final class CategoriaSQL extends TableSQL {
         super(access, "CATEGORIA");
     }
 
-    public void executeInsert(String idCategoria, String nombreCategoria, String descripcion) throws SQLException {
+    public void executeInsert(
+            String idCategoria, 
+            String nombreCategoria,
+            String descripcion) throws SQLException {
+        
         String sql = String.format("INSERT INTO %s (Id_categoria, Nombre_categoria, Descripcion ) VALUES "
                 + "('%s', '%s', '%s')",
                 tableName,
@@ -29,6 +33,7 @@ public final class CategoriaSQL extends TableSQL {
                 nombreCategoria,
                 descripcion);
         System.out.println(sql);
+        
         pst = connection.prepareStatement(sql);
         pst.executeUpdate();
         pst.close();
