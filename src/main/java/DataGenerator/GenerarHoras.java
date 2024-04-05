@@ -1,8 +1,11 @@
+package DataGenerator;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class GenerarH {
+public class GenerarHoras {
+
     public static void main(String[] args) {
         generarArchivoCombinacionesHoras("combinaciones_horas.txt");
     }
