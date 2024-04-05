@@ -32,7 +32,6 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 - [ ] Crear generador de salarios - @cruzz9
 - [ ] Crear el generador de numeros del sat - @neftaligc
 - [ ] Crear generador de receta medica - @JFT-314
-- [ ] Crear generador de registros para la tabla Categoria - @JFT-314
 - [ ] Crear generador de registros para la tabla Lote - @JFT-314
 - [ ] Crear generador de registros para la tabla Producto - @JFT-314
 <<<<<<< HEAD
@@ -67,6 +66,7 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 - [x] Crear generador de IDs (tanto numericos como alfanumericos para claves primarias unicas y compuestas) - @JFT-314
 - [X] Crear generador de metodos de pago - @JFT-314
 - [X] Crear generador de horas - @cruzz9
+- [x] Crear generador de registros para la tabla Categoria - @JFT-314
 
 
 ## Estructura del proyecto
