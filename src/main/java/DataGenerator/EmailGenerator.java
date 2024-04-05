@@ -17,7 +17,7 @@ public class EmailGenerator {
     String generatePersonalEmail(String nombre, String apellidoPaterno, String apellidoMaterno) {
         String email = "";
         email += nombre.substring(0, 1);
-        email += apellidoPaterno;
+        email += apellidoPaterno.substring(0,3);
         email += apellidoMaterno.substring(0, 1);
         for (int i = 0; i < 1; i++) {
             if (random.nextBoolean()) {
@@ -37,7 +37,7 @@ public class EmailGenerator {
 
     // Este metodo genera un correo profesional a partir del nombre de la empresa
     public String generateProfessionalEmail(String company) {
-        String email = "services.provider";
+        String email = "provider";
         email += "@";
 
         // Debido a que las tendran un dominio personalizado, se tomara el nombre de la empresa

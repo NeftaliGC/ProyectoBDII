@@ -34,11 +34,11 @@ public class GeneradorClientes {
                     System.out.println("¡Conectado a la base de datos!");
 
                     //Esoesificar el esquema con la tabla que contenga a cliente
-                    String sql = "INSERT INTO esquema.cliente (rfc_cliente, nombre, primer_apellido, segundo_apellido, telefono, correo_electronico, direccion, codigo_postal) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                    String sql = "INSERT INTO schema.cliente (rfc_cliente, nombre, primer_apellido, segundo_apellido, telefono, correo_electronico, direccion, codigo_postal) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
                     PreparedStatement statement = conn.prepareStatement(sql);
 
-                    for (int i = 0; i < 100; i++) { // Generar 100 clientes
+                    for (int i = 0; i < 999900; i++) { // Generar 100 clientes
                         // Generar datos aleatorios
                         String[] nombreCompleto = fullNamesGenerator.generateFullName();
                         String nombre = nombreCompleto[0];
