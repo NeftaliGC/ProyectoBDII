@@ -54,4 +54,14 @@ public class Category {
         return description;
     }
 
+    public String getIdCategoria() {
+        return idCategoria;
+    }
+
+    public int getSecuenciaCategoria() {
+        return secuenciaCategoria;
+    }
+    
+    
+
 }

@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
+import java.util.Random;
 
 /**
  *
@@ -21,6 +22,7 @@ public abstract class TableSQL implements Manageable {
     protected PreparedStatement pst;
     protected final Connection connection;
     protected final String tableName;
+    protected final Random random = new Random();
 
     public TableSQL(DatabaseAccess access, String tableName) throws SQLException {
         connection = access.getConnection();
@@ -39,4 +41,6 @@ public abstract class TableSQL implements Manageable {
             System.out.println(t.toString());
         }
     }
+    
+    
 }

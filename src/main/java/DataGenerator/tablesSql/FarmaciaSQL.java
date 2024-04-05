@@ -9,47 +9,40 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  *
  * @author jesus
  */
-public class ProveedorSQL extends TableSQL {
+public class FarmaciaSQL extends TableSQL {
 
-    private final ArrayList<Integer> ids;
-    
+    private final ArrayList<String> ids;
 
-    public ProveedorSQL(DatabaseAccess access) throws SQLException {
-        super(access, "proveedor");
+    public FarmaciaSQL(DatabaseAccess access) throws SQLException {
+        super(access, "farmacia");
         ids = getIdColumn();
     }
 
-    private ArrayList<Integer> getIdColumn() throws SQLException {
-        ResultSet rs = st.executeQuery("SELECT Id_proveedor FROM ".concat(tableName));
-        ArrayList<Integer> ids = new ArrayList<>();
+    private ArrayList<String> getIdColumn() throws SQLException {
+        ResultSet rs = st.executeQuery("SELECT Id_farmacia FROM ".concat(tableName));
+        ArrayList<String> ids = new ArrayList<>();
 
         while (rs.next()) {
 
-            ids.add(rs.getInt(1));
+            ids.add(rs.getString(1));
         }
         rs.close();
-        st.close();
 
         return ids;
     }
 
-    public ArrayList<Integer> getIds() {
-        return ids;
-    }
-
-    public Integer getRandomId() {
+    public String getRandomId() {
         return ids.get(random.nextInt(ids.size()));
     }
 
     @Override
     public <T> List<T> select() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

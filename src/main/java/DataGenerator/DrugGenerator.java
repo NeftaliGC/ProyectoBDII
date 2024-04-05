@@ -4,10 +4,14 @@
  */
 package DataGenerator;
 
+import DataGenerator.objectsDb.Category;
 import DataGenerator.objectsDb.Drug;
+import DataGenerator.tablesSql.CategoriaSQL;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -59,6 +63,7 @@ public class DrugGenerator {
      * @return Devuelve el nombre de un farmaco aleatorio
      */
     public String getRandomDrugName() {
+        System.out.println("drugs:" + drugs.size());
         return drugs.get(
                 RANDOM.nextInt(
                         drugs.size())).getName();
@@ -100,11 +105,12 @@ public class DrugGenerator {
      *
      * @param drugName Nombre del farmaco
      * @return description Es la descripcion del farmco, puede contener
-     * descripciones de uso y algunas notas, tambien puede contener varias 
+     * descripciones de uso y algunas notas, tambien puede contener varias
      * lineas como un parrafo o varios.
      */
     public String getDescription(String drugName) {
         String res = null;
+        System.out.println("DrugDesc:" + drugName);
         for (Drug drug : drugs) {
             if (drug.getName().equals(drugName)) {
                 res = drug.getDescription();
@@ -113,8 +119,42 @@ public class DrugGenerator {
         }
         return res;
     }
-    
-    public List<Drug> getAllDrugs(){
+
+    /**
+     * Debido a que las categorias no estan terminadas se asigna un id aleatorio
+     * si este no coincide con ningun farmaco actual
+     *
+     * @param drugName
+     * @param categories
+     * @param access
+     * @return idCategory
+     * @throws java.sql.SQLException
+     */
+    public String getIdCategoriByDrugName(
+            String drugName,
+            ArrayList<Category> categories,
+            DatabaseAccess access) throws SQLException {
+
+        String fullCategory = getType(drugName);
+        Iterator<Category> all = categories.iterator();
+        boolean found = false;
+        String id = null;
+
+        while (all.hasNext() && !found) {
+            Category next = all.next();
+            if (fullCategory.contains(next.getName())) {
+                id = next.getIdCategoria();
+                found = true;
+            }
+        }
+
+        if (!found) {
+            id = (new CategoriaSQL(access)).getRandomId();
+        }
+        return id;
+    }
+
+    public List<Drug> getAllDrugs() {
         return drugs;
     }
 
@@ -126,11 +166,11 @@ public class DrugGenerator {
         String type = g.getType(name);
         String descr = g.getDescription(name);
         System.out.printf("%s\n%s\n%s\n%s", name, aplic, type, descr);
-        
+
         ArrayList<Drug> all = (ArrayList<Drug>) g.getAllDrugs();
-        
+
         for (Drug drug : all) {
-            
+
             System.out.println(drug);
         }
 
