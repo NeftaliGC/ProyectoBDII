@@ -4,6 +4,7 @@
  */
 package DataGenerator;
 
+import DataGenerator.objectsDb.Category;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -73,35 +74,4 @@ public class CategoryGenerator {
         String desc = c.getDescription(cat);
         System.out.println(cat + " - " + desc);
     }
-
-    public class Category {
-
-        private final String name;
-        private final String description;
-
-        public Category(
-                String name,
-                String description) {
-
-            this.name = name;
-            this.description = description;
-        }
-
-        @Override
-        public String toString() {
-            return String.format("%s - %s",
-                    name,
-                    description);
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public String getDescription() {
-            return description;
-        }
-
-    }
-
 }
