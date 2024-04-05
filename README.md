@@ -25,7 +25,7 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 ## Tareas en proceso
 > Añade aqui la tarea que estas realizando actualmente con un guion seguida por tu usuario de github o tu nombre.
 > Ejemplo: - [ ] Hacer que el proyecto se vea cool - @usuario
-- [ ] Crear generador de salarios - @cruzz9
+
 - [ ] Crear el generador de numeros del sat - @neftaligc
 - [ ] Crear generador de receta medica - @JFT-314
 - [ ] Crear generador de registros para la tabla Lote - @JFT-314
