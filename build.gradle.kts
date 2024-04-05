@@ -14,7 +14,6 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
 // https://mvnrepository.com/artifact/org.postgresql/postgresql
 implementation("org.postgresql:postgresql:42.6.0")
-
 }
 
 

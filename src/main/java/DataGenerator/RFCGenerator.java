@@ -46,7 +46,7 @@ public class RFCGenerator {
     // Este método genera una homoclave aleatoria
     private String generateHomoclave() {
         StringBuilder homoclave = new StringBuilder();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 2; i++) {
             homoclave.append(letters.charAt(random.nextInt(letters.length())));
         }
         homoclave.append(numbers.charAt(random.nextInt(numbers.length())));
@@ -59,4 +59,5 @@ public class RFCGenerator {
     private char getRandomLetter() {
         return letters.charAt(random.nextInt(letters.length()));
     }
+
 }
