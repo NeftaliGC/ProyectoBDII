@@ -1,5 +1,6 @@
 package DataGenerator;
 
+import java.io.FileWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -33,12 +34,12 @@ public class ClientGenerator {
                 if (conn != null) {
                     System.out.println("¡Conectado a la base de datos!");
 
-                    //Esoesificar el esquema con la tabla que contenga a cliente
+                    // Especificar el esquema con la tabla que contiene a cliente
                     String sql = "INSERT INTO esquema.cliente (rfc_cliente, nombre, primer_apellido, segundo_apellido, telefono, correo_electronico, direccion, codigo_postal) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
                     PreparedStatement statement = conn.prepareStatement(sql);
 
-                    for (int i = 0; i < 100; i++) { // Generar 100 clientes
+                    for (int i = 0; i < 500000; i++) { // Generar 100 clientes
                         // Generar datos aleatorios
                         String[] nombreCompleto = fullNamesGenerator.generateFullName();
                         String nombre = nombreCompleto[0];
@@ -63,6 +64,13 @@ public class ClientGenerator {
                         int rowsInserted = statement.executeUpdate();
                         if (rowsInserted > 0) {
                             System.out.println("¡Se insertó un nuevo usuario correctamente!");
+                            
+                            // Escribir en el archivo de texto
+                            try (FileWriter writer = new FileWriter("clientes.txt", true)) {
+                                writer.write(rfc + "," + nombre + "," + apellido1 + "," + apellido2 + "," + telefono + "," + correo + "," + direccion + "," + codigoPostal + "\n");
+                            } catch (Exception e) {
+                                System.err.println("Error al escribir en el archivo de texto: " + e.getMessage());
+                            }
                         }
                     }
                 } else {
