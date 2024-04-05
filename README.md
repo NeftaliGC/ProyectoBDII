@@ -26,8 +26,6 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 > Añade aqui la tarea que estas realizando actualmente con un guion seguida por tu usuario de github o tu nombre.
 > Ejemplo: - [ ] Hacer que el proyecto se vea cool - @usuario
 - [ ] Crear generador de direcciones - @cruzz9
-- [ ] Crear generador de puestos de empleo - @cruzz9
-- [ ] Crear generador de precios de medicamentos - @cruzz9
 - [ ] Crear generador de salarios - @cruzz9
 - [ ] Crear el generador de numeros del sat - @neftaligc
 - [ ] Crear generador de receta medica - @JFT-314
@@ -55,6 +53,8 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 - [x] Crear generador de registros para la tabla Categoria - @JFT-314
 - [x] Crear generador de registros para la tabla Cliente @anorak1221
 - [x] Crear generador de registros para la tabla Proveedor - @neftaligc
+- [X] Crear generador de puestos de empleo - @cruzz9
+- [X] Crear generador de precios de medicamentos - @cruzz9
 
 
 ## Estructura del proyecto
