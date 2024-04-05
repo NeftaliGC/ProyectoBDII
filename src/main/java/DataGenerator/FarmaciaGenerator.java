@@ -13,7 +13,7 @@ import java.util.Random;
 public class FarmaciaGenerator {
 
     public static void main(String[] args) {
-        String url = "jdbc:postgresql://localhost:5433/postgres";
+        String url = "jdbc:postgresql://localhost:5432/postgres";
         String user = "postgres";
         String password = "";
 
