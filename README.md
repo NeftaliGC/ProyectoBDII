@@ -27,7 +27,6 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 
 - [ ] Crear el generador de numeros del sat - @neftaligc
 - [ ] Crear generador de receta medica - @JFT-314
-- [ ] Crear generador de registros para la tabla Lote - @JFT-314
 - [ ] Crear generador de registros para la tabla Producto - @JFT-314
 - [ ] Crear generador de registros para la tabla Farmacia @anorak1221
 - [ ] Crear generador de registros para la tabla Inventario @anorak1221
@@ -56,6 +55,7 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 - [X] Crear generador de precios de medicamentos - @cruzz9
 - [X] Crear generador de salarios - @cruzz9
 - [X] Crear interfaz grafica de login @anorak1221
+- [x] Crear generador de registros para la tabla Lote - @JFT-314
 
 
 ## Estructura del proyecto

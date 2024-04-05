@@ -41,7 +41,7 @@ public final class CategoriaSQL extends TableSQL {
 
     @Override
     public List<Category> select() throws SQLException {
-        ResultSet rs = st.executeQuery("SELECT * FROM categoria");
+        ResultSet rs = st.executeQuery("SELECT * FROM ".concat(tableName));
         ArrayList<Category> categories = new ArrayList<>();
 
         while (rs.next()) {
