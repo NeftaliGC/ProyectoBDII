@@ -26,7 +26,6 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 > Ejemplo: - [ ] Hacer que el proyecto se vea cool - @usuario
 
 - [ ] Crear el generador de numeros del sat - @neftaligc
-- [ ] Crear generador de registros para la tabla Inventario @anorak1221
 
 
 ## Tareas realizadas
@@ -56,6 +55,7 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 - [X] Crear generador de registros para la tabla Farmacia @anorak1221
 - [x] Crear generador de registros para la tabla Producto - @JFT-314
 - [x] Crear generador de receta medica - @JFT-314
+- [x] Crear generador de registros para la tabla Inventario @anorak1221
 
 
 ## Estructura del proyecto
