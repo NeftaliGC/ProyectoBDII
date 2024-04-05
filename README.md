@@ -11,7 +11,6 @@ Sientete libre de añadir tareas por hacer en esta sección si consideras que ha
 > Recuerda que los generadores de tablas con referencias a otras deberan usar los registros generados por los generadores de las tablas referenciadas.
 Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero los registros de la tabla Empleado y con esos registros generar los registros de la tabla Historial_Empleado.
 - [ ] Crear generador de registros para la tabla Empleado
-- [ ] Crear generador de registros para la tabla Proveedor
 - [ ] Crear generador de registros para la tabla Factura
 - [ ] Crear generador de registros para la tabla Puesto_Empleo
 - [ ] Crear generador de registros para la tabla Historial_Empleado
@@ -28,17 +27,13 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 > Ejemplo: - [ ] Hacer que el proyecto se vea cool - @usuario
 - [ ] Crear generador de direcciones - @cruzz9
 - [ ] Crear generador de puestos de empleo - @cruzz9
-- [ ] Crear generador de horas - @cruzz9
 - [ ] Crear generador de precios de medicamentos - @cruzz9
 - [ ] Crear generador de salarios - @cruzz9
 - [ ] Crear el generador de numeros del sat - @neftaligc
 - [ ] Crear generador de receta medica - @JFT-314
-- [ ] Crear generador de registros para la tabla Categoria - @JFT-314
 - [ ] Crear generador de registros para la tabla Lote - @JFT-314
 - [ ] Crear generador de registros para la tabla Producto - @JFT-314
-- [ ] Crear generador de registros para la tabla Proveedor - @neftaligc
 - [ ] Crear interfaz grafica de login @anorak1221
-- [ ] Crear generador de registros para la tabla Cliente @anorak1221
 - [ ] Crear generador de registros para la tabla Inventario @anorak1221
 
 ## Tareas realizadas
@@ -56,6 +51,11 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 - [x] Crear generador de descripciones de medicamentos - @JFT-314
 - [x] Crear generador de IDs (tanto numericos como alfanumericos para claves primarias unicas y compuestas) - @JFT-314
 - [X] Crear generador de metodos de pago - @JFT-314
+- [X] Crear generador de horas - @cruzz9
+- [x] Crear generador de registros para la tabla Categoria - @JFT-314
+- [x] Crear generador de registros para la tabla Cliente @anorak1221
+- [x] Crear generador de registros para la tabla Proveedor - @neftaligc
+
 
 ## Estructura del proyecto
   El proyecto tiene la siguiente estructura:

@@ -4,6 +4,7 @@
  */
 package DataGenerator;
 
+import DataGenerator.objectsDb.Drug;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -44,7 +45,8 @@ public class DrugGenerator {
                                     drugLine[2].trim(),
                                     drugLine[3].trim()));
                 } else {
-                    System.err.println("----" + drugLine[0] + " Corregir, Error de formato");
+                    System.err.println(
+                            "----" + drugLine[0] + " Corregir, Error de formato");
                 }
             }
         } catch (IOException ex) {
@@ -130,52 +132,6 @@ public class DrugGenerator {
         for (Drug drug : all) {
             
             System.out.println(drug);
-        }
-
-    }
-
-    public class Drug {
-
-        private final String name;
-        private final String aplicacion;
-        private final String type;
-        private final String description;
-
-        public Drug(
-                String name,
-                String aplicacion,
-                String type,
-                String description) {
-
-            this.name = name;
-            this.aplicacion = aplicacion;
-            this.type = type;
-            this.description = description;
-        }
-
-        @Override
-        public String toString() {
-            return String.format("%s - %s - %s - %s",
-                    name,
-                    aplicacion,
-                    type,
-                    description);
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public String getAplicacion() {
-            return aplicacion;
-        }
-
-        public String getType() {
-            return type;
-        }
-
-        public String getDescription() {
-            return description;
         }
 
     }
