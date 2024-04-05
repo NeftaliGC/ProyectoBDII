@@ -104,7 +104,7 @@ public class loginsGUI extends JFrame {
 
         label.setBounds(-38, 0, 420, 300);
         label.setVerticalAlignment(SwingConstants.TOP);
-        label.setIcon(new ImageIcon(loginsGUI.class.getResource("src/main/resources/images/flower.png")));
+        label.setIcon(new ImageIcon(loginsGUI.class.getResource("/images/flower.png")));
         panel.add(label);        
 
         JLabel lblWeGotYou = new JLabel("... Estamos aquí para ayudarte ...");
