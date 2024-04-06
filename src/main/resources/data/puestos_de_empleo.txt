@@ -1,0 +1,17 @@
+Farmacéutico
+ 
+Técnico de Farmacia
+
+Cajero
+
+Asistente de Ventas
+
+Gerente de Farmacia
+
+Personal de Almacén
+
+Atención al Cliente
+
+Técnico de Laboratorio
+
+Encargado de Marketing

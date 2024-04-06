@@ -17,23 +17,38 @@ import java.util.List;
  */
 public final class CategoriaSQL extends TableSQL {
 
+    private final ArrayList<String> ids;
+
     public CategoriaSQL(DatabaseAccess access) throws SQLException {
         super(access, "CATEGORIA");
+        ids = getIdColumn();
+    }
+
+    private ArrayList<String> getIdColumn() throws SQLException {
+        ResultSet rs = st.executeQuery("SELECT Id_categoria FROM ".concat(tableName));
+        ArrayList<String> ids = new ArrayList<>();
+
+        while (rs.next()) {
+
+            ids.add(rs.getString(1));
+        }
+        rs.close();
+
+        return ids;
     }
 
     public void executeInsert(
-            String idCategoria, 
+            String idCategoria,
             String nombreCategoria,
             String descripcion) throws SQLException {
-        
+
         String sql = String.format("INSERT INTO %s (Id_categoria, Nombre_categoria, Descripcion ) VALUES "
                 + "('%s', '%s', '%s')",
                 tableName,
                 idCategoria,
                 nombreCategoria,
                 descripcion);
-        System.out.println(sql);
-        
+
         pst = connection.prepareStatement(sql);
         pst.executeUpdate();
         pst.close();
@@ -41,7 +56,7 @@ public final class CategoriaSQL extends TableSQL {
 
     @Override
     public List<Category> select() throws SQLException {
-        ResultSet rs = st.executeQuery("SELECT * FROM categoria");
+        ResultSet rs = st.executeQuery("SELECT * FROM ".concat(tableName));
         ArrayList<Category> categories = new ArrayList<>();
 
         while (rs.next()) {
@@ -59,4 +74,8 @@ public final class CategoriaSQL extends TableSQL {
         return categories;
     }
 
+    public String getRandomId() {
+        return ids.get(random.nextInt(ids.size()));
+    }
+   
 }

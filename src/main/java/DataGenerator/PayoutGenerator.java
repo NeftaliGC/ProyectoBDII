@@ -25,7 +25,7 @@ public class PayoutGenerator {
     private final static String PAYPAL = "PayPal";
     private final static String PAYMENT_COUPON = "cupón de pago";
 
-    private final static String PAYS[] = {
+    private final static String PAYS[] = { 
         CREDIT_CARD,
         DEBIT_CARD,
         CASH,

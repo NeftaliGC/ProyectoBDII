@@ -1,20 +1,16 @@
 package DataGenerator;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.Random;
 
 public class GeneradorProveedor {
     public static void main(String[] args) {
         //Cambiar conexion
-        String url = "jdbc:postgresql://localhost:5432/postgres";
-        String user = "postgres";
-        String password = "";
+        String url = "jdbc:postgresql://localhost:5432/farmacia";
+        String user = "jesus";
+        String password = "1234";
 
         // Instancias de las clases de generación de datos
         IdGenerator idGenerator = new IdGenerator();
@@ -28,7 +24,7 @@ public class GeneradorProveedor {
                 System.out.println("¡Conectado a la base de datos!");
 
                 //Esoesificar el esquema con la tabla que contenga a proveedor
-                String sql = "INSERT INTO schema.proveedor (id_proveedor, Rfc, Nombre, Telefono, correo_electronico) VALUES (?, ?, ?, ?, ?)";
+                String sql = "INSERT INTO proveedor (id_proveedor, Rfc, Nombre, Telefono, correo_electronico) VALUES (?, ?, ?, ?, ?)";
 
                 PreparedStatement statement = conn.prepareStatement(sql);
                 String[] proveedores = new String[10];

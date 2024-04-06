@@ -14,7 +14,6 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 - [ ] Crear generador de registros para la tabla Factura
 - [ ] Crear generador de registros para la tabla Puesto_Empleo
 - [ ] Crear generador de registros para la tabla Historial_Empleado
-- [ ] Crear generador de registros para la tabla Farmacia
 - [ ] Crear generador de registros para la tabla Ticket
 - [ ] Crear generador de registros para la tabla Devolucion
 - [ ] Crear generador de registros para la tabla Venta
@@ -25,16 +24,9 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 ## Tareas en proceso
 > Añade aqui la tarea que estas realizando actualmente con un guion seguida por tu usuario de github o tu nombre.
 > Ejemplo: - [ ] Hacer que el proyecto se vea cool - @usuario
-- [ ] Crear generador de direcciones - @cruzz9
-- [ ] Crear generador de puestos de empleo - @cruzz9
-- [ ] Crear generador de precios de medicamentos - @cruzz9
-- [ ] Crear generador de salarios - @cruzz9
+
 - [ ] Crear el generador de numeros del sat - @neftaligc
-- [ ] Crear generador de receta medica - @JFT-314
-- [ ] Crear generador de registros para la tabla Lote - @JFT-314
-- [ ] Crear generador de registros para la tabla Producto - @JFT-314
-- [ ] Crear interfaz grafica de login @anorak1221
-- [ ] Crear generador de registros para la tabla Inventario @anorak1221
+
 
 ## Tareas realizadas
 - [x] Crear generador de nombres de personas y proveedores
@@ -55,6 +47,15 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 - [x] Crear generador de registros para la tabla Categoria - @JFT-314
 - [x] Crear generador de registros para la tabla Cliente @anorak1221
 - [x] Crear generador de registros para la tabla Proveedor - @neftaligc
+- [X] Crear generador de puestos de empleo - @cruzz9
+- [X] Crear generador de precios de medicamentos - @cruzz9
+- [X] Crear generador de salarios - @cruzz9
+- [X] Crear interfaz grafica de login @anorak1221
+- [x] Crear generador de registros para la tabla Lote - @JFT-314
+- [X] Crear generador de registros para la tabla Farmacia @anorak1221
+- [x] Crear generador de registros para la tabla Producto - @JFT-314
+- [x] Crear generador de receta medica - @JFT-314
+- [x] Crear generador de registros para la tabla Inventario @anorak1221
 
 
 ## Estructura del proyecto
