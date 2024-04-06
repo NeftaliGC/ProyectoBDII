@@ -71,8 +71,7 @@ public final class BatchSQL extends TableSQL {
     }
 
     public double getPrice(String id) throws SQLException {
-        ResultSet rs = st.executeQuery("SELECT Coste FROM ".
-                concat(tableName).concat(" where Id_lote = '").concat(id).concat("'"));
+        ResultSet rs = st.executeQuery("SELECT Coste FROM farmacia.".concat(tableName).concat(" where Id_lote = '").concat(id).concat("'"));
         double price = -1;
         if (rs.next()) {
             price = rs.getDouble(1);
