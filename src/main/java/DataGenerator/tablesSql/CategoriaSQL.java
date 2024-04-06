@@ -25,7 +25,7 @@ public final class CategoriaSQL extends TableSQL {
     }
 
     private ArrayList<String> getIdColumn() throws SQLException {
-        ResultSet rs = st.executeQuery("SELECT Id_categoria FROM ".concat(tableName));
+        ResultSet rs = st.executeQuery("SELECT Id_categoria FROM farmacia.".concat(tableName));
         ArrayList<String> ids = new ArrayList<>();
 
         while (rs.next()) {

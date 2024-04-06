@@ -26,6 +26,7 @@ public class ReplacementRegistrationGenerator {
         String password = "";
 
         Random rand = new Random();
+        DateGenerator dateGenerator = new DateGenerator();
 
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
             try (BufferedReader loteReader = new BufferedReader(new FileReader("C:\\Users\\52722\\Downloads\\loteExport.txt"));
@@ -40,7 +41,7 @@ public class ReplacementRegistrationGenerator {
                     PreparedStatement statement = conn.prepareStatement(sql);
 
                     for (int i = 0; i < 9; i++) { // Generar 10 registros
-                        String date = generateRandomDate();
+                        String date = dateGenerator.generateRandomDate(true);
                         int cantidad = rand.nextInt(1000) + 1;
 
                         if ((loteLine = loteReader.readLine()) != null && (inventarioLine = inventarioReader.readLine()) != null) {
@@ -68,11 +69,6 @@ public class ReplacementRegistrationGenerator {
         } catch (SQLException e) {
             System.err.format("Estado SQL: %s\n%s", e.getSQLState(), e.getMessage());
         }
-    }
-
-    private static String generateRandomDate() {
-        // Implementa tu generador de fecha aleatoria aquí
-        return null;
     }
 
     private static String getIdFromLine(String line) {

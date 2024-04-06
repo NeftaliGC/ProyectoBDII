@@ -71,7 +71,7 @@ public class GeneradorTicket {
                         idFactura = rs.getString("Id_factura");
                         subtotal = rs.getDouble("Subtotal_factura");
                     }
-                    rs = stmt.executeQuery("SELECT * FROM farmacia.empleado WHERE id_empleo = '" + idEmpleado + "' AND id_farmacia = '" + idFarmacia + "' LIMIT 1");
+                    rs = stmt.executeQuery("SELECT * FROM farmacia.empleado WHERE id_empleado = '" + idEmpleado + "' AND id_farmacia = '" + idFarmacia + "' LIMIT 1");
                     if (!rs.next()) {
                         System.out.println("No se encontró el empleado en la base de datos.");
                         return;

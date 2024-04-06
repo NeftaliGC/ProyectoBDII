@@ -1,5 +1,6 @@
 package DataGenerator;
 
+import java.io.FileWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,9 +9,9 @@ import java.sql.SQLException;
 public class GeneradorProveedor {
     public static void main(String[] args) {
         //Cambiar conexion
-        String url = "jdbc:postgresql://localhost:5432/farmacia";
-        String user = "jesus";
-        String password = "1234";
+        String url = "jdbc:postgresql://localhost:5432/";
+        String user = "postgres";
+        String password = "Nintech1904";
 
         // Instancias de las clases de generación de datos
         IdGenerator idGenerator = new IdGenerator();
@@ -24,13 +25,13 @@ public class GeneradorProveedor {
                 System.out.println("¡Conectado a la base de datos!");
 
                 //Esoesificar el esquema con la tabla que contenga a proveedor
-                String sql = "INSERT INTO proveedor (id_proveedor, Rfc, Nombre, Telefono, correo_electronico) VALUES (?, ?, ?, ?, ?)";
+                String sql = "INSERT INTO farmacia.proveedor (id_proveedor, Rfc, Nombre, Telefono, correo_electronico) VALUES (?, ?, ?, ?, ?)";
 
                 PreparedStatement statement = conn.prepareStatement(sql);
-                String[] proveedores = new String[10];
+                String[] proveedores;
                 proveedores = providersGenerator.getAllProvidersList();
 
-                for (int i = 0; i < 9; i++) { // Generar 10 proveedores
+                for (int i = 0; i < 10; i++) { // Generar 10 proveedores
                     // Generar datos aleatorios
                     int id = Integer.parseInt(idGenerator.getID(3,1));
                     String Nombreproveedor = proveedores[i];
@@ -48,6 +49,15 @@ public class GeneradorProveedor {
                     int rowsInserted = statement.executeUpdate();
                     if (rowsInserted > 0) {
                         System.out.println("¡Se insertó un nuevo proveedor correctamente!");
+                    }
+
+                    // Escribir en el archivo de texto
+                    try {
+                        FileWriter writer = new FileWriter("src/main/resources/data/Tablas/proveedor.txt", true);
+                        writer.write(id + "," + rfc + "," + Nombreproveedor + "," + telefono + "," + correo + "\n");
+                        writer.close();
+                    } catch (Exception e) {
+                        System.err.println("Error escribiendo en el archivo de texto: " + e.getMessage());
                     }
                 }
             } else {

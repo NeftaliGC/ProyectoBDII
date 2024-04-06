@@ -25,7 +25,7 @@ public final class BatchSQL extends TableSQL {
     }
 
     private ArrayList<String> getIdColumn() throws SQLException {
-        ResultSet rs = st.executeQuery("SELECT Id_lote FROM ".concat(tableName));
+        ResultSet rs = st.executeQuery("SELECT Id_lote FROM farmacia.".concat(tableName));
         ArrayList<String> ids = new ArrayList<>();
 
         while (rs.next()) {

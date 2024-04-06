@@ -26,7 +26,7 @@ public class InsertProductGenerator {
             /**
              * Aqui debe de ir los datos correctos de la base local
              */
-            DatabaseAccess d = new DatabaseAccess("jesus", "1234", "farmacia"); //acceso a la base de datos
+            DatabaseAccess d = new DatabaseAccess("postgres", "Nintech1904", "postgres"); //acceso a la base de datos
             IdGenerator i = new IdGenerator(); //para generar los ids de la tabla.
             //llaves foraneas existentes
             BatchSQL b = new BatchSQL(d);//Contiene algunos sql prearmados para la tabla indicada en el nombre de la funcion 
@@ -38,7 +38,7 @@ public class InsertProductGenerator {
             
             ArrayList<Category> arr = (ArrayList<Category>) c.select();
             
-            File file = new File("productosExport.txt");
+            File file = new File("src/main/resources/data/Tablas/productoExport.txt");
             Formatter formatter = new Formatter(file);
             
             for (int j = 0; j < 200000; j++) { //ajustar para llegar a 200,000 o mas.
@@ -54,7 +54,7 @@ public class InsertProductGenerator {
                 boolean toFile = true; //para cambiar entre acceso a la base o enviar a un archivo.
 
                 if (toFile) {
-                    formatter.format("'%s'< '%s'< '%s'< %.2f< '%s'< '%s'< '%s'\n",
+                    formatter.format("%s<%s<%s<%.2f<%s<%s<%s\n",
                             i.getID(9, IdGenerator.ALPHANUMERIC),
                             drugName,
                             desc,
