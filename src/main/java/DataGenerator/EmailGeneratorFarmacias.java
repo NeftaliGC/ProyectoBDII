@@ -13,16 +13,6 @@ public class EmailGeneratorFarmacias {
     String simbols = ".-_";
     String numbers = "123456789";
 
-    String generatePersonalEmail(String farmaciaName) {
-        String email = "";
-        email += farmaciaName.toLowerCase().replaceAll("\\s+", "");
-        email += generateRandomString(3);
-
-        email += generateDomain();
-
-        return email;
-    }
-
     public String generateProfessionalEmail(String farmaciaName) {
         String email = "provider";
         email += "@" + farmaciaName.toLowerCase().replaceAll("\\s+", "");
@@ -30,14 +20,6 @@ public class EmailGeneratorFarmacias {
         email += ".com";
 
         return email;
-    }
-
-    private String generateRandomString(int length) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            sb.append(simbols.charAt(random.nextInt(simbols.length())));
-        }
-        return sb.toString();
     }
 
     private String generateDomain() {

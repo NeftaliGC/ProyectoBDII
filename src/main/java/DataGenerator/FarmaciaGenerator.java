@@ -1,5 +1,6 @@
 package DataGenerator;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -28,6 +29,9 @@ public class FarmaciaGenerator {
             List<String> direcciones = Files.readAllLines(Paths.get("src/main/resources/data/addressesFarmacias.txt"));
 
             Random rand = new Random();
+
+            // FileWriter para guardar registros en un archivo de texto
+            FileWriter writer = new FileWriter("farmacias.txt", true);
 
             try (Connection conn = DriverManager.getConnection(url, user, password)) {
                 if (conn != null) {
@@ -58,6 +62,9 @@ public class FarmaciaGenerator {
                         int rowsInserted = statement.executeUpdate();
                         if (rowsInserted > 0) {
                             System.out.println("¡Se insertó una nueva farmacia correctamente!");
+                            
+                            // Escribir en el archivo de texto
+                            writer.write(idFarmacia + "," + nombreFarmacia + "," + direccion + "," + horario + "," + correo + "," + telefonoNumerico + "," + licenciaPermiso + "\n");
                         }
                     }
                 } else {
@@ -65,6 +72,8 @@ public class FarmaciaGenerator {
                 }
             } catch (SQLException e) {
                 System.err.format("Estado SQL: %s\n%s", e.getSQLState(), e.getMessage());
+            } finally {
+                writer.close(); // Cerrar el FileWriter al finalizar
             }
         } catch (IOException e) {
             System.err.println("Error leyendo los archivos de texto: " + e.getMessage());
@@ -83,6 +92,6 @@ public class FarmaciaGenerator {
     public static boolean generarLicenciaPermiso() {
         Random rand = new Random();
         int num = rand.nextInt(100); // Genera un número aleatorio entre 0 y 99
-        return num < 55; // Devuelve true si el número es menor que 70
+        return num < 55; // Devuelve true si el número es menor que 55
     }
 }
