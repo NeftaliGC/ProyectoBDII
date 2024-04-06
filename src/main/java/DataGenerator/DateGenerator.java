@@ -8,7 +8,7 @@ public class DateGenerator {
 
     // Este método genera una fecha aleatoria en el formato "YYYY-MM-DD"
     public String generateRandomDate(boolean isFormatted) {
-        int year = random.nextInt(2025 - 1970) + 1970; // Genera un año entre 1970 y 2024
+        int year = random.nextInt(2025 - 1945) + 1945; // Genera un año entre 1945 y 2025
         int month = random.nextInt(12) + 1; // Genera un mes entre 1 y 12
         int maxDays = getMaxDays(year, month);
         int day = random.nextInt(maxDays) + 1; // Genera un día entre 1 y maxDays
