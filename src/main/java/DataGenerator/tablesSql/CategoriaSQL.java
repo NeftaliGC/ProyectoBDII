@@ -20,7 +20,7 @@ public final class CategoriaSQL extends TableSQL {
     private final ArrayList<String> ids;
 
     public CategoriaSQL(DatabaseAccess access) throws SQLException {
-        super(access, "CATEGORIA");
+        super(access, "categoria");
         ids = getIdColumn();
     }
 
@@ -56,7 +56,7 @@ public final class CategoriaSQL extends TableSQL {
 
     @Override
     public List<Category> select() throws SQLException {
-        ResultSet rs = st.executeQuery("SELECT * FROM ".concat(tableName));
+        ResultSet rs = st.executeQuery("SELECT * FROM farmacia.".concat(tableName));
         ArrayList<Category> categories = new ArrayList<>();
 
         while (rs.next()) {

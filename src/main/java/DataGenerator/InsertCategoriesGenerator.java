@@ -39,7 +39,7 @@ public class InsertCategoriesGenerator {
                 for (Category category : l) { //iteramos por todas las categorias y las agregamos a la tabla de la base de datos.
                     if (toFile) {
 
-                        formatter.format("%s,%s,'%s'\n",
+                        formatter.format("%s<%s<'%s'\n",
                                 i.getID(15, IdGenerator.ALPHANUMERIC),
                                 category.getName(),
                                 category.getDescription());
