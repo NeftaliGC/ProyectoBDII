@@ -6,9 +6,12 @@ package DataGenerator;
 
 import DataGenerator.tablesSql.BatchSQL;
 import DataGenerator.tablesSql.ProveedorSQL;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Formatter;
 import java.util.Random;
 
 /**
@@ -31,6 +34,10 @@ public class InsertBatchGenerator {
             ArrayList<Integer> l = (ArrayList<Integer>) p.getIds();
             Random r = new Random(); // para obtener cantidades aleatorias
 
+            boolean toFile = true;
+            File file = new File("loteExport.txt");
+            Formatter formatter = new Formatter(file);
+
             for (int j = 0; j < 1000000; j++) { //ajustar para llegar al millon o mas.
                 LocalDate fab = birthDay.birthday(1, 2);// de 1 a 2 anios
                 LocalDate cad = birthDay.addYears(fab, r.nextInt(5) + 1); //se le agregan de 1 a 5 anios
@@ -38,23 +45,41 @@ public class InsertBatchGenerator {
                 double precio = (r.nextDouble() + 0.1) * (r.nextInt(1000) + 20);//simula el precio
                 int cantidad = r.nextInt(100) + 10; //simula la cantidad entre 10 y 100
                 double total = (cantidad * precio) + (cantidad * precio) * 0.16; // calcula el total considerando el IVA
-                b.executeInsert(
-                        i.getID(10, IdGenerator.ALPHANUMERIC),
-                        cantidad,
-                        fab,
-                        cad,
-                        ent,
-                        precio,
-                        16,
-                        total,
-                        p.getRandomId()); //asigna un proveedor existente en la base de datos no es actualizable en ejecucion
 
+                if (toFile) {
+
+                    formatter.format("('%s', %d, '%s', '%s', '%s', %f, %f, %f, %d),\n", 
+                            i.getID(10, IdGenerator.ALPHANUMERIC),
+                            cantidad,
+                            fab,
+                            cad,
+                            ent,
+                            precio,
+                            16.0,
+                            total,
+                            p.getRandomId());
+                } else {
+                    b.executeInsert(
+                            i.getID(10, IdGenerator.ALPHANUMERIC),
+                            cantidad,
+                            fab,
+                            cad,
+                            ent,
+                            precio,
+                            16,
+                            total,
+                            p.getRandomId()); //asigna un proveedor existente en la base de datos no es actualizable en ejecucion
+
+                }
                 if (j % 1000 == 0) {
                     System.out.println("Va por los " + j);
                 }
             }
+            formatter.close();
 
         } catch (SQLException ex) {
+            System.err.println(ex);
+        } catch (FileNotFoundException ex) {
             System.err.println(ex);
         }
     }

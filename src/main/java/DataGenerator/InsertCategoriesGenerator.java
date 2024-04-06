@@ -6,8 +6,11 @@ package DataGenerator;
 
 import DataGenerator.objectsDb.Category;
 import DataGenerator.tablesSql.CategoriaSQL;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Formatter;
 
 /**
  *
@@ -26,19 +29,33 @@ public class InsertCategoriesGenerator {
             IdGenerator i = new IdGenerator(); //para generar los ids de la tabla.
 
             ArrayList<Category> l = (ArrayList<Category>) c.getAllCategories();
+            File file = new File("gategoriasExport.txt");
+            Formatter formatter = new Formatter(file);
 
+            boolean toFile = true;
             if (l.isEmpty()) {
                 System.out.println("lista vacia");
             } else {
                 for (Category category : l) { //iteramos por todas las categorias y las agregamos a la tabla de la base de datos.
-                    categoriaSQL.executeInsert(
-                            i.getID(15, IdGenerator.ALPHANUMERIC),
-                            category.getName(),
-                            category.getDescription());
+                    if (toFile) {
+
+                        formatter.format("('%s', '%s', '%s')\n",
+                                i.getID(15, IdGenerator.ALPHANUMERIC),
+                                category.getName(),
+                                category.getDescription());
+                    } else {
+                        categoriaSQL.executeInsert(
+                                i.getID(15, IdGenerator.ALPHANUMERIC),
+                                category.getName(),
+                                category.getDescription());
+                    }
                 }
+                formatter.close();
             }
 
         } catch (SQLException ex) {
+            System.err.println(ex);
+        } catch (FileNotFoundException ex) {
             System.err.println(ex);
         }
     }

@@ -37,7 +37,6 @@ public class ProductoSQL extends TableSQL {
                 idCategoria,
                 idLote,
                 idFarmacia);
-        //System.out.println(sql);
 
         pst = connection.prepareStatement(sql);
         pst.executeUpdate();

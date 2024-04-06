@@ -9,8 +9,11 @@ import DataGenerator.tablesSql.BatchSQL;
 import DataGenerator.tablesSql.CategoriaSQL;
 import DataGenerator.tablesSql.FarmaciaSQL;
 import DataGenerator.tablesSql.ProductoSQL;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Formatter;
 
 /**
  *
@@ -30,37 +33,55 @@ public class InsertProductGenerator {
             FarmaciaSQL f = new FarmaciaSQL(d);
             CategoriaSQL c = new CategoriaSQL(d);
             DrugGenerator dg = new DrugGenerator();
-
+            
             ProductoSQL p = new ProductoSQL(d);
-
+            
             ArrayList<Category> arr = (ArrayList<Category>) c.select();
-
+            
+            File file = new File("productosExport.txt");
+            Formatter formatter = new Formatter(file);
+            
             for (int j = 0; j < 200000; j++) { //ajustar para llegar a 200,000 o mas.
                 String drugName = dg.getRandomDrugName();
-
+                
                 String idLote = b.getRandomId();
                 double precio = b.getPrice(idLote);
-
+                
                 String desc = dg.getDescription(drugName);
-
-
+                
                 String idCategoriaAdecuado = dg.getIdCategoriByDrugName(drugName, arr, d);//busca la categoria por nombre en la base de datos retornando su id.
 
-                p.executeInsert(
-                        i.getID(10, IdGenerator.ALPHANUMERIC),
-                        drugName,
-                        desc,
-                        precio * 1.25,
-                        c.getRandomId(),
-                        idLote,
-                        f.getRandomId());
+                boolean toFile = true; //para cambiar entre acceso a la base o enviar a un archivo.
 
-                if (j % 1000 == 0) {
-                    System.out.println("Va por los " + j);
+                if (toFile) {
+                    formatter.format("('%s', '%s', '%s', %.2f, '%s', '%s', '%s')\n", 
+                            i.getID(10, IdGenerator.ALPHANUMERIC),
+                            drugName,
+                            desc,
+                            precio * 1.25,
+                            c.getRandomId(),
+                            idLote,
+                            f.getRandomId());
+                } else {
+                    p.executeInsert(
+                            i.getID(10, IdGenerator.ALPHANUMERIC),
+                            drugName,
+                            desc,
+                            precio * 1.25,
+                            c.getRandomId(),
+                            idLote,
+                            f.getRandomId());
+                    
+                    if (j % 1000 == 0) {
+                        System.out.println("Va por los " + j);
+                    }
                 }
             }
-
+            formatter.close();
+            
         } catch (SQLException ex) {
+            System.err.println(ex);
+        } catch (FileNotFoundException ex) {
             System.err.println(ex);
         }
     }

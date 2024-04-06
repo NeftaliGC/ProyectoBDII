@@ -63,7 +63,6 @@ public class DrugGenerator {
      * @return Devuelve el nombre de un farmaco aleatorio
      */
     public String getRandomDrugName() {
-        System.out.println("drugs:" + drugs.size());
         return drugs.get(
                 RANDOM.nextInt(
                         drugs.size())).getName();
@@ -110,7 +109,6 @@ public class DrugGenerator {
      */
     public String getDescription(String drugName) {
         String res = null;
-        System.out.println("DrugDesc:" + drugName);
         for (Drug drug : drugs) {
             if (drug.getName().equals(drugName)) {
                 res = drug.getDescription();

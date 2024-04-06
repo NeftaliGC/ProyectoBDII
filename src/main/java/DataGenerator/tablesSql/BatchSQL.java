@@ -60,7 +60,6 @@ public final class BatchSQL extends TableSQL {
                 iva,
                 totalLote,
                 idProveedor);
-        //System.out.println(sql);
 
         pst = connection.prepareStatement(sql);
         pst.executeUpdate();

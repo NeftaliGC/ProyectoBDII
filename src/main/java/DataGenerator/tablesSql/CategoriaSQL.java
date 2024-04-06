@@ -48,7 +48,6 @@ public final class CategoriaSQL extends TableSQL {
                 idCategoria,
                 nombreCategoria,
                 descripcion);
-        System.out.println(sql);
 
         pst = connection.prepareStatement(sql);
         pst.executeUpdate();
