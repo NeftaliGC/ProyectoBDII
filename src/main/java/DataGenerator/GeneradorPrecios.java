@@ -1,8 +1,12 @@
+package DataGenerator;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
 
 public class GeneradorPrecios {
+
     public static void main(String[] args) {
         double[] precios = generarPrecios(1000, 50, 500);
 
@@ -38,6 +42,23 @@ public class GeneradorPrecios {
             System.out.println("Precios guardados en el archivo '" + nombreArchivo + "'.");
         } catch (IOException e) {
             System.err.println("Error al escribir en el archivo: " + e.getMessage());
+        }
+    }
+
+    public String getRandomPrice() {
+        // genera un numero aleatorio entre 1 y 2747
+        int random = (int) (Math.random() * 2747) + 1;
+        // abre el archivo de combinaciones de horas
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/precios.txt"))) {
+            String hora = null;
+            // lee el archivo de combinaciones de horas
+            for (int i = 0; i < random; i++) {
+                hora = reader.readLine();
+            }
+            return hora;
+        } catch (IOException e) {
+            System.err.println("Error al leer el archivo: " + e.getMessage());
+            return null;
         }
     }
 }

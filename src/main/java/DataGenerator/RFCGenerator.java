@@ -14,7 +14,7 @@ public class RFCGenerator {
         rfc += apellidoPaterno.substring(0, 2);
         rfc += apellidoMaterno.substring(0, 1);
         rfc += nombre.substring(0, 1);
-        rfc += new DateGenerator().generateRandomDate();
+        rfc += new DateGenerator().generateRandomDate(false);
         rfc += generateHomoclave();
 
         rfc = rfc.toUpperCase();
@@ -26,7 +26,7 @@ public class RFCGenerator {
         rfc += apellidoPaterno.substring(0, 2);
         rfc += nombre.substring(0, 1);
         rfc += getRandomLetter();
-        rfc += new DateGenerator().generateRandomDate();
+        rfc += new DateGenerator().generateRandomDate(false);
         rfc += generateHomoclave();
 
         rfc = rfc.toUpperCase();
@@ -36,7 +36,7 @@ public class RFCGenerator {
     String generateRFC(String nombre) {
         String rfc = "";
         rfc += nombre.substring(0, 3);
-        rfc += new DateGenerator().generateRandomDate();
+        rfc += new DateGenerator().generateRandomDate(false);
         rfc += generateHomoclave();
 
         rfc = rfc.toUpperCase();

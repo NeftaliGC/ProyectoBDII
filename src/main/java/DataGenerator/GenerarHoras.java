@@ -1,10 +1,26 @@
 package DataGenerator;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class GenerarHoras {
+
+
+    public String getRandomHour() {
+        // genera un numero aleatorio entre 1 y 86400
+        int random = (int) (Math.random() * 86400) + 1;
+        // abre el archivo de combinaciones de horas
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/data/combinaciones_horas.txt"))) {
+            String hora = null;
+            // lee el archivo de combinaciones de horas
+            for (int i = 0; i < random; i++) {
+                hora = reader.readLine();
+            }
+            return hora;
+        } catch (IOException e) {
+            System.err.println("Error al leer el archivo de combinaciones de horas: " + e.getMessage());
+            return null;
+        }
+    }
 
     public static void main(String[] args) {
         generarArchivoCombinacionesHoras("combinaciones_horas.txt");

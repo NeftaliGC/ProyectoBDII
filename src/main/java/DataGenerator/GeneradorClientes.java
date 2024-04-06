@@ -1,5 +1,6 @@
 package DataGenerator;
 
+import java.io.FileWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -14,7 +15,7 @@ public class GeneradorClientes {
         //Cambiar conexion
         String url = "jdbc:postgresql://localhost:5432/postgres";
         String user = "postgres";
-        String password = "";
+        String password = "Nintech1904";
 
         // Instancias de las clases de generación de datos
         FullNamesGenerator fullNamesGenerator = new FullNamesGenerator();
@@ -34,17 +35,17 @@ public class GeneradorClientes {
                     System.out.println("¡Conectado a la base de datos!");
 
                     //Esoesificar el esquema con la tabla que contenga a cliente
-                    String sql = "INSERT INTO schema.cliente (rfc_cliente, nombre, primer_apellido, segundo_apellido, telefono, correo_electronico, direccion, codigo_postal) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                    String sql = "INSERT INTO farmacia.cliente (rfc_cliente, nombre, primer_apellido, segundo_apellido, telefono, correo_electronico, direccion, codigo_postal) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
                     PreparedStatement statement = conn.prepareStatement(sql);
 
-                    for (int i = 0; i < 999900; i++) { // Generar 100 clientes
+                    for (int i = 0; i < 50560; i++) { // Generar 100 clientes
                         // Generar datos aleatorios
                         String[] nombreCompleto = fullNamesGenerator.generateFullName();
                         String nombre = nombreCompleto[0];
                         String apellido1 = nombreCompleto[1];
                         String apellido2 = nombreCompleto[2];
-                        String rfc = rfcGenerator.generateRFC(nombre, apellido1, apellido2);
+                        String rfc = rfcGenerator.generateRFC(nombre, apellido1);
                         String correo = emailGenerator.generatePersonalEmail(nombre, apellido1, apellido2);
                         String codigoPostal = postalCodeGenerator.generatePostalCode();
                         long telefono = Long.parseLong(phoneNumberGenerator.generatePhoneNumber(true));
@@ -62,7 +63,16 @@ public class GeneradorClientes {
                         // Ejecutar la inserción
                         int rowsInserted = statement.executeUpdate();
                         if (rowsInserted > 0) {
-                            System.out.println("¡Se insertó un nuevo usuario correctamente!");
+                            System.out.println("¡Se insertó un nuevo usuario correctamente!" + i);
+                        }
+
+                        // Escribir en el archivo de texto
+                        try {
+                            FileWriter writer = new FileWriter("src/main/resources/data/Tablas/cliente.txt", true);
+                            writer.write(rfc + "," + nombre + "," + apellido1 + "," + apellido2 + "," + telefono + "," + correo + "," + direccion + "," + codigoPostal + "\n");
+                            writer.close();
+                        } catch (Exception e) {
+                            System.err.println("Error escribiendo en el archivo de texto: " + e.getMessage());
                         }
                     }
                 } else {

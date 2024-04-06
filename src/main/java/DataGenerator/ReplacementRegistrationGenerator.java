@@ -44,7 +44,7 @@ public class ReplacementRegistrationGenerator {
 
                     for (int i = 0; i < 9; i++) { // Generar 10 proveedores
                         // Generar datos aleatorios
-                        String date = DG.generateRandomDate();
+                        String date = DG.generateRandomDate(false);
                         int cantidad = rand.nextInt(1000) + 1;
 
                         statement.setString(1, date);

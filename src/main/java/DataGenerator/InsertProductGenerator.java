@@ -47,15 +47,15 @@ public class InsertProductGenerator {
                 String idLote = b.getRandomId();
                 double precio = b.getPrice(idLote);
                 
-                String desc = dg.getDescription(drugName);
+                String desc = dg.getDescription(drugName).substring(0, 50);
                 
                 String idCategoriaAdecuado = dg.getIdCategoriByDrugName(drugName, arr, d);//busca la categoria por nombre en la base de datos retornando su id.
 
                 boolean toFile = true; //para cambiar entre acceso a la base o enviar a un archivo.
 
                 if (toFile) {
-                    formatter.format("('%s', '%s', '%s', %.2f, '%s', '%s', '%s')\n", 
-                            i.getID(10, IdGenerator.ALPHANUMERIC),
+                    formatter.format("'%s'< '%s'< '%s'< %.2f< '%s'< '%s'< '%s'\n",
+                            i.getID(9, IdGenerator.ALPHANUMERIC),
                             drugName,
                             desc,
                             precio * 1.25,

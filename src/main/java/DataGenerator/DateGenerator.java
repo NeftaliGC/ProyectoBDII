@@ -7,7 +7,7 @@ public class DateGenerator {
     Random random = new Random();
 
     // Este método genera una fecha de nacimiento aleatoria
-    public String generateRandomDate() {
+    public String generateRandomDate(boolean isFormated) {
         String birthday = "";
 
         int year = random.nextInt(2025 - 1970) + 1970; // Genera un año entre 1970 y 2024
@@ -18,6 +18,10 @@ public class DateGenerator {
         birthday += String.valueOf(year).substring(2, 4); // Año
         birthday += month < 10 ? "0" + month : month;   // Mes
         birthday += day < 10 ? "0" + day : day;         // Día
+        if (isFormated) {
+            String formattedDate = String.format("%04d-%02d-%02d", year, month, day);
+            return formattedDate;
+        }
 
         /*System.out.println(year + "-" + month + "-" + day);
         System.out.println(birthday);*/
