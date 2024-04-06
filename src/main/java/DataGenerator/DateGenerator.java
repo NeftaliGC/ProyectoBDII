@@ -1,49 +1,43 @@
 package DataGenerator;
+
 import java.util.Random;
-import java.util.Calendar;
 
 public class DateGenerator {
 
     Random random = new Random();
 
-    // Este método genera una fecha de nacimiento aleatoria
-    public String generateRandomDate(boolean isFormated) {
-        String birthday = "";
-
+    // Este método genera una fecha aleatoria en el formato "YYYY-MM-DD"
+    public String generateRandomDate(boolean isFormatted) {
         int year = random.nextInt(2025 - 1970) + 1970; // Genera un año entre 1970 y 2024
         int month = random.nextInt(12) + 1; // Genera un mes entre 1 y 12
         int maxDays = getMaxDays(year, month);
         int day = random.nextInt(maxDays) + 1; // Genera un día entre 1 y maxDays
 
-        birthday += String.valueOf(year).substring(2, 4); // Año
-        birthday += month < 10 ? "0" + month : month;   // Mes
-        birthday += day < 10 ? "0" + day : day;         // Día
-        if (isFormated) {
-            String formattedDate = String.format("%04d-%02d-%02d", year, month, day);
-            return formattedDate;
+        if (isFormatted) {
+            return String.format("%04d-%02d-%02d", year, month, day); // Formato "YYYY-MM-DD"
+        } else {
+            return String.format("%02d%02d%02d", year % 100, month, day); // Formato "YYMMDD"
         }
-
-        /*System.out.println(year + "-" + month + "-" + day);
-        System.out.println(birthday);*/
-        // Descomentar en caso de querer ver la fecha de nacimiento generada (opcion de depuración)
-
-        return birthday;
     }
 
     // Este método regresa el número máximo de días que tiene un mes en un año dado
     private static int getMaxDays(int year, int month) {
-        int maxDays;
-
-        Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.YEAR, year);
-
-        int i = (month == 4 || month == 6 || month == 9 || month == 11) ? 30 : 31; // Si el mes es 4, 6, 9 u 11, maxDays = 30, si no, maxDays = 31
-        if (cal.getActualMaximum(Calendar.DAY_OF_YEAR) > 365) {
-            maxDays = (month == 2) ? 28 : i; // Si el año es bisiesto, maxDays = 28, si no, maxDays = i
-        } else {
-            maxDays = (month == 2) ? 29 : i; // Si el año no es bisiesto, maxDays = 29, si no, maxDays = i
+        switch (month) {
+            case 2: // Febrero
+                if (isLeapYear(year)) {
+                    return 29; // Año bisiesto
+                } else {
+                    return 28; // Año no bisiesto
+                }
+            case 4: case 6: case 9: case 11: // Abril, junio, septiembre, noviembre
+                return 30;
+            default:
+                return 31; // Enero, marzo, mayo, julio, agosto, octubre, diciembre
         }
-        return maxDays;
     }
 
+    // Este método verifica si un año es bisiesto
+    private static boolean isLeapYear(int year) {
+        return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+    }
 }
