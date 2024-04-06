@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Random;
 
@@ -23,7 +25,7 @@ public class FarmaciaGenerator {
         NameFarmaGenerator nameFarmaGenerator = new NameFarmaGenerator();
 
         try {
-            List<String> direcciones = Files.readAllLines(Paths.get("src/FarnaciaGeneratos/addressesFarmacias.txt"));
+            List<String> direcciones = Files.readAllLines(Paths.get("src/main/resources/data/addressesFarmacias.txt"));
 
             Random rand = new Random();
 
@@ -35,21 +37,22 @@ public class FarmaciaGenerator {
 
                     PreparedStatement statement = conn.prepareStatement(sql);
 
-                    for (int i = 0; i < 20; i++) {
+                    for (int i = 0; i < 25; i++) {
                         String idFarmacia = idGenerator.getID(10, IdGenerator.ALPHANUMERIC);
                         String nombreFarmacia = nameFarmaGenerator.generateRandomNameFarma();
                         String direccion = direcciones.get(rand.nextInt(direcciones.size()));
-                        String horario = generarHorario(); // Establecer el horario de apertura aleatorio dentro de 5:00 a 11:00
+                        Timestamp horario = generarHorario(); // Establecer el horario de apertura aleatorio dentro de 5:00 a 11:00
                         String correo = emailGenerator.generateProfessionalEmail(nombreFarmacia);
-                        String telefono = phoneNumberGenerator.generatePhoneNumber(false);
+                        String telefono = phoneNumberGenerator.generatePhoneNumber(true);
+                        long telefonoNumerico = Long.parseLong("6" + telefono.substring(0, 8)); // Agrega un prefijo para garantizar que tenga 9 dígitos
                         boolean licenciaPermiso = generarLicenciaPermiso();
 
                         statement.setString(1, idFarmacia);
                         statement.setString(2, nombreFarmacia);
                         statement.setString(3, direccion);
-                        statement.setString(4, horario);
+                        statement.setTimestamp(4, horario);
                         statement.setString(5, correo);
-                        statement.setString(6, telefono);
+                        statement.setLong(6, telefonoNumerico);
                         statement.setBoolean(7, licenciaPermiso);
 
                         int rowsInserted = statement.executeUpdate();
@@ -68,19 +71,18 @@ public class FarmaciaGenerator {
         }
     }
 
-    public static String generarHorario() {
+    public static Timestamp generarHorario() {
         Random rand = new Random();
         int hour = rand.nextInt(3) + 8; // Genera un número aleatorio entre 8 y 10
         int minute = rand.nextInt(60);
         int second = rand.nextInt(60);
-        return String.format("%02d:%02d:%02d", hour, minute, second);
+        LocalDateTime time = LocalDateTime.of(1, 1, 1, hour, minute, second);
+        return Timestamp.valueOf(time);
     }
-    
 
     public static boolean generarLicenciaPermiso() {
         Random rand = new Random();
         int num = rand.nextInt(100); // Genera un número aleatorio entre 0 y 99
         return num < 55; // Devuelve true si el número es menor que 70
     }
-    
 }
