@@ -2,6 +2,8 @@ package DataGenerator;
 
 import java.io.FileWriter;
 import java.sql.*;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Random;
 
 public class GeneradorTicket {
@@ -34,20 +36,20 @@ public class GeneradorTicket {
 
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
             if (conn != null) {
-                System.out.println("¡Conectado a la base de datos!");
+                System.out.println("ï¿½Conectado a la base de datos!");
 
                 // SQL para insertar registros en la tabla de inventario
                 String sql = "INSERT INTO farmacia.ticket (Id_ticket, Fecha_ticket, Hora_ticket, Metodo_pago, Subtotal, Iva, Total, id_Farmacia, id_factura, id_empleado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-                // Preparar la declaración SQL
+                // Preparar la declaraciï¿½n SQL
                 PreparedStatement statement = conn.prepareStatement(sql);
 
                 // Generar registros de ticket
-                for (int i = 0; i < 440589; i++) {
+                for (int i = 0; i < 100000; i++) {
                     // Generar un ID de ticket
-                    String idTicket = idGenerator.getID(10, IdGenerator.NUMERICAL);
+                    Long idTicket = Long.parseLong(idGenerator.getID(10, IdGenerator.NUMERICAL));
                     String fechaTicket = dateGenerator.generateRandomDate(true);
-                    String horaTicket = horaGenerator.getRandomHour();
+                    Timestamp horaTicket = generarHorario();
                     String metodoPago = metodosPago[(int) (Math.random() * metodosPago.length)];
                     String idFarmacia = "";
                     String idFactura = "";
@@ -58,22 +60,22 @@ public class GeneradorTicket {
                     // Selecciona al azar una farmacia de 1 a 25
                     ResultSet rs = stmt.executeQuery("SELECT * FROM farmacia.farmacia OFFSET " + Random.nextInt(25) + " LIMIT 1");
                     if (!rs.next()) {
-                        System.out.println("No se encontró la farmacia en la base de datos.");
+                        System.out.println("No se encontrï¿½ la farmacia en la base de datos.");
                         return;
                     } else {
                         idFarmacia = rs.getString("Id_farmacia");
                     }
                     rs = stmt.executeQuery("SELECT * FROM farmacia.factura OFFSET " + (i + 1) + " LIMIT 1");
                     if (!rs.next()) {
-                        System.out.println("No se encontró la factura en la base de datos.");
+                        System.out.println("No se encontrï¿½ la factura en la base de datos.");
                         return;
                     } else {
                         idFactura = rs.getString("Id_factura");
                         subtotal = rs.getDouble("Subtotal_factura");
                     }
-                    rs = stmt.executeQuery("SELECT * FROM farmacia.empleado WHERE id_empleado = '" + idEmpleado + "' AND id_farmacia = '" + idFarmacia + "' LIMIT 1");
+                    rs = stmt.executeQuery("SELECT * FROM farmacia.empleado WHERE id_farmacia = '" + idFarmacia + "' LIMIT 1");
                     if (!rs.next()) {
-                        System.out.println("No se encontró el empleado en la base de datos.");
+                        System.out.println("No se encontrï¿½ el empleado en la base de datos.");
                         return;
                     } else {
                         idEmpleado = rs.getString("id_empleado");
@@ -81,10 +83,10 @@ public class GeneradorTicket {
                     double iva = subtotal * 0.16;
                     double total = subtotal + iva;
 
-                    // Establecer los parámetros en la declaración SQL
-                    statement.setString(1,idTicket);
+                    // Establecer los parï¿½metros en la declaraciï¿½n SQL
+                    statement.setLong(1,idTicket);
                     statement.setDate(2, Date.valueOf(fechaTicket));
-                    statement.setTime(3, Time.valueOf(horaTicket));
+                    statement.setTimestamp(3, horaTicket);
                     statement.setString(4, metodoPago);
                     statement.setDouble(5, subtotal);
                     statement.setDouble(6, iva);
@@ -93,10 +95,10 @@ public class GeneradorTicket {
                     statement.setString(9, idFactura);
                     statement.setString(10, idEmpleado);
 
-                    // Ejecutar la inserción
+                    // Ejecutar la inserciï¿½n
                     int rowsInserted = statement.executeUpdate();
                     if (rowsInserted > 0) {
-                        System.out.println("Se insertó un nuevo registro de inventario correctamente.");
+                        System.out.println("Se insertï¿½ un nuevo registro de inventario correctamente.");
                     }
 
                     // Escribir en el archivo de texto
@@ -109,11 +111,19 @@ public class GeneradorTicket {
                     }
                 }
             } else {
-                System.out.println("¡Error al establecer la conexión!");
+                System.out.println("ï¿½Error al establecer la conexiï¿½n!");
             }
         } catch (SQLException e) {
             System.err.format("Estado SQL: %s\n%s", e.getSQLState(), e.getMessage());
         }
     }
 
+    public static Timestamp generarHorario() {
+        Random rand = new Random();
+        int hour = rand.nextInt(3) + 8; // Genera un nÃºmero aleatorio entre 8 y 10
+        int minute = rand.nextInt(60);
+        int second = rand.nextInt(60);
+        LocalDateTime time = LocalDateTime.of(1, 1, 1, hour, minute, second);
+        return Timestamp.valueOf(time);
+    }
 }
