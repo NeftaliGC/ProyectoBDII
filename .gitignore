@@ -3,7 +3,11 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
+<<<<<<< HEAD
+/src/main/resources/data/Tablas/
+=======
 /src/main/resources/data/Tablas
+>>>>>>> dee8e16c3080d991990a5daf3eabb75e76758b83
 ### IntelliJ IDEA ###
 .idea/modules.xml
 .idea/jarRepositories.xml

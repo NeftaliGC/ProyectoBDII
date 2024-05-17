@@ -46,7 +46,7 @@ public class InventorycControlGenerator {
 
                     for (int i = 0; i < 9; i++) { // Generar 10 proveedores
                         // Generar datos aleatorios
-                        String date = DG.generateRandomDate();
+                        String date = DG.generateRandomDate(false);
                         int cantidad = rand.nextInt(max - min + 1) + min;
 
                         statement.setString(1, date);

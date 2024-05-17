@@ -16,8 +16,11 @@ dependencies {
 implementation("org.postgresql:postgresql:42.6.0")
 }
 
-
-
+subprojects {
+    tasks.withType<JavaCompile> {
+        options.isDeprecation = true
+    }
+}
 
 tasks.test {
     useJUnitPlatform()

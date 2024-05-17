@@ -66,10 +66,12 @@ public class ClientGenerator {
                             System.out.println("¡Se insertó un nuevo usuario correctamente!");
                             
                             // Escribir en el archivo de texto
-                            try (FileWriter writer = new FileWriter("clientes.txt", true)) {
+                            try {
+                                FileWriter writer = new FileWriter("src/main/resources/data/Tablas/cliente.txt", true);
                                 writer.write(rfc + "," + nombre + "," + apellido1 + "," + apellido2 + "," + telefono + "," + correo + "," + direccion + "," + codigoPostal + "\n");
+                                writer.close();
                             } catch (Exception e) {
-                                System.err.println("Error al escribir en el archivo de texto: " + e.getMessage());
+                                System.err.println("Error escribiendo en el archivo de texto: " + e.getMessage());
                             }
                         }
                     }

@@ -23,13 +23,13 @@ public class InsertCategoriesGenerator {
             /**
              * Aqui debe de ir los dtaos correctos de la base de datos local
              */
-            DatabaseAccess d = new DatabaseAccess("jesus", "1234", "farmacia"); //acceso a la base de datos
+            DatabaseAccess d = new DatabaseAccess("postgres", "Nintech1904", "postgres"); //acceso a la base de datos
             CategoriaSQL categoriaSQL = new CategoriaSQL(d); //Contiene algunos sql prearmados para la tabla indicada en el nombre de la funcion
             CategoryGenerator c = new CategoryGenerator(); //se obtiene todas las categorias
             IdGenerator i = new IdGenerator(); //para generar los ids de la tabla.
 
             ArrayList<Category> l = (ArrayList<Category>) c.getAllCategories();
-            File file = new File("gategoriasExport.txt");
+            File file = new File("src/main/resources/data/Tablas/categoriaExport.txt");
             Formatter formatter = new Formatter(file);
 
             boolean toFile = true;
@@ -39,7 +39,7 @@ public class InsertCategoriesGenerator {
                 for (Category category : l) { //iteramos por todas las categorias y las agregamos a la tabla de la base de datos.
                     if (toFile) {
 
-                        formatter.format("('%s', '%s', '%s')\n",
+                        formatter.format("%s<%s<'%s'\n",
                                 i.getID(15, IdGenerator.ALPHANUMERIC),
                                 category.getName(),
                                 category.getDescription());

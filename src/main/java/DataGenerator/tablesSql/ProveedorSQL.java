@@ -26,7 +26,7 @@ public class ProveedorSQL extends TableSQL {
     }
 
     private ArrayList<Integer> getIdColumn() throws SQLException {
-        ResultSet rs = st.executeQuery("SELECT Id_proveedor FROM ".concat(tableName));
+        ResultSet rs = st.executeQuery("SELECT Id_proveedor FROM farmacia.".concat(tableName));
         ArrayList<Integer> ids = new ArrayList<>();
 
         while (rs.next()) {

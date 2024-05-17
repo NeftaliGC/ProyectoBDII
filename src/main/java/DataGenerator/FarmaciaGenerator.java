@@ -18,7 +18,7 @@ public class FarmaciaGenerator {
     public static void main(String[] args) {
         String url = "jdbc:postgresql://localhost:5432/postgres";
         String user = "postgres";
-        String password = "";
+        String password = "Nintech1904";
 
         IdGenerator idGenerator = new IdGenerator();
         PhoneNumberGenerator phoneNumberGenerator = new PhoneNumberGenerator();
@@ -30,14 +30,11 @@ public class FarmaciaGenerator {
 
             Random rand = new Random();
 
-            // FileWriter para guardar registros en un archivo de texto
-            FileWriter writer = new FileWriter("farmacias.txt", true);
-
             try (Connection conn = DriverManager.getConnection(url, user, password)) {
                 if (conn != null) {
                     System.out.println("¡Conectado a la base de datos!");
 
-                    String sql = "INSERT INTO esquema.farmacia (Id_farmacia, Nombre_farmacia, Direccion, Horario, Correo_electronico, Telefono, Licencia_permiso) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                    String sql = "INSERT INTO farmacia.farmacia (Id_farmacia, Nombre_farmacia, Direccion, Horario, Correo_electronico, Telefono, Licencia_permiso) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
                     PreparedStatement statement = conn.prepareStatement(sql);
 
@@ -62,9 +59,15 @@ public class FarmaciaGenerator {
                         int rowsInserted = statement.executeUpdate();
                         if (rowsInserted > 0) {
                             System.out.println("¡Se insertó una nueva farmacia correctamente!");
-                            
-                            // Escribir en el archivo de texto
+                        }
+
+                        // Escribir en el archivo de texto
+                        try {
+                            FileWriter writer = new FileWriter("src/main/resources/data/Tablas/farmacia.txt", true);
                             writer.write(idFarmacia + "," + nombreFarmacia + "," + direccion + "," + horario + "," + correo + "," + telefonoNumerico + "," + licenciaPermiso + "\n");
+                            writer.close();
+                        } catch (Exception e) {
+                            System.err.println("Error escribiendo en el archivo de texto: " + e.getMessage());
                         }
                     }
                 } else {
@@ -72,8 +75,6 @@ public class FarmaciaGenerator {
                 }
             } catch (SQLException e) {
                 System.err.format("Estado SQL: %s\n%s", e.getSQLState(), e.getMessage());
-            } finally {
-                writer.close(); // Cerrar el FileWriter al finalizar
             }
         } catch (IOException e) {
             System.err.println("Error leyendo los archivos de texto: " + e.getMessage());

@@ -25,7 +25,7 @@ public class InsertBatchGenerator {
             /**
              * Aqui debe de ir los dtaos correctos de la base de datos local
              */
-            DatabaseAccess d = new DatabaseAccess("jesus", "1234", "farmacia"); //acceso a la base de datos
+            DatabaseAccess d = new DatabaseAccess("postgres", "Nintech1904", "postgres"); //acceso a la base de datos
             ProveedorSQL p = new ProveedorSQL(d); //Contiene algunos sql prearmados para la tabla indicada en el nombre de la funcion
             IdGenerator i = new IdGenerator(); //para generar los ids de la tabla.
             DateGenerator birthDay = new DateGenerator();
@@ -35,7 +35,7 @@ public class InsertBatchGenerator {
             Random r = new Random(); // para obtener cantidades aleatorias
 
             boolean toFile = true;
-            File file = new File("loteExport.txt");
+            File file = new File("src/main/resources/data/Tablas/loteExport.txt");
             Formatter formatter = new Formatter(file);
 
             for (int j = 0; j < 1000000; j++) { //ajustar para llegar al millon o mas.
@@ -48,7 +48,7 @@ public class InsertBatchGenerator {
 
                 if (toFile) {
 
-                    formatter.format("('%s', %d, '%s', '%s', '%s', %f, %f, %f, %d),\n", 
+                    formatter.format("%s,%d,%s,%s,%s,%f,%f,%f,%d\n",
                             i.getID(10, IdGenerator.ALPHANUMERIC),
                             cantidad,
                             fab,
