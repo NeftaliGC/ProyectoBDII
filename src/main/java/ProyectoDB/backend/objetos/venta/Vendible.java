@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package ProyectoDB.objetos.venta;
+package ProyectoDB.backend.objetos.venta;
 
 /**
  *
@@ -28,6 +28,5 @@ public interface Vendible {
         "VARCHAR(10)",
         "VARCHAR(13)",
         "NUMERIC(10)"};
-    
     
 }

@@ -33,6 +33,7 @@ Sientete libre de añadir tareas por hacer en esta sección si consideras que ha
 - [ ] 3. Crear las clases para dar de baja (eliminar) una venta en la tabla venta - @JFT-314
 - [ ] 4. Crear las clases necesarias para modificar un registro en la tabla ventas - @JFT-314
 - [ ] 5. Crear las clases necesarias para consultar una venta - @JFT-314
+- [ ] 5. Crear las clases necesarias para reporte de la tabla venta - @JFT-314
 
 
 ## Tareas realizadas

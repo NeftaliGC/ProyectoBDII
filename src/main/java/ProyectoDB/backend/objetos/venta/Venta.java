@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ProyectoDB.objetos.venta;
+package ProyectoDB.backend.objetos.venta;
 
 /**
  *
@@ -14,7 +14,7 @@ public class Venta implements Vendible {
     private int cantidadVendida;
     private double totalVenta;
     private boolean recetaMedica;
-    private int idProducto;
+    private String idProducto;
     private String rfcCliente;
     private int idTicket;
 
@@ -23,7 +23,7 @@ public class Venta implements Vendible {
             int cantidadVendida,
             double totalVenta,
             boolean recetaMedica,
-            int idProducto,
+            String idProducto,
             String rfcCliente,
             int idTicket) {
 
@@ -39,13 +39,13 @@ public class Venta implements Vendible {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder(200);
-        stringBuilder.append(String.format("%s[%s]= %s\n", TIPOS_COLUMNAS[0], NOMBRES_COLUMNAS[0], idVenta));
-        stringBuilder.append(String.format("%s[%s]= %s\n", TIPOS_COLUMNAS[1], NOMBRES_COLUMNAS[1], cantidadVendida));
-        stringBuilder.append(String.format("%s[%s]= %s\n", TIPOS_COLUMNAS[2], NOMBRES_COLUMNAS[2], totalVenta));
-        stringBuilder.append(String.format("%s[%s]= %s\n", TIPOS_COLUMNAS[3], NOMBRES_COLUMNAS[3], recetaMedica));
-        stringBuilder.append(String.format("%s[%s]= %s\n", TIPOS_COLUMNAS[4], NOMBRES_COLUMNAS[4], idProducto));
-        stringBuilder.append(String.format("%s[%s]= %s\n", TIPOS_COLUMNAS[5], NOMBRES_COLUMNAS[5], rfcCliente));
-        stringBuilder.append(String.format("%s[%s]= %s\n", TIPOS_COLUMNAS[6], NOMBRES_COLUMNAS[6], idTicket));
+        stringBuilder.append(String.format("%s, ", idVenta));
+        stringBuilder.append(String.format("%s, ", cantidadVendida));
+        stringBuilder.append(String.format("%s, ", totalVenta));
+        stringBuilder.append(String.format("%s, ", recetaMedica));
+        stringBuilder.append(String.format("%s, ", idProducto));
+        stringBuilder.append(String.format("%s, ", rfcCliente));
+        stringBuilder.append(String.format("%s ", idTicket));
 
         return stringBuilder.toString();
     }
@@ -66,7 +66,7 @@ public class Venta implements Vendible {
         return recetaMedica;
     }
 
-    public int getIdProducto() {
+    public String getIdProducto() {
         return idProducto;
     }
 
@@ -94,7 +94,7 @@ public class Venta implements Vendible {
         this.recetaMedica = recetaMedica;
     }
 
-    public void setIdProducto(int idProducto) {
+    public void setIdProducto(String idProducto) {
         this.idProducto = idProducto;
     }
 
