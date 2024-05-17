@@ -6,62 +6,38 @@
 ## Tareas por hacer
 Sientete libre de añadir tareas por hacer en esta sección si consideras que hacen falta o si algo debe ser modificado.
 
-- [ ] Aumentar los nombres de proveedores hasta los que sean necesarios
-- [ ] Aumentar los nombres de farmacias hasta los que sean necesarios
-> Recuerda que los generadores de tablas con referencias a otras deberan usar los registros generados por los generadores de las tablas referenciadas.
-Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero los registros de la tabla Empleado y con esos registros generar los registros de la tabla Historial_Empleado.
-- [ ] Crear generador de registros para la tabla Empleado
-- [ ] Crear generador de registros para la tabla Factura
-- [ ] Crear generador de registros para la tabla Puesto_Empleo
-- [ ] Crear generador de registros para la tabla Historial_Empleado
-- [ ] Crear generador de registros para la tabla Ticket
-- [ ] Crear generador de registros para la tabla Devolucion
-- [ ] Crear generador de registros para la tabla Venta
-- [ ] Crear generador de registros para la tabla Control_Inventario
-- [ ] Crear generador de registros para la tabla Registro_Reposicion
-  </br>// Tareas por hacer para el proyecto principal (Frontend y Backend) aun por definir
+## Tareas para Backend
+- [ ] 1. Conectar a la base de datos en base a las claves ip, Nombre de la base de datos, Puerto, Usuario y contraseña.
+- [ ] 2. Crear las clases para dar de alta (crear) una venta en la tabla venta
+- [ ] 3. Crear las clases para dar de baja (eliminar) una venta en la tabla venta
+- [ ] 4. Crear las clases necesarias para modificar un registro en la tabla ventas
+- [ ] 5. Crear las clases necesarias para consultar una venta
+> Si es necesario acceder a más de una tabla para una consulta deberá hacerse
+
+- [ ] 6, 7, 8, 9. Las mismas tareas pero para la tabla inventario (incluyendo las tablas necesarias que deban ser modificadas) 
+
+- [ ] 10. Traer los datos de la tablas catálogo que sean necesarios para crear, eliminar o actualizar registros de las tablas ventas e inventario
+
+> Todas las tablas que no estén relacionadas intrínsecamente con ventas e inventario serán catálogos. Por lo cual no se modificarán, solo se accederán a sus datos*
+
+- [ ] 11. Crear las clases necesarias para traer los datos del datamart para poder crear gráficas, deberán regresar la gráfica.
+
+> Los querys del datamart y los querys exactos para traer los datos de las tablas aún no los terminan los DBAs, pero pueden trabajar en la estructura de sus clases. En cuanto tenga los querys se los mando
+
 
 ## Tareas en proceso
 > Añade aqui la tarea que estas realizando actualmente con un guion seguida por tu usuario de github o tu nombre.
 > Ejemplo: - [ ] Hacer que el proyecto se vea cool - @usuario
 
-- [ ] Crear el generador de numeros del sat - @neftaligc
-- [ ] Conectar a la base de datos en base a las claves ip, Nombre de la base de datos, Puerto, Usuario y contraseña. - @JFT-314
-- [ ] Crear las clases para dar de alta (crear) una venta en la tabla venta - @JFT-314
-- [ ] Crear las clases para dar de baja (eliminar) una venta en la tabla venta - @JFT-314
-- [ ] Crear las clases necesarias para modificar un registro en la tabla ventas - @JFT-314
-- [ ] Crear las clases necesarias para consultar una venta - @JFT-314
+- [ ] 1. Conectar a la base de datos en base a las claves ip, Nombre de la base de datos, Puerto, Usuario y contraseña. - @JFT-314
+- [ ] 2. Crear las clases para dar de alta (crear) una venta en la tabla venta - @JFT-314
+- [ ] 3. Crear las clases para dar de baja (eliminar) una venta en la tabla venta - @JFT-314
+- [ ] 4. Crear las clases necesarias para modificar un registro en la tabla ventas - @JFT-314
+- [ ] 5. Crear las clases necesarias para consultar una venta - @JFT-314
 
 
 ## Tareas realizadas
-- [x] Crear generador de nombres de personas y proveedores
-- [x] Crear generador de fechas
-- [x] Crear generador de emails
-- [x] Crear generador de numeros telefonicos
-- [x] Crear generador de codigos postales
-- [x] Crear generador de RFCs
-- [x] Separar el generador de fechas a una clase aparte - @neftaligc
-- [x] Separar el generador de nombres de proveedores a una clase aparte - @neftaligc
-- [x] Crear el generador de emails para proveedores (En la clase emailGenerator) - @neftaligc
-- [x] Crear el generador de nombres de farmacias - @neftaligc
-- [x] Crear generador de nombres de medicamentos - @JFT-314
-- [x] Crear generador de descripciones de medicamentos - @JFT-314
-- [x] Crear generador de IDs (tanto numericos como alfanumericos para claves primarias unicas y compuestas) - @JFT-314
-- [X] Crear generador de metodos de pago - @JFT-314
-- [X] Crear generador de horas - @cruzz9
-- [x] Crear generador de registros para la tabla Categoria - @JFT-314
-- [x] Crear generador de registros para la tabla Cliente @anorak1221
-- [x] Crear generador de registros para la tabla Proveedor - @neftaligc
-- [X] Crear generador de puestos de empleo - @cruzz9
-- [X] Crear generador de precios de medicamentos - @cruzz9
-- [X] Crear generador de salarios - @cruzz9
-- [X] Crear interfaz grafica de login @anorak1221
-- [x] Crear generador de registros para la tabla Lote - @JFT-314
-- [X] Crear generador de registros para la tabla Farmacia @anorak1221
-- [x] Crear generador de registros para la tabla Producto - @JFT-314
-- [x] Crear generador de receta medica - @JFT-314
-- [x] Crear generador de registros para la tabla Inventario @anorak1221
-
+- [x] Todas las tareas realizadas previamente se encuentra en commits anteriores.
 
 ## Estructura del proyecto
   El proyecto tiene la siguiente estructura:
