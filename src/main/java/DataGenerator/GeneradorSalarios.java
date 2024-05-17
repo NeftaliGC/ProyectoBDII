@@ -33,7 +33,7 @@ public class GeneradorSalarios {
         try (FileWriter writer = new FileWriter(nombreArchivo)) {
             DecimalFormat df = new DecimalFormat("#.00");
             for (double salario : salarios) {
-                writer.write(df.format(salario) + "\n"); // Escribir cada precio en una línea separada
+                writer.write(df.format(salario) + "\n"); // Escribir cada precio en una lÃ­nea separada
             }
             System.out.println("Salarios guardados en el archivo '" + nombreArchivo + "'.");
         } catch (IOException e) {

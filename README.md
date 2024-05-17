@@ -26,6 +26,11 @@ Ejemplo: Si se quiere crear la tabla Historial_Empleado se deberan crear primero
 > Ejemplo: - [ ] Hacer que el proyecto se vea cool - @usuario
 
 - [ ] Crear el generador de numeros del sat - @neftaligc
+- [ ] Conectar a la base de datos en base a las claves ip, Nombre de la base de datos, Puerto, Usuario y contraseña. - @JFT-314
+- [ ] Crear las clases para dar de alta (crear) una venta en la tabla venta - @JFT-314
+- [ ] Crear las clases para dar de baja (eliminar) una venta en la tabla venta - @JFT-314
+- [ ] Crear las clases necesarias para modificar un registro en la tabla ventas - @JFT-314
+- [ ] Crear las clases necesarias para consultar una venta - @JFT-314
 
 
 ## Tareas realizadas
