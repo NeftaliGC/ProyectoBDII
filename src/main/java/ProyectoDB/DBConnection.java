@@ -25,7 +25,6 @@ public class DBConnection {
         Properties props = new Properties();
         props.setProperty("user", this.user);
         props.setProperty("password", this.password);
-        Connection connection = DriverManager.getConnection(url, props);
-        return connection;
+        return DriverManager.getConnection(url, props);
     }
 }
