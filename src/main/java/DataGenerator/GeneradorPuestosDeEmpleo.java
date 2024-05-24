@@ -6,14 +6,14 @@ import java.io.IOException;
 public class GeneradorPuestosDeEmpleo {
     public static void main(String[] args) {
         String[] puestosDeEmpleo = {
-            "Farmacéutico",
-            "Técnico de Farmacia",
+            "FarmacÃ©utico",
+            "TÃ©cnico de Farmacia",
             "Cajero",
             "Asistente de Ventas",
             "Gerente de Farmacia",
-            "Personal de Almacén",
-            "Atención al Cliente",
-            "Técnico de Laboratorio",
+            "Personal de AlmacÃ©n",
+            "AtenciÃ³n al Cliente",
+            "TÃ©cnico de Laboratorio",
             "Encargado de Marketing"
         };
 
