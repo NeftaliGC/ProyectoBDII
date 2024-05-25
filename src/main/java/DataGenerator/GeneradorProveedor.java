@@ -25,7 +25,7 @@ public class GeneradorProveedor {
                 System.out.println("¡Conectado a la base de datos!");
 
                 //Esoesificar el esquema con la tabla que contenga a proveedor
-                String sql = "INSERT INTO farmacia.proveedor (id_proveedor, Rfc, Nombre, Telefono, correo_electronico) VALUES (?, ?, ?, ?, ?)";
+                String sql = "INSERT INTO farma.proveedor (id_proveedor, Rfc, Nombre, Telefono, correo_electronico) VALUES (?, ?, ?, ?, ?)";
 
                 PreparedStatement statement = conn.prepareStatement(sql);
                 String[] proveedores;
@@ -54,7 +54,7 @@ public class GeneradorProveedor {
                     // Escribir en el archivo de texto
                     try {
                         FileWriter writer = new FileWriter("src/main/resources/data/Tablas/proveedor.txt", true);
-                        writer.write(id + "," + rfc + "," + Nombreproveedor + "," + telefono + "," + correo + "\n");
+                        writer.write("(" + id + "," + "'" + rfc + "'" + "," + "'" + Nombreproveedor + "'" + "," + telefono + "," + "'" + correo + "'" + ")" + "\n");
                         writer.close();
                     } catch (Exception e) {
                         System.err.println("Error escribiendo en el archivo de texto: " + e.getMessage());
