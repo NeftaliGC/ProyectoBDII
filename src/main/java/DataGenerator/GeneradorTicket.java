@@ -39,13 +39,13 @@ public class GeneradorTicket {
                 System.out.println("�Conectado a la base de datos!");
 
                 // SQL para insertar registros en la tabla de inventario
-                String sql = "INSERT INTO farmacia.ticket (Id_ticket, Fecha_ticket, Hora_ticket, Metodo_pago, Subtotal, Iva, Total, id_Farmacia, id_factura, id_empleado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                String sql = "INSERT INTO farma.ticket (Id_ticket, Fecha_ticket, Hora_ticket, Metodo_pago, Subtotal, Iva, Total, id_factura, id_empleado, id_Farmacia) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
                 // Preparar la declaraci�n SQL
                 PreparedStatement statement = conn.prepareStatement(sql);
 
                 // Generar registros de ticket
-                for (int i = 0; i < 100000; i++) {
+                for (int i = 0; i < 16; i++) {
                     // Generar un ID de ticket
                     Long idTicket = Long.parseLong(idGenerator.getID(10, IdGenerator.NUMERICAL));
                     String fechaTicket = dateGenerator.generateRandomDate(true);
@@ -58,24 +58,24 @@ public class GeneradorTicket {
 
                     Statement stmt = conn.createStatement();
                     // Selecciona al azar una farmacia de 1 a 25
-                    ResultSet rs = stmt.executeQuery("SELECT * FROM farmacia.farmacia OFFSET " + Random.nextInt(25) + " LIMIT 1");
+                    ResultSet rs = stmt.executeQuery("SELECT * FROM farma.farmacia OFFSET " + Random.nextInt(3) + " LIMIT 1");
                     if (!rs.next()) {
                         System.out.println("No se encontr� la farmacia en la base de datos.");
                         return;
                     } else {
                         idFarmacia = rs.getString("Id_farmacia");
                     }
-                    rs = stmt.executeQuery("SELECT * FROM farmacia.factura OFFSET " + (i + 1) + " LIMIT 1");
+                    rs = stmt.executeQuery("SELECT * FROM farma.factura OFFSET " + (i + 1) + " LIMIT 1");
                     if (!rs.next()) {
-                        System.out.println("No se encontr� la factura en la base de datos.");
+                        System.out.println("No se encontró la factura en la base de datos.");
                         return;
                     } else {
                         idFactura = rs.getString("Id_factura");
                         subtotal = rs.getDouble("Subtotal_factura");
                     }
-                    rs = stmt.executeQuery("SELECT * FROM farmacia.empleado WHERE id_farmacia = '" + idFarmacia + "' LIMIT 1");
+                    rs = stmt.executeQuery("SELECT * FROM farma.empleado WHERE id_farmacia = '" + idFarmacia + "' LIMIT 1");
                     if (!rs.next()) {
-                        System.out.println("No se encontr� el empleado en la base de datos.");
+                        System.out.println("No se encontró el empleado en la base de datos.");
                         return;
                     } else {
                         idEmpleado = rs.getString("id_empleado");
@@ -91,9 +91,9 @@ public class GeneradorTicket {
                     statement.setDouble(5, subtotal);
                     statement.setDouble(6, iva);
                     statement.setDouble(7, total);
-                    statement.setString(8, idFarmacia);
-                    statement.setString(9, idFactura);
-                    statement.setString(10, idEmpleado);
+                    statement.setString(8, idFactura);
+                    statement.setString(9, idEmpleado);
+                    statement.setString(10, idFarmacia);
 
                     // Ejecutar la inserci�n
                     int rowsInserted = statement.executeUpdate();
@@ -104,7 +104,7 @@ public class GeneradorTicket {
                     // Escribir en el archivo de texto
                     try {
                         FileWriter writer = new FileWriter("src/main/resources/data/Tablas/ticket.txt", true);
-                        writer.write(idTicket + "," + fechaTicket + "," + horaTicket + "," + metodoPago + "," + subtotal + "," + iva + "," + total + "," + idFarmacia + "," + idFactura + "," + idEmpleado + "\n");
+                        writer.write("(" + idTicket + ", '" + fechaTicket + "', '" + horaTicket + "', '" + metodoPago + "', " + subtotal + ", " + iva + ", " + total + ", '" + idFactura + "', '" + idEmpleado + "', '" + idFarmacia + "'),\n");
                         writer.close();
                     } catch (Exception e) {
                         System.err.println("Error escribiendo en el archivo de texto: " + e.getMessage());
