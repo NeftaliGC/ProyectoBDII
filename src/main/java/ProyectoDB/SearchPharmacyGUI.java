@@ -146,7 +146,7 @@ public class SearchPharmacyGUI extends JFrame {
         String correoElectronico = correoElectronicoField.getText();
         String telefono = telefonoField.getText();
 
-        String query = "SELECT * FROM farmacia WHERE 1=1";
+        String query = "SELECT * FROM farma.farmacia WHERE 1=1";
 
         if (!idFarmacia.isEmpty()) {
             query += " AND id_farmacia = '" + idFarmacia + "'";

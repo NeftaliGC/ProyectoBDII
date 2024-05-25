@@ -146,7 +146,7 @@ public class SearchEmployeeGUI extends JFrame {
         String primerApellido = primerApellidoField.getText();
         String correoElectronico = correoElectronicoField.getText();
 
-        String query = "SELECT * FROM empleado WHERE 1=1";
+        String query = "SELECT * FROM farma.empleado WHERE 1=1";
 
         if (!rfc.isEmpty()) {
             query += " AND rfc = '" + rfc + "'";

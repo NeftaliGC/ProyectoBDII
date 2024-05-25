@@ -215,10 +215,10 @@ public class SearchTicketGUI extends JFrame {
         String fechaFin = fechaFinField.getText();
         String metodoPago = metodoPagoField.getText();
 
-        String query = "SELECT * FROM ticket WHERE 1=1";
+        String query = "SELECT * FROM farma.ticket WHERE 1=1";
 
         if (!idTicket.isEmpty()) {
-            query += " AND id_ticket = " + idTicket;
+            query += " AND id_ticket = " + Long.parseLong(idTicket);
         }
 
         if (!fechaInicio.isEmpty() && !fechaFin.isEmpty()) {
@@ -238,7 +238,7 @@ public class SearchTicketGUI extends JFrame {
 
             resultArea.setText("");
             while (rs.next()) {
-                resultArea.append("Id_ticket: " + rs.getInt("id_ticket") + "\n");
+                resultArea.append("Id_ticket: " + rs.getLong("id_ticket") + "\n");
                 resultArea.append("Fecha_ticket: " + rs.getDate("fecha_ticket") + "\n");
                 resultArea.append("Método_pago: " + rs.getString("metodo_pago") + "\n");
                 resultArea.append("-------------------\n");

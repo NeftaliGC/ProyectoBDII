@@ -1,10 +1,12 @@
+package ProyectoDB;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 public class Ventana_Inventario {
-
+/**
 	public Ventana_Inventario(Connection connection) {
         this.connection = connection;
         initialize();
@@ -67,7 +69,7 @@ public class Ventana_Inventario {
         ventana.add(panelBotones);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.setVisible(true);
-    }
+    }**/
 }
 
 
