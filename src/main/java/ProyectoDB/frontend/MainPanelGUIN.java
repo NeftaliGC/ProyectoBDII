@@ -10,9 +10,13 @@ package ProyectoDB.frontend;
  * @author Webotes
  */
 import ProyectoDB.frontend.MainPanelGUI;
-import java.sql.Connection;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
-public class MainPanelGUIN extends javax.swing.JFrame {
+import java.sql.Connection;
+import javax.swing.ButtonGroup;
+
+public class MainPanelGUIN extends javax.swing.JFrame implements ItemListener{
     private static Connection connection;
     
     /**
@@ -22,6 +26,25 @@ public class MainPanelGUIN extends javax.swing.JFrame {
     public MainPanelGUIN(Connection connection) {
         this.connection = connection;
         initComponents();
+        VentaBoton.addItemListener(this);
+        InventarioBoton.addItemListener(this);
+        AltaBoton.addItemListener(this);
+        BajaBoton.addItemListener(this);
+        ConsultaBoton.addItemListener(this);
+        ActualBoton.addItemListener(this);
+        ReporteBoton.addItemListener(this);
+        DataMBoton.addItemListener(this);
+        ButtonGroup bg = new ButtonGroup();
+        ButtonGroup bg2 = new ButtonGroup();
+        bg.add(VentaBoton);
+        bg.add(InventarioBoton);
+        bg2.add(AltaBoton);
+        bg2.add(BajaBoton);
+        bg2.add(ConsultaBoton);
+        bg2.add(ActualBoton);
+        bg2.add(ReporteBoton);
+        bg2.add(DataMBoton);
+       
     }
 
     /**
@@ -43,11 +66,12 @@ public class MainPanelGUIN extends javax.swing.JFrame {
         InventarioBoton = new javax.swing.JRadioButton();
         AltaBoton = new javax.swing.JRadioButton();
         BajaBoton = new javax.swing.JRadioButton();
-        Reporte = new javax.swing.JRadioButton();
-        Consulta = new javax.swing.JRadioButton();
+        ReporteBoton = new javax.swing.JRadioButton();
+        ConsultaBoton = new javax.swing.JRadioButton();
         ActualBoton = new javax.swing.JRadioButton();
         DataMBoton = new javax.swing.JRadioButton();
         jPanel4 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(48, 114, 130));
@@ -122,21 +146,21 @@ public class MainPanelGUIN extends javax.swing.JFrame {
             }
         });
 
-        Reporte.setFont(new java.awt.Font("Goudy Old Style", 0, 18)); // NOI18N
-        Reporte.setForeground(new java.awt.Color(226, 214, 236));
-        Reporte.setText("Reporte");
-        Reporte.addActionListener(new java.awt.event.ActionListener() {
+        ReporteBoton.setFont(new java.awt.Font("Goudy Old Style", 0, 18)); // NOI18N
+        ReporteBoton.setForeground(new java.awt.Color(226, 214, 236));
+        ReporteBoton.setText("Reporte");
+        ReporteBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReporteActionPerformed(evt);
+                ReporteBotonActionPerformed(evt);
             }
         });
 
-        Consulta.setFont(new java.awt.Font("Goudy Old Style", 0, 18)); // NOI18N
-        Consulta.setForeground(new java.awt.Color(226, 214, 236));
-        Consulta.setText("Consulta");
-        Consulta.addActionListener(new java.awt.event.ActionListener() {
+        ConsultaBoton.setFont(new java.awt.Font("Goudy Old Style", 0, 18)); // NOI18N
+        ConsultaBoton.setForeground(new java.awt.Color(226, 214, 236));
+        ConsultaBoton.setText("Consulta");
+        ConsultaBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConsultaActionPerformed(evt);
+                ConsultaBotonActionPerformed(evt);
             }
         });
 
@@ -176,9 +200,9 @@ public class MainPanelGUIN extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(BajaBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(Reporte, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ReporteBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(Consulta, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ConsultaBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(DataMBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -193,7 +217,7 @@ public class MainPanelGUIN extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(InventarioBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Consulta)
+                            .addComponent(ConsultaBoton)
                             .addComponent(DataMBoton)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -201,7 +225,7 @@ public class MainPanelGUIN extends javax.swing.JFrame {
                             .addComponent(AltaBoton))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Reporte)
+                            .addComponent(ReporteBoton)
                             .addComponent(BajaBoton))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -217,6 +241,19 @@ public class MainPanelGUIN extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 468, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -226,29 +263,35 @@ public class MainPanelGUIN extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(190, 190, 190)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(352, 352, 352)
-                        .addComponent(jLabel2))
-                    .addComponent(jRadioButton2)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(14, Short.MAX_VALUE))
+                        .addGap(0, 436, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton2)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)))
+                .addGap(14, 14, 14))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(137, 137, 137)
-                                .addComponent(jLabel2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jRadioButton2))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(137, 137, 137)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -263,7 +306,8 @@ public class MainPanelGUIN extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void VentaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VentaBotonActionPerformed
-        // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_VentaBotonActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
@@ -282,13 +326,13 @@ public class MainPanelGUIN extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BajaBotonActionPerformed
 
-    private void ReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReporteActionPerformed
+    private void ReporteBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReporteBotonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ReporteActionPerformed
+    }//GEN-LAST:event_ReporteBotonActionPerformed
 
-    private void ConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaActionPerformed
+    private void ConsultaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaBotonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ConsultaActionPerformed
+    }//GEN-LAST:event_ConsultaBotonActionPerformed
 
     private void ActualBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualBotonActionPerformed
         // TODO add your handling code here:
@@ -337,17 +381,23 @@ public class MainPanelGUIN extends javax.swing.JFrame {
     private javax.swing.JRadioButton ActualBoton;
     private javax.swing.JRadioButton AltaBoton;
     private javax.swing.JRadioButton BajaBoton;
-    private javax.swing.JRadioButton Consulta;
+    private javax.swing.JRadioButton ConsultaBoton;
     private javax.swing.JRadioButton DataMBoton;
     private javax.swing.JRadioButton InventarioBoton;
-    private javax.swing.JRadioButton Reporte;
+    private javax.swing.JRadioButton ReporteBoton;
     private javax.swing.JRadioButton VentaBoton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JRadioButton jRadioButton2;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+        System.out.println("webos");
+    }
 }
