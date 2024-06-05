@@ -1,3 +1,5 @@
+package ProyectoDB.frontend;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -7,10 +9,11 @@
  *
  * @author Webotes
  */
+import ProyectoDB.frontend.MainPanelGUI;
 import java.sql.Connection;
 
 public class MainPanelGUIN extends javax.swing.JFrame {
-    private Connection connection;
+    private static Connection connection;
     
     /**
      * Creates new form MainPanelGUI
@@ -122,7 +125,6 @@ public class MainPanelGUIN extends javax.swing.JFrame {
         Reporte.setFont(new java.awt.Font("Goudy Old Style", 0, 18)); // NOI18N
         Reporte.setForeground(new java.awt.Color(226, 214, 236));
         Reporte.setText("Reporte");
-        Reporte.setActionCommand("Reporte");
         Reporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ReporteActionPerformed(evt);
@@ -326,7 +328,7 @@ public class MainPanelGUIN extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainPanelGUI().setVisible(true);
+                new MainPanelGUIN(connection).setVisible(true);
             }
         });
     }
