@@ -273,7 +273,6 @@
               <Color blue="ec" green="d6" red="e2" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Reporte"/>
-            <Property name="actionCommand" type="java.lang.String" value="Reporte"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ReporteActionPerformed"/>
