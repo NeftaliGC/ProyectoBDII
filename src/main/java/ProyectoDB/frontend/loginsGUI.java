@@ -1,5 +1,7 @@
-package ProyectoDB;
+package ProyectoDB.frontend;
 
+import ProyectoDB.DBConnection;
+import ProyectoDB.componentes.JlabelPersonalizado;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.EventQueue;
@@ -31,19 +33,7 @@ public class loginsGUI extends JFrame {
     private JPasswordField passwordField;
     int xx, xy;
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    loginsGUI loginframe = new loginsGUI();
-                    loginframe.setUndecorated(true);
-                    loginframe.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
+   
 
     public loginsGUI() {
         setBackground(Color.WHITE);
@@ -116,11 +106,8 @@ public class loginsGUI extends JFrame {
         buttonLogin.setBounds(395, 363, 283, 50);
         contentPane.add(buttonLogin);
 
-        JLabel lblAlreadyHaveProblem = new JLabel("¿Tienes problemas?");
-        lblAlreadyHaveProblem.setForeground(new Color(30, 144, 255));
-        lblAlreadyHaveProblem.setFont(new Font("Tahoma", Font.PLAIN, 12));
+        JlabelPersonalizado lblAlreadyHaveProblem = new JlabelPersonalizado("¿Tienes problemas?");
         lblAlreadyHaveProblem.setBounds(395, 325, 300, 27);
-        lblAlreadyHaveProblem.setCursor(new Cursor(Cursor.HAND_CURSOR));
         contentPane.add(lblAlreadyHaveProblem);
         lblAlreadyHaveProblem.addMouseListener(new MouseAdapter() {
             @Override

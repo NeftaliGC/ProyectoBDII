@@ -1,4 +1,4 @@
-package ProyectoDB;
+package ProyectoDB.frontend;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -9,15 +9,15 @@ import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
 
-public class SearchEmployeeGUI extends JFrame {
+public class SearchPharmacyGUI extends JFrame {
     private Connection connection;
-    private JTextField rfcField, nombreField, primerApellidoField, correoElectronicoField;
+    private JTextField idFarmaciaField, nombreFarmaciaField, correoElectronicoField, telefonoField;
     private JTextArea resultArea;
 
-    public SearchEmployeeGUI(Connection connection) {
+    public SearchPharmacyGUI(Connection connection) {
         this.connection = connection;
 
-        setTitle("Búsqueda de Empleados");
+        setTitle("Búsqueda de Farmacias");
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             @Override
@@ -42,61 +42,45 @@ public class SearchEmployeeGUI extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
-        JLabel lblRfc = new JLabel("RFC:");
-        lblRfc.setFont(new Font("Tahoma", Font.PLAIN, 12));
-        lblRfc.setBounds(20, 20, 200, 25);
-        contentPane.add(lblRfc);
+        JLabel lblIdFarmacia = new JLabel("ID Farmacia:");
+        lblIdFarmacia.setFont(new Font("Tahoma", Font.PLAIN, 12));
+        lblIdFarmacia.setBounds(20, 20, 200, 25);
+        contentPane.add(lblIdFarmacia);
 
-        rfcField = new JTextField();
-        rfcField.setBounds(180, 20, 150, 25);
-        rfcField.setColumns(10);
-        rfcField.getDocument().addDocumentListener(new SimpleDocumentListener() {
+        idFarmaciaField = new JTextField();
+        idFarmaciaField.setBounds(180, 20, 150, 25);
+        idFarmaciaField.setColumns(10);
+        idFarmaciaField.getDocument().addDocumentListener(new SimpleDocumentListener() {
             @Override
             public void update() {
-                disableFields(rfcField);
+                disableFields(idFarmaciaField);
             }
         });
-        contentPane.add(rfcField);
+        contentPane.add(idFarmaciaField);
 
-        JLabel lblNombre = new JLabel("Nombre:");
-        lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 12));
-        lblNombre.setBounds(20, 50, 200, 25);
-        contentPane.add(lblNombre);
+        JLabel lblNombreFarmacia = new JLabel("Nombre Farmacia:");
+        lblNombreFarmacia.setFont(new Font("Tahoma", Font.PLAIN, 12));
+        lblNombreFarmacia.setBounds(20, 50, 200, 25);
+        contentPane.add(lblNombreFarmacia);
 
-        nombreField = new JTextField();
-        nombreField.setBounds(180, 50, 150, 25);
-        nombreField.setColumns(10);
-        nombreField.getDocument().addDocumentListener(new SimpleDocumentListener() {
+        nombreFarmaciaField = new JTextField();
+        nombreFarmaciaField.setBounds(180, 50, 150, 25);
+        nombreFarmaciaField.setColumns(10);
+        nombreFarmaciaField.getDocument().addDocumentListener(new SimpleDocumentListener() {
             @Override
             public void update() {
-                disableFields(nombreField);
+                disableFields(nombreFarmaciaField);
             }
         });
-        contentPane.add(nombreField);
-
-        JLabel lblPrimerApellido = new JLabel("Primer Apellido:");
-        lblPrimerApellido.setFont(new Font("Tahoma", Font.PLAIN, 12));
-        lblPrimerApellido.setBounds(20, 80, 200, 25);
-        contentPane.add(lblPrimerApellido);
-
-        primerApellidoField = new JTextField();
-        primerApellidoField.setBounds(180, 80, 150, 25);
-        primerApellidoField.setColumns(10);
-        primerApellidoField.getDocument().addDocumentListener(new SimpleDocumentListener() {
-            @Override
-            public void update() {
-                disableFields(primerApellidoField);
-            }
-        });
-        contentPane.add(primerApellidoField);
+        contentPane.add(nombreFarmaciaField);
 
         JLabel lblCorreoElectronico = new JLabel("Correo Electrónico:");
         lblCorreoElectronico.setFont(new Font("Tahoma", Font.PLAIN, 12));
-        lblCorreoElectronico.setBounds(20, 110, 200, 25);
+        lblCorreoElectronico.setBounds(20, 80, 200, 25);
         contentPane.add(lblCorreoElectronico);
 
         correoElectronicoField = new JTextField();
-        correoElectronicoField.setBounds(180, 110, 150, 25);
+        correoElectronicoField.setBounds(180, 80, 150, 25);
         correoElectronicoField.setColumns(10);
         correoElectronicoField.getDocument().addDocumentListener(new SimpleDocumentListener() {
             @Override
@@ -106,12 +90,28 @@ public class SearchEmployeeGUI extends JFrame {
         });
         contentPane.add(correoElectronicoField);
 
+        JLabel lblTelefono = new JLabel("Teléfono:");
+        lblTelefono.setFont(new Font("Tahoma", Font.PLAIN, 12));
+        lblTelefono.setBounds(20, 110, 200, 25);
+        contentPane.add(lblTelefono);
+
+        telefonoField = new JTextField();
+        telefonoField.setBounds(180, 110, 150, 25);
+        telefonoField.setColumns(10);
+        telefonoField.getDocument().addDocumentListener(new SimpleDocumentListener() {
+            @Override
+            public void update() {
+                disableFields(telefonoField);
+            }
+        });
+        contentPane.add(telefonoField);
+
         JButton btnBuscar = new JButton("Buscar");
         btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 12));
         btnBuscar.setBackground(new Color(28, 232, 49));
         btnBuscar.setForeground(Color.WHITE);
         btnBuscar.setBounds(300, 150, 100, 30);
-        btnBuscar.addActionListener(e -> buscarEmpleados());
+        btnBuscar.addActionListener(e -> buscarFarmacias());
         contentPane.add(btnBuscar);
 
         JPanel resultPanel = new JPanel();
@@ -127,41 +127,41 @@ public class SearchEmployeeGUI extends JFrame {
     }
 
     private void disableFields(JTextField field) {
-        rfcField.setEnabled(field == rfcField);
-        nombreField.setEnabled(field == nombreField);
-        primerApellidoField.setEnabled(field == primerApellidoField);
+        idFarmaciaField.setEnabled(field == idFarmaciaField);
+        nombreFarmaciaField.setEnabled(field == nombreFarmaciaField);
         correoElectronicoField.setEnabled(field == correoElectronicoField);
+        telefonoField.setEnabled(field == telefonoField);
     }
 
     private void enableFields() {
-        rfcField.setEnabled(true);
-        nombreField.setEnabled(true);
-        primerApellidoField.setEnabled(true);
+        idFarmaciaField.setEnabled(true);
+        nombreFarmaciaField.setEnabled(true);
         correoElectronicoField.setEnabled(true);
+        telefonoField.setEnabled(true);
     }
 
-    private void buscarEmpleados() {
-        String rfc = rfcField.getText();
-        String nombre = nombreField.getText();
-        String primerApellido = primerApellidoField.getText();
+    private void buscarFarmacias() {
+        String idFarmacia = idFarmaciaField.getText();
+        String nombreFarmacia = nombreFarmaciaField.getText();
         String correoElectronico = correoElectronicoField.getText();
+        String telefono = telefonoField.getText();
 
-        String query = "SELECT * FROM farma.empleado WHERE 1=1";
+        String query = "SELECT * FROM farma.farmacia WHERE 1=1";
 
-        if (!rfc.isEmpty()) {
-            query += " AND rfc = '" + rfc + "'";
+        if (!idFarmacia.isEmpty()) {
+            query += " AND id_farmacia = '" + idFarmacia + "'";
         }
 
-        if (!nombre.isEmpty()) {
-            query += " AND nombre ILIKE '%" + nombre + "%'";
-        }
-
-        if (!primerApellido.isEmpty()) {
-            query += " AND primer_apellido ILIKE '%" + primerApellido + "%'";
+        if (!nombreFarmacia.isEmpty()) {
+            query += " AND nombre_farmacia ILIKE '%" + nombreFarmacia + "%'";
         }
 
         if (!correoElectronico.isEmpty()) {
             query += " AND correo_electronico ILIKE '%" + correoElectronico + "%'";
+        }
+
+        if (!telefono.isEmpty()) {
+            query += " AND telefono = " + telefono;
         }
 
         try (Statement stmt = connection.createStatement();
@@ -169,18 +169,13 @@ public class SearchEmployeeGUI extends JFrame {
 
             resultArea.setText("");
             while (rs.next()) {
-                resultArea.append("RFC: " + rs.getString("rfc") + "\n");
-                resultArea.append("Nombre: " + rs.getString("nombre") + "\n");
-                resultArea.append("Primer Apellido: " + rs.getString("primer_apellido") + "\n");
-                resultArea.append("Segundo Apellido: " + rs.getString("segundo_apellido") + "\n");
-                resultArea.append("Teléfono: " + rs.getLong("telefono") + "\n");
-                resultArea.append("Correo Electrónico: " + rs.getString("correo_electronico") + "\n");
-                resultArea.append("Dirección: " + rs.getString("direccion") + "\n");
-                resultArea.append("Código Postal: " + rs.getInt("codigo_postal") + "\n");
-                resultArea.append("ID Empleado: " + rs.getString("id_empleado") + "\n");
-                resultArea.append("Fecha Contratación: " + rs.getDate("fecha_contratacion") + "\n");
-                resultArea.append("ID Empleo: " + rs.getInt("id_empleo") + "\n");
                 resultArea.append("ID Farmacia: " + rs.getString("id_farmacia") + "\n");
+                resultArea.append("Nombre Farmacia: " + rs.getString("nombre_farmacia") + "\n");
+                resultArea.append("Dirección: " + rs.getString("direccion") + "\n");
+                resultArea.append("Horario: " + rs.getTimestamp("horario") + "\n");
+                resultArea.append("Correo Electrónico: " + rs.getString("correo_electronico") + "\n");
+                resultArea.append("Teléfono: " + rs.getLong("telefono") + "\n");
+                resultArea.append("Licencia/Permiso: " + rs.getBoolean("licencia_permiso") + "\n");
                 resultArea.append("-------------------\n");
             }
         } catch (SQLException e) {

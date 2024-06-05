@@ -1,4 +1,4 @@
-package ProyectoDB;
+package ProyectoDB.frontend;
 
 import java.awt.*;
 import java.awt.event.*;

@@ -1,5 +1,9 @@
-package ProyectoDB;
+package ProyectoDB.frontend;
 
+import ProyectoDB.frontend.SalesOperationsGUI;
+import ProyectoDB.frontend.SearchEmployeeGUI;
+import ProyectoDB.frontend.SearchPharmacyGUI;
+import ProyectoDB.frontend.SearchTicketGUI;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;

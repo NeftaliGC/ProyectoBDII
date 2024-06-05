@@ -8,14 +8,14 @@ package ProyectoDB.backend.objetos.venta;
  *
  * @author jft314
  */
-public class Venta implements Vendible {
+public class Venta implements VentaInterface {
 
     private String idVenta;
     private int cantidadVendida;
     private double totalVenta;
     private boolean recetaMedica;
     private String idProducto;
-    private String rfcCliente;
+    private int rfcCliente;
     private int idTicket;
 
     public Venta(
@@ -24,7 +24,7 @@ public class Venta implements Vendible {
             double totalVenta,
             boolean recetaMedica,
             String idProducto,
-            String rfcCliente,
+            int rfcCliente,
             int idTicket) {
 
         this.idVenta = idVenta;
@@ -39,13 +39,13 @@ public class Venta implements Vendible {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder(200);
-        stringBuilder.append(String.format("%s, ", idVenta));
+        stringBuilder.append(String.format("'%s', ", idVenta));
         stringBuilder.append(String.format("%s, ", cantidadVendida));
         stringBuilder.append(String.format("%s, ", totalVenta));
         stringBuilder.append(String.format("%s, ", recetaMedica));
-        stringBuilder.append(String.format("%s, ", idProducto));
-        stringBuilder.append(String.format("%s, ", rfcCliente));
-        stringBuilder.append(String.format("%s ", idTicket));
+        stringBuilder.append(String.format("'%s', ", idProducto));
+        stringBuilder.append(String.format("'%s', ", rfcCliente));
+        stringBuilder.append(String.format("'%s'", idTicket));
 
         return stringBuilder.toString();
     }
@@ -70,7 +70,7 @@ public class Venta implements Vendible {
         return idProducto;
     }
 
-    public String getRfcCliente() {
+    public int getRfcCliente() {
         return rfcCliente;
     }
 
@@ -98,7 +98,7 @@ public class Venta implements Vendible {
         this.idProducto = idProducto;
     }
 
-    public void setRfcCliente(String rfcCliente) {
+    public void setRfcCliente(int rfcCliente) {
         this.rfcCliente = rfcCliente;
     }
 
@@ -106,4 +106,16 @@ public class Venta implements Vendible {
         this.idTicket = idTicket;
     }
 
+    public static String getNombreColumnas() {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (String nombre : NOMBRES_COLUMNAS) {
+
+            stringBuilder.append(nombre).append(", ");
+        }
+        stringBuilder.delete(
+                stringBuilder.length() - 3, stringBuilder.length() - 1);
+
+        return stringBuilder.toString();
+    }
 }

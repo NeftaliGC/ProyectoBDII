@@ -1,5 +1,6 @@
-package ProyectoDB;
+package ProyectoDB.frontend;
 
+import ProyectoDB.frontend.MainPanelGUI;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
