@@ -45,7 +45,6 @@ public class HighSalesGUI extends JFrame {
     }
 
     private void initialize() {
-
         // Configuración de la ventana principal
         setBackground(Color.WHITE);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
