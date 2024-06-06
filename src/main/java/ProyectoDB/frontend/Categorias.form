@@ -65,7 +65,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Roboto" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Edicion de Categoria"/>
+            <Property name="text" type="java.lang.String" value="Edicion de Inventario"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -252,14 +252,10 @@
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="8" rowCount="0">
-                <Column editable="true" title="CategoriaID" type="java.lang.Object"/>
-                <Column editable="true" title="Nombre" type="java.lang.Object"/>
-                <Column editable="true" title="Descripcion" type="java.lang.Object"/>
-                <Column editable="true" title="Codigo" type="java.lang.Object"/>
-                <Column editable="true" title="FechaCreacion" type="java.lang.Object"/>
-                <Column editable="true" title="UltimaModificaci&#xf3;n" type="java.lang.Object"/>
-                <Column editable="true" title="Cantidad_Medicamentos" type="java.lang.Object"/>
-                <Column editable="true" title="Stock" type="java.lang.Object"/>
+                <Column editable="true" title="ID Inventario" type="java.lang.Object"/>
+                <Column editable="true" title="Cantidad Disponible" type="java.lang.Object"/>
+                <Column editable="true" title="Cantidad Minima" type="java.lang.Object"/>
+                <Column editable="true" title="Cantidad Limite" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -474,7 +470,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Roboto" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Datos de los Categoria"/>
+            <Property name="text" type="java.lang.String" value="Datos del Inventario"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
