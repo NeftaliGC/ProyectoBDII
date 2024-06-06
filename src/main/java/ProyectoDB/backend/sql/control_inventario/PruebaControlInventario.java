@@ -10,7 +10,7 @@ import ProyectoDB.backend.sql.ventas.SQLVenta;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -27,7 +27,7 @@ public class PruebaControlInventario {
             SQLVenta sqlVenta = new SQLVenta(connection);
             SQLControlInventario control = new SQLControlInventario(connection);
 
-            ControlInventario c = new ControlInventario(Timestamp.from(Instant.EPOCH), 88, "PROD008", "INV006");
+            ControlInventario c = new ControlInventario(Timestamp.valueOf(LocalDateTime.now()), 88, "PROD008", "INV006");
             control.alta(c);
         } catch (SQLException ex) {
             Logger.getLogger(PruebaControlInventario.class.getName()).log(Level.SEVERE, null, ex);

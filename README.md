@@ -38,6 +38,7 @@ Sientete libre de añadir tareas por hacer en esta sección si consideras que ha
 - [x] 3. Crear las clases para dar de baja (eliminar) una venta en la tabla venta - @JFT-314
 - [x] 5. Crear las clases necesarias para consultar una venta - @JFT-314
 - [x] 4. Crear las clases necesarias para modificar un registro en la tabla ventas - @JFT-314
+- [x] 6. Crear las clases para dar de alta (crear) una venta en la tabla control_inventario - @JFT-314
 
 ## Estructura del proyecto
   El proyecto tiene la siguiente estructura:
