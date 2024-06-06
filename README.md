@@ -20,7 +20,7 @@ Sientete libre de añadir tareas por hacer en esta sección si consideras que ha
 
 > Todas las tablas que no estén relacionadas intrínsecamente con ventas e inventario serán catálogos. Por lo cual no se modificarán, solo se accederán a sus datos*
 
-- [ ] 11. Crear las clases necesarias para traer los datos del datamart para poder crear gráficas, deberán regresar la gráfica.
+- [ ] 11. Conexión API para traer la imagen de datamart del proceso correspondiente
 
 > Los querys del datamart y los querys exactos para traer los datos de las tablas aún no los terminan los DBAs, pero pueden trabajar en la estructura de sus clases. En cuanto tenga los querys se los mando
 
