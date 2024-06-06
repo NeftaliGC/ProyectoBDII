@@ -4,7 +4,6 @@ package ProyectoDB.frontend;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author Webotes
@@ -16,11 +15,13 @@ import java.awt.event.ItemListener;
 import java.sql.Connection;
 import javax.swing.ButtonGroup;
 
-public class MainPanelGUIN extends javax.swing.JFrame implements ItemListener{
+public class MainPanelGUIN extends javax.swing.JFrame implements ItemListener {
+
     private static Connection connection;
-    
+
     /**
      * Creates new form MainPanelGUI
+     *
      * @param connection
      */
     public MainPanelGUIN(Connection connection) {
@@ -44,7 +45,7 @@ public class MainPanelGUIN extends javax.swing.JFrame implements ItemListener{
         bg2.add(ActualBoton);
         bg2.add(ReporteBoton);
         bg2.add(DataMBoton);
-       
+
     }
 
     /**
@@ -260,8 +261,8 @@ public class MainPanelGUIN extends javax.swing.JFrame implements ItemListener{
     }// </editor-fold>//GEN-END:initComponents
 
     private void VentaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VentaBotonActionPerformed
-        
-        
+
+
     }//GEN-LAST:event_VentaBotonActionPerformed
 
     private void InventarioBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InventarioBotonActionPerformed
@@ -346,6 +347,12 @@ public class MainPanelGUIN extends javax.swing.JFrame implements ItemListener{
 
     @Override
     public void itemStateChanged(ItemEvent e) {
-        System.out.println("webos");
+        if (e.getStateChange() == ItemEvent.SELECTED) {
+            if (e.getItemSelectable() == VentaBoton) {
+                System.out.println("webos");
+            } else if (e.getItemSelectable() == InventarioBoton) {
+                System.out.println("comes");
+            }
+        }
     }
 }
