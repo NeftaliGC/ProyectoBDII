@@ -5,18 +5,23 @@ import java.awt.*;
 
 public class DataMartGUI extends JFrame {
     private JLabel imageLabel;
+    private JPanel panel;
 
     public DataMartGUI() {
-        imageLabel = new JLabel();
-        add(imageLabel);
-        setLayout(new FlowLayout());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 400);
-        setVisible(true);
+        setLayout(new BorderLayout());
 
-        // Cargamos la imagen al iniciar la GUI
-        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/resources/flower.png")); // Asegúrese de que esta es la ruta correcta a su imagen
-        setImage(imageIcon);
+        imageLabel = new JLabel();
+        imageLabel.setVerticalAlignment(SwingConstants.TOP);
+        imageLabel.setIcon(new ImageIcon(DataMartGUI.class.getResource("/images/flower.png")));
+
+        panel = new JPanel();
+        panel.add(imageLabel);
+
+        add(panel, BorderLayout.CENTER);
+
+        setVisible(true);
     }
 
     public void setImage(ImageIcon imageIcon) {
