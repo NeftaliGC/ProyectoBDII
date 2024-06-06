@@ -11,22 +11,5 @@ package ProyectoDB.backend.objetos.venta;
 public interface VentaInterface {
 
     String NOMBRE_TABLA = "VENTA";
-    String NOMBRES_COLUMNAS[] = {
-        "Id_venta",
-        "Cantidad_vendida",
-        "Total_venta",
-        "Receta_medicina",
-        "Id_producto",
-        "Rfc_cliente",
-        "Id_ticket"};
-    
-    String TIPOS_COLUMNAS[] = {
-        "VARCHAR(10)",
-        "NUMERIC(3)",
-        "NUMERIC(10, 2)",
-        "BOOLEAN",
-        "VARCHAR(10)",
-        "VARCHAR(13)",
-        "NUMERIC(10)"};
     
 }

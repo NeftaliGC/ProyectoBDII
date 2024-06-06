@@ -27,7 +27,7 @@ public class PruebaVenta {
     }
 
     private static void pruebaFunciones() throws SQLException {
-        int op = 2;
+        int op = 1;
         DBConnection dbc = new DBConnection("localhost", "farma", "5432", "postgres", "8133pqalO");
         Connection connection = dbc.getConnection();
         SQLVenta sqlVenta = new SQLVenta(connection);
@@ -43,7 +43,7 @@ public class PruebaVenta {
                 break;
             case 2:
                 long l = Long.parseLong("6740259002");
-                Venta v = sqlVenta.alta(new Venta("dasdas", 6, 25.58, true, "PROD002", "BADM491122OO7", l));
+                Venta v = sqlVenta.alta(new Venta("ghbccbf", 6, 25.58, true, "PROD002", "BADM491122OO7", l));
                 System.out.println(v);
                 break;
 

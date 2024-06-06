@@ -87,7 +87,7 @@ public class SQLVenta implements Operable<Venta, String>, VentaInterface {
                     callableStatement.getBoolean(4),
                     callableStatement.getString(5),
                     callableStatement.getString(6),
-                    callableStatement.getInt(7));
+                    callableStatement.getLong(7));
         } catch (SQLException ex) {
             Logger.getLogger(SQLVenta.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -96,7 +96,7 @@ public class SQLVenta implements Operable<Venta, String>, VentaInterface {
 
     @Override
     public List<Venta> reporte() {
-        String sql = "{call reporte_venta()}";
+        String sql = "select * from reporte_venta()";
         List<Venta> ventas = null;
 
         try {
@@ -113,7 +113,7 @@ public class SQLVenta implements Operable<Venta, String>, VentaInterface {
                         resultSet.getBoolean(4),
                         resultSet.getString(5),
                         resultSet.getString(6),
-                        resultSet.getInt(7)));
+                        resultSet.getLong(7)));
             }
 
             return ventas;

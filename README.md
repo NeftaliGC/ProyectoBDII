@@ -32,13 +32,13 @@ Sientete libre de añadir tareas por hacer en esta sección si consideras que ha
 - [ ] 3. Crear las clases para dar de baja (eliminar) una venta en la tabla venta - @JFT-314
 - [ ] 4. Crear las clases necesarias para modificar un registro en la tabla ventas - @JFT-314
 - [ ] 5. Crear las clases necesarias para consultar una venta - @JFT-314
-- [ ] 5. Crear las clases necesarias para reporte de la tabla venta - @JFT-314
 
 
 ## Tareas realizadas
 - [x] Todas las tareas realizadas previamente se encuentra en commits anteriores.
 - [x] 1. Conectar a la base de datos en base a las claves ip, Nombre de la base de datos, Puerto, Usuario y contraseña.
 - [x] 2. Crear las clases para dar de alta (crear) una venta en la tabla venta - @JFT-314
+- [x] 5. Crear las clases necesarias para reporte de la tabla venta - @JFT-314
 
 ## Estructura del proyecto
   El proyecto tiene la siguiente estructura:
