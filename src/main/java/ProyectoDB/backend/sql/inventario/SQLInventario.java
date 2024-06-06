@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ProyectoDB.backend.sql.Inventario;
+package ProyectoDB.backend.sql.inventario;
 
 /**
  *
@@ -57,19 +57,19 @@ public class SQLInventario implements Operable<Inventario, String> {
         return null;
     }
 
-    @Override
-    public Inventario modifica(String id) {
-        String sql = String.format("{call modificar_inventarioo(%s)}", id);
-
-        try {
-            CallableStatement callableStatement = connection.prepareCall(sql);
-            callableStatement.execute();
-            return null;
-        } catch (SQLException ex) {
-            Logger.getLogger(SQLInventario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-    }
+//    @Override
+//    public Inventario modifica(String id) {
+//        String sql = String.format("{call modificar_inventarioo(%s)}", id);
+//
+//        try {
+//            CallableStatement callableStatement = connection.prepareCall(sql);
+//            callableStatement.execute();
+//            return null;
+//        } catch (SQLException ex) {
+//            Logger.getLogger(SQLInventario.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return null;
+//    }
 
     @Override
     public Inventario consulta(String id) {
@@ -114,5 +114,10 @@ public class SQLInventario implements Operable<Inventario, String> {
             Logger.getLogger(SQLInventario.class.getName()).log(Level.SEVERE, null, ex);
         }
         return inventarios;
+    }
+
+    @Override
+    public Inventario modifica(Inventario param) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

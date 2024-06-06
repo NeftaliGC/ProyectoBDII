@@ -33,7 +33,7 @@ public interface Operable<T, G> {
      * @param param Es el objeto usado para localizar el objeto a modificar
      * @return El objeto modificado
      */
-    T modifica(G param);
+    T modifica(T param);
 
     /**
      *

@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import ProyectoDB.backend.objetos.venta.VentaInterface;
-import java.sql.Statement;
+import java.sql.PreparedStatement;
 import java.sql.Types;
 
 /**
@@ -60,17 +60,31 @@ public class SQLVenta implements Operable<Venta, String>, VentaInterface {
         return null;
     }
 
+    /**
+     * actualizar_venta( id_venta, id_producto, rfc, id_ticket,
+     * cantidad_vendida)
+     *
+     * @param venta
+     * @return
+     */
     @Override
-    public Venta modifica(String id) {
-//        String sql = String.format("{call *** P E N D I E N T E *** (%s)}", id);
-//
-//        try {
-//            CallableStatement callableStatement = connection.prepareCall(sql);
-//            callableStatement.execute();
-//            return null;
-//        } catch (SQLException ex) {
-//            Logger.getLogger(SQLVenta.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+    public Venta modifica(Venta venta) {
+        String sql = String.format(
+                "select actualizar_venta( '%s', '%s', '%s', %d, %d)",
+                venta.getIdVenta(),
+                venta.getIdProducto(),
+                venta.getRfcCliente(),
+                venta.getIdTicket(),
+                venta.getCantidadVendida());
+        System.out.println(sql);
+
+        try {
+            CallableStatement callableStatement = connection.prepareCall(sql);
+            callableStatement.execute();
+            return venta;
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLVenta.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return null;
     }
 
