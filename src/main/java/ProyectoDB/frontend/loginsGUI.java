@@ -3,8 +3,6 @@ package ProyectoDB.frontend;
 import ProyectoDB.DBConnection;
 import ProyectoDB.componentes.JlabelPersonalizado;
 import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,11 +24,11 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 public class loginsGUI extends JFrame {
-    private JTextField textFieldServer;
-    private JTextField textFieldDatabase;
-    private JTextField textFieldPort;
-    private JTextField textFieldUser;
-    private JPasswordField passwordField;
+    private final JTextField textFieldServer;
+    private final JTextField textFieldDatabase;
+    private final JTextField textFieldPort;
+    private final JTextField textFieldUser;
+    private final JPasswordField passwordField;
     int xx, xy;
 
    

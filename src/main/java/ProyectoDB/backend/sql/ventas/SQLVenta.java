@@ -86,7 +86,7 @@ public class SQLVenta implements Operable<Venta, String>, VentaInterface {
                     callableStatement.getDouble(3),
                     callableStatement.getBoolean(4),
                     callableStatement.getString(5),
-                    callableStatement.getInt(6),
+                    callableStatement.getString(6),
                     callableStatement.getInt(7));
         } catch (SQLException ex) {
             Logger.getLogger(SQLVenta.class.getName()).log(Level.SEVERE, null, ex);
@@ -112,7 +112,7 @@ public class SQLVenta implements Operable<Venta, String>, VentaInterface {
                         resultSet.getDouble(3),
                         resultSet.getBoolean(4),
                         resultSet.getString(5),
-                        resultSet.getInt(6),
+                        resultSet.getString(6),
                         resultSet.getInt(7)));
             }
 

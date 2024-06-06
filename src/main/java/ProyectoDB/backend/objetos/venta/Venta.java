@@ -15,8 +15,8 @@ public class Venta implements VentaInterface {
     private double totalVenta;
     private boolean recetaMedica;
     private String idProducto;
-    private int rfcCliente;
-    private int idTicket;
+    private String rfcCliente;
+    private long idTicket;
 
     public Venta(
             String idVenta,
@@ -24,8 +24,8 @@ public class Venta implements VentaInterface {
             double totalVenta,
             boolean recetaMedica,
             String idProducto,
-            int rfcCliente,
-            int idTicket) {
+            String rfcCliente,
+            long idTicket) {
 
         this.idVenta = idVenta;
         this.cantidadVendida = cantidadVendida;
@@ -45,7 +45,7 @@ public class Venta implements VentaInterface {
         stringBuilder.append(String.format("%s, ", recetaMedica));
         stringBuilder.append(String.format("'%s', ", idProducto));
         stringBuilder.append(String.format("'%s', ", rfcCliente));
-        stringBuilder.append(String.format("'%s'", idTicket));
+        stringBuilder.append(String.format("%d", idTicket));
 
         return stringBuilder.toString();
     }
@@ -70,11 +70,11 @@ public class Venta implements VentaInterface {
         return idProducto;
     }
 
-    public int getRfcCliente() {
+    public String getRfcCliente() {
         return rfcCliente;
     }
 
-    public int getIdTicket() {
+    public long getIdTicket() {
         return idTicket;
     }
 
@@ -98,24 +98,12 @@ public class Venta implements VentaInterface {
         this.idProducto = idProducto;
     }
 
-    public void setRfcCliente(int rfcCliente) {
+    public void setRfcCliente(String rfcCliente) {
         this.rfcCliente = rfcCliente;
     }
 
-    public void setIdTicket(int idTicket) {
+    public void setIdTicket(long idTicket) {
         this.idTicket = idTicket;
     }
 
-    public static String getNombreColumnas() {
-        StringBuilder stringBuilder = new StringBuilder();
-
-        for (String nombre : NOMBRES_COLUMNAS) {
-
-            stringBuilder.append(nombre).append(", ");
-        }
-        stringBuilder.delete(
-                stringBuilder.length() - 3, stringBuilder.length() - 1);
-
-        return stringBuilder.toString();
-    }
 }

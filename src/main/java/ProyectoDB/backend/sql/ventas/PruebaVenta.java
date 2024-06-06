@@ -42,7 +42,8 @@ public class PruebaVenta {
                 }
                 break;
             case 2:
-                Venta v = sqlVenta.alta(new Venta("dasdas", 6, 25.58, true, "asd15ds5a", 4, 5));
+                long l = Long.parseLong("6740259002");
+                Venta v = sqlVenta.alta(new Venta("dasdas", 6, 25.58, true, "PROD002", "BADM491122OO7", l));
                 System.out.println(v);
                 break;
 
