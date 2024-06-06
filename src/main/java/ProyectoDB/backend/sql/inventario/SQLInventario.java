@@ -9,7 +9,7 @@ package ProyectoDB.backend.sql.inventario;
  * @author Esteban
  */
 import ProyectoDB.backend.objetos.inventario.Inventario;
-import ProyectoDB.backend.sql.ventas.Operable;
+import ProyectoDB.backend.sql.Operable;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -70,7 +70,6 @@ public class SQLInventario implements Operable<Inventario, String> {
 //        }
 //        return null;
 //    }
-
     @Override
     public Inventario consulta(String id) {
         String sql = String.format("{call consultar_inventario(%s)}", id);

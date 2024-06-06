@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import ProyectoDB.backend.objetos.venta.VentaInterface;
-import java.sql.PreparedStatement;
+import ProyectoDB.backend.sql.Operable;
 import java.sql.Types;
 
 /**
