@@ -58,9 +58,8 @@ public class MainPanelGUIN extends javax.swing.JFrame implements ItemListener{
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         VentaBoton = new javax.swing.JRadioButton();
         InventarioBoton = new javax.swing.JRadioButton();
@@ -70,8 +69,7 @@ public class MainPanelGUIN extends javax.swing.JFrame implements ItemListener{
         ConsultaBoton = new javax.swing.JRadioButton();
         ActualBoton = new javax.swing.JRadioButton();
         DataMBoton = new javax.swing.JRadioButton();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(48, 114, 130));
@@ -82,35 +80,14 @@ public class MainPanelGUIN extends javax.swing.JFrame implements ItemListener{
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Bienvenido  ");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jRadioButton2.setText("Inventario");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
-            }
-        });
-
+        jLabel3.setBackground(new java.awt.Color(62, 49, 47));
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/flowers.jpeg"))); // NOI18N
+
+        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
 
         jPanel3.setBackground(new java.awt.Color(48, 140, 130));
 
-        VentaBoton.setFont(new java.awt.Font("Goudy Old Style", 0, 24)); // NOI18N
+        VentaBoton.setFont(new java.awt.Font("Goudy Old Style", 3, 24)); // NOI18N
         VentaBoton.setForeground(new java.awt.Color(203, 245, 251));
         VentaBoton.setText("Venta");
         VentaBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -119,7 +96,7 @@ public class MainPanelGUIN extends javax.swing.JFrame implements ItemListener{
             }
         });
 
-        InventarioBoton.setFont(new java.awt.Font("Goudy Old Style", 0, 24)); // NOI18N
+        InventarioBoton.setFont(new java.awt.Font("Goudy Old Style", 3, 24)); // NOI18N
         InventarioBoton.setForeground(new java.awt.Color(203, 245, 251));
         InventarioBoton.setText("Inventario");
         InventarioBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -128,7 +105,7 @@ public class MainPanelGUIN extends javax.swing.JFrame implements ItemListener{
             }
         });
 
-        AltaBoton.setFont(new java.awt.Font("Goudy Old Style", 0, 18)); // NOI18N
+        AltaBoton.setFont(new java.awt.Font("Goudy Old Style", 3, 18)); // NOI18N
         AltaBoton.setForeground(new java.awt.Color(226, 214, 236));
         AltaBoton.setText("Alta");
         AltaBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -137,7 +114,7 @@ public class MainPanelGUIN extends javax.swing.JFrame implements ItemListener{
             }
         });
 
-        BajaBoton.setFont(new java.awt.Font("Goudy Old Style", 0, 18)); // NOI18N
+        BajaBoton.setFont(new java.awt.Font("Goudy Old Style", 3, 18)); // NOI18N
         BajaBoton.setForeground(new java.awt.Color(226, 214, 236));
         BajaBoton.setText("Baja");
         BajaBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +123,7 @@ public class MainPanelGUIN extends javax.swing.JFrame implements ItemListener{
             }
         });
 
-        ReporteBoton.setFont(new java.awt.Font("Goudy Old Style", 0, 18)); // NOI18N
+        ReporteBoton.setFont(new java.awt.Font("Goudy Old Style", 3, 18)); // NOI18N
         ReporteBoton.setForeground(new java.awt.Color(226, 214, 236));
         ReporteBoton.setText("Reporte");
         ReporteBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -155,7 +132,7 @@ public class MainPanelGUIN extends javax.swing.JFrame implements ItemListener{
             }
         });
 
-        ConsultaBoton.setFont(new java.awt.Font("Goudy Old Style", 0, 18)); // NOI18N
+        ConsultaBoton.setFont(new java.awt.Font("Goudy Old Style", 3, 18)); // NOI18N
         ConsultaBoton.setForeground(new java.awt.Color(226, 214, 236));
         ConsultaBoton.setText("Consulta");
         ConsultaBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -164,7 +141,7 @@ public class MainPanelGUIN extends javax.swing.JFrame implements ItemListener{
             }
         });
 
-        ActualBoton.setFont(new java.awt.Font("Goudy Old Style", 0, 18)); // NOI18N
+        ActualBoton.setFont(new java.awt.Font("Goudy Old Style", 3, 18)); // NOI18N
         ActualBoton.setForeground(new java.awt.Color(226, 214, 236));
         ActualBoton.setText("Actualziar");
         ActualBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -173,7 +150,7 @@ public class MainPanelGUIN extends javax.swing.JFrame implements ItemListener{
             }
         });
 
-        DataMBoton.setFont(new java.awt.Font("Goudy Old Style", 0, 18)); // NOI18N
+        DataMBoton.setFont(new java.awt.Font("Goudy Old Style", 3, 18)); // NOI18N
         DataMBoton.setForeground(new java.awt.Color(226, 214, 236));
         DataMBoton.setText("DataMart");
         DataMBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -230,76 +207,52 @@ public class MainPanelGUIN extends javax.swing.JFrame implements ItemListener{
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(580, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 468, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 436, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton2)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
                 .addGap(14, 14, 14))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton2))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(137, 137, 137)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(247, 247, 247)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -309,10 +262,6 @@ public class MainPanelGUIN extends javax.swing.JFrame implements ItemListener{
         
         
     }//GEN-LAST:event_VentaBotonActionPerformed
-
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void InventarioBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InventarioBotonActionPerformed
         // TODO add your handling code here:
@@ -389,11 +338,9 @@ public class MainPanelGUIN extends javax.swing.JFrame implements ItemListener{
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JRadioButton jRadioButton2;
     // End of variables declaration//GEN-END:variables
 
     @Override
