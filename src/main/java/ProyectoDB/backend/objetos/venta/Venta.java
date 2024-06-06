@@ -8,7 +8,7 @@ package ProyectoDB.backend.objetos.venta;
  *
  * @author jft314
  */
-public class Venta implements Vendible {
+public class Venta implements VentaInterface {
 
     private String idVenta;
     private int cantidadVendida;
@@ -16,7 +16,7 @@ public class Venta implements Vendible {
     private boolean recetaMedica;
     private String idProducto;
     private String rfcCliente;
-    private int idTicket;
+    private long idTicket;
 
     public Venta(
             String idVenta,
@@ -25,7 +25,7 @@ public class Venta implements Vendible {
             boolean recetaMedica,
             String idProducto,
             String rfcCliente,
-            int idTicket) {
+            long idTicket) {
 
         this.idVenta = idVenta;
         this.cantidadVendida = cantidadVendida;
@@ -39,13 +39,13 @@ public class Venta implements Vendible {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder(200);
-        stringBuilder.append(String.format("%s, ", idVenta));
+        stringBuilder.append(String.format("'%s', ", idVenta));
         stringBuilder.append(String.format("%s, ", cantidadVendida));
         stringBuilder.append(String.format("%s, ", totalVenta));
         stringBuilder.append(String.format("%s, ", recetaMedica));
-        stringBuilder.append(String.format("%s, ", idProducto));
-        stringBuilder.append(String.format("%s, ", rfcCliente));
-        stringBuilder.append(String.format("%s ", idTicket));
+        stringBuilder.append(String.format("'%s', ", idProducto));
+        stringBuilder.append(String.format("'%s', ", rfcCliente));
+        stringBuilder.append(String.format("%d", idTicket));
 
         return stringBuilder.toString();
     }
@@ -74,7 +74,7 @@ public class Venta implements Vendible {
         return rfcCliente;
     }
 
-    public int getIdTicket() {
+    public long getIdTicket() {
         return idTicket;
     }
 
@@ -102,7 +102,7 @@ public class Venta implements Vendible {
         this.rfcCliente = rfcCliente;
     }
 
-    public void setIdTicket(int idTicket) {
+    public void setIdTicket(long idTicket) {
         this.idTicket = idTicket;
     }
 

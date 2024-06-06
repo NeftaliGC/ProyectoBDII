@@ -13,12 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import ProyectoDB.backend.objetos.venta.VentaInterface;
 
 /**
  *
  * @author jft314
  */
-public class SQLVenta implements Operable<Venta, String> {
+public class SQLVenta implements Operable<Venta, String>, VentaInterface {
 
     private final Connection connection;
 
@@ -28,8 +29,9 @@ public class SQLVenta implements Operable<Venta, String> {
 
     @Override
     public Venta alta(Venta venta) {
-        String sql = String.format("{call insertar_venta(%s)}", venta.toString());
+        String sql = String.format("call insertar_venta(%s)", venta);
 
+        System.out.println(sql);
         try {
             CallableStatement callableStatement = connection.prepareCall(sql);
             callableStatement.execute();

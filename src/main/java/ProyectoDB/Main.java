@@ -1,7 +1,21 @@
 package ProyectoDB;
 
+import ProyectoDB.frontend.loginsGUI;
+import java.awt.EventQueue;
+
 public class Main {
+
     public static void main(String[] args) {
-        // Aqui ira la estructura del proyecto general
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    loginsGUI loginframe = new loginsGUI();
+                    loginframe.setUndecorated(true);
+                    loginframe.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }

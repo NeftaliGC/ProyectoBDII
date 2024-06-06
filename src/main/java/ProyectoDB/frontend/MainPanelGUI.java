@@ -1,5 +1,6 @@
-package ProyectoDB;
+package ProyectoDB.frontend;
 
+import ProyectoDB.frontend.SalesOperationsGUI;
 import java.awt.BorderLayout;
 import java.sql.Connection;
 import javax.swing.JButton;
