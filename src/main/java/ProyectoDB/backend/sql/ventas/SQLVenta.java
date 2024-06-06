@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import ProyectoDB.backend.objetos.venta.VentaInterface;
+import java.sql.Types;
 
 /**
  *
@@ -44,11 +45,11 @@ public class SQLVenta implements Operable<Venta, String>, VentaInterface {
 
     @Override
     public String baja(String id) {
-        String sql = String.format("{call eliminar_venta(%s)}", id);
-
+        String sql = String.format("{? = call eliminar_venta('%s')}", id);
+        System.out.println(sql);
         try {
             CallableStatement callableStatement = connection.prepareCall(sql);
-            callableStatement.registerOutParameter("mensaje", java.sql.Types.VARCHAR);
+            callableStatement.registerOutParameter(1, Types.VARCHAR);
             callableStatement.execute();
 
             return callableStatement.getString(1);

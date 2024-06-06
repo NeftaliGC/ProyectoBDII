@@ -25,6 +25,24 @@ public class Venta implements VentaInterface {
             boolean recetaMedica,
             String idProducto,
             String rfcCliente,
+            String idTicket) {
+
+        this.idVenta = idVenta;
+        this.cantidadVendida = cantidadVendida;
+        this.totalVenta = totalVenta;
+        this.recetaMedica = recetaMedica;
+        this.idProducto = idProducto;
+        this.rfcCliente = rfcCliente;
+        this.idTicket = Long.parseLong(idTicket);
+    }
+    
+    public Venta(
+            String idVenta,
+            int cantidadVendida,
+            double totalVenta,
+            boolean recetaMedica,
+            String idProducto,
+            String rfcCliente,
             long idTicket) {
 
         this.idVenta = idVenta;
