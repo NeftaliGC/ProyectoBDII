@@ -213,7 +213,7 @@ public class loginsGUI extends JFrame {
         try {
             Connection connection = dbConnection.getConnection();
             if (connection != null) {
-                JOptionPane.showMessageDialog(this, "Conexión exitosa!");
+                //JOptionPane.showMessageDialog(this, "Conexión exitosa!");
                 dispose();
                 new MainPanelGUI(connection).setVisible(true); // Aquí pasamos la conexión a AltaVentasGUI
             } else {
