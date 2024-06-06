@@ -251,15 +251,14 @@
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="8" rowCount="0">
-                <Column editable="true" title="ClienteID" type="java.lang.Object"/>
-                <Column editable="true" title="Nombre" type="java.lang.Object"/>
-                <Column editable="true" title="Direcci&#xf3;n" type="java.lang.Object"/>
-                <Column editable="true" title="Telefono" type="java.lang.Object"/>
-                <Column editable="true" title="Correo" type="java.lang.Object"/>
-                <Column editable="true" title="Fec_Registro" type="java.lang.Object"/>
-                <Column editable="true" title="UltimaCompra" type="java.lang.Object"/>
-                <Column editable="true" title="Desc_Aplicado" type="java.lang.Object"/>
+              <Table columnCount="7" rowCount="0">
+                <Column editable="true" title="ID Venta" type="java.lang.Object"/>
+                <Column editable="true" title="Cantidad Vendiad" type="java.lang.Object"/>
+                <Column editable="true" title="Total Venta" type="java.lang.Object"/>
+                <Column editable="true" title="Receta Medica" type="java.lang.Object"/>
+                <Column editable="true" title="ID Producto" type="java.lang.Object"/>
+                <Column editable="true" title="RFC" type="java.lang.Object"/>
+                <Column editable="true" title="ID Ticket" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
