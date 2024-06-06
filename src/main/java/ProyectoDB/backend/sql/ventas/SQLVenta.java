@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import ProyectoDB.backend.objetos.venta.VentaInterface;
+import java.sql.Statement;
 import java.sql.Types;
 
 /**
@@ -73,22 +74,39 @@ public class SQLVenta implements Operable<Venta, String>, VentaInterface {
         return null;
     }
 
+    /**
+     * Debido a que el resultado obtenido se fuciono en una sola columna tipo
+     * string se descompone internamente.
+     *
+     * @param id
+     * @return
+     */
     @Override
     public Venta consulta(String id) {
-        String sql = String.format("{call consultar_venta(%s)}", id);
+        String sql = String.format("select consultar_venta('%s')", id);
+        System.out.println(sql);
 
         try {
             CallableStatement callableStatement = connection.prepareCall(sql);
-            callableStatement.execute();
+            ResultSet resultSet = callableStatement.executeQuery();
+
+            resultSet.next();
+
+            String row = resultSet.getString(1);
+
+            row = row.replace("(", "");
+            row = row.replace(")", "");
+
+            String tokens[] = row.split(",");
 
             return new Venta(
-                    callableStatement.getString(1),
-                    callableStatement.getInt(2),
-                    callableStatement.getDouble(3),
-                    callableStatement.getBoolean(4),
-                    callableStatement.getString(5),
-                    callableStatement.getString(6),
-                    callableStatement.getLong(7));
+                    tokens[0],
+                    Integer.parseInt(tokens[1]),
+                    Double.parseDouble(tokens[2]),
+                    Boolean.parseBoolean(tokens[3]),
+                    tokens[4],
+                    tokens[5],
+                    Long.parseLong(tokens[6]));
         } catch (SQLException ex) {
             Logger.getLogger(SQLVenta.class.getName()).log(Level.SEVERE, null, ex);
         }
