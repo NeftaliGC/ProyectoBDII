@@ -10,6 +10,7 @@ import ProyectoDB.backend.sql.ventas.SQLVenta;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,7 +21,7 @@ import java.util.logging.Logger;
  * @author jft314
  */
 public class SQLControlInventario implements Operable<ControlInventario, String> {
-    
+
     private final Connection connection;
 
     public SQLControlInventario(Connection connection) {
@@ -42,9 +43,23 @@ public class SQLControlInventario implements Operable<ControlInventario, String>
         return null;
     }
 
-    @Override
-    public String baja(String param) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String bajaId(String id_producto, String id_inventario) {
+        String sql = String.format(
+                "{? = call baja_control_inventario('%s', '%s')}",
+                id_producto,
+                id_inventario);
+
+        System.out.println(sql);
+        try {
+            CallableStatement callableStatement = connection.prepareCall(sql);
+            callableStatement.registerOutParameter(1, Types.VARCHAR);
+            callableStatement.execute();
+
+            return callableStatement.getString(1);
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLVenta.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
     @Override
@@ -59,6 +74,17 @@ public class SQLControlInventario implements Operable<ControlInventario, String>
 
     @Override
     public List<ControlInventario> reporte() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    /**
+     * No usar para este tipo de Dato Control Inventario
+     *
+     * @param param
+     * @return
+     */
+    @Override
+    public String baja(String param) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

@@ -21,14 +21,25 @@ import java.util.logging.Logger;
 public class PruebaControlInventario {
 
     public static void main(String[] args) {
+        int opc = 2;
+
         try {
             DBConnection dbc = new DBConnection("localhost", "farma", "5432", "postgres", "8133pqalO");
             Connection connection = dbc.getConnection();
-            SQLVenta sqlVenta = new SQLVenta(connection);
             SQLControlInventario control = new SQLControlInventario(connection);
 
-            ControlInventario c = new ControlInventario(Timestamp.valueOf(LocalDateTime.now()), 88, "PROD008", "INV006");
-            control.alta(c);
+            switch (opc) {
+                case 1:
+
+                    ControlInventario c = new ControlInventario(Timestamp.valueOf(LocalDateTime.now()), 88, "PROD008", "INV006");
+                    control.alta(c);
+                    break;
+                case 2:
+                    String c1 = control.bajaId("PROD004", "INV010");
+                    System.out.println(c1);
+                    break;
+
+            }
         } catch (SQLException ex) {
             Logger.getLogger(PruebaControlInventario.class.getName()).log(Level.SEVERE, null, ex);
         }

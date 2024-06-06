@@ -14,7 +14,7 @@ Sientete libre de añadir tareas por hacer en esta sección si consideras que ha
 - [ ] 5. Crear las clases necesarias para consultar una venta
 > Si es necesario acceder a más de una tabla para una consulta deberá hacerse
 
-- [ ] 6, 7, 8, 9. Las mismas tareas pero para la tabla inventario (incluyendo las tablas necesarias que deban ser modificadas) 
+- [ ] 6, 7, 8, 9. Las mismas tareas pero para la tabla control_inventario (incluyendo las tablas necesarias que deban ser modificadas) 
 
 - [ ] 10. Traer los datos de la tablas catálogo que sean necesarios para crear, eliminar o actualizar registros de las tablas ventas e inventario
 
@@ -39,6 +39,7 @@ Sientete libre de añadir tareas por hacer en esta sección si consideras que ha
 - [x] 5. Crear las clases necesarias para consultar una venta - @JFT-314
 - [x] 4. Crear las clases necesarias para modificar un registro en la tabla ventas - @JFT-314
 - [x] 6. Crear las clases para dar de alta (crear) una venta en la tabla control_inventario - @JFT-314
+- [x] 7. Crear las clases para dar de baja (eliminar) registro en la tabla control_inventario - @JFT-314
 
 ## Estructura del proyecto
   El proyecto tiene la siguiente estructura:
