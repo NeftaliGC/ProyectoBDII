@@ -348,10 +348,32 @@ public class MainPanelGUIN extends javax.swing.JFrame implements ItemListener {
     @Override
     public void itemStateChanged(ItemEvent e) {
         if (e.getStateChange() == ItemEvent.SELECTED) {
-            if (e.getItemSelectable() == VentaBoton) {
-                System.out.println("webos");
-            } else if (e.getItemSelectable() == InventarioBoton) {
-                System.out.println("comes");
+            if (VentaBoton.isSelected()) {
+                if(AltaBoton.isSelected()){
+                    System.out.println("Queso plabas");
+                } else if(BajaBoton.isSelected()){
+                    System.out.println("Queso badon");
+                }  else if(ConsultaBoton.isSelected()){
+                    System.out.println("Queso bon");
+                }  else if(ActualBoton.isSelected()){
+                    System.out.println("Queso barias");
+                } else if(ReporteBoton.isSelected()){
+                    System.out.println("Queso plaras");
+                }
+            } else if (InventarioBoton.isSelected()) {
+                if(AltaBoton.isSelected()){
+                    System.out.println("1");
+                } else if(BajaBoton.isSelected()){
+                    System.out.println("2");
+                }  else if(ConsultaBoton.isSelected()){
+                    System.out.println("3");
+                }  else if(ActualBoton.isSelected()){
+                    System.out.println("4");
+                } else if(ReporteBoton.isSelected()){
+                    System.out.println("5");
+                } else if(DataMBoton.isSelected()){
+                    System.out.println("6");
+                }
             }
         }
     }
