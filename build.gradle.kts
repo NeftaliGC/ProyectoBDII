@@ -14,6 +14,9 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
 // https://mvnrepository.com/artifact/org.postgresql/postgresql
 implementation("org.postgresql:postgresql:42.6.0")
+
+    implementation("org.json:json:20210307")
+    implementation("org.jfree:jfreechart:1.5.3")
 }
 
 subprojects {
