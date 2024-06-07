@@ -6,12 +6,6 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONObject;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.DefaultCategoryDataset;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -19,11 +13,32 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class API {
-
+    
+    private String FechaIni;
+    private String FechaFin;
+    
+    public API(String FechaIni,String FechaFin){
+        this.FechaIni=FechaIni;
+        this.FechaFin=FechaFin;
+    }
+    
     public static void main(String[] args) {
-        String apiUrl = "http://172.26.52.36:8000/desgloseCompletoVentasProductoGrafico"; // URL de tu API
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Da fecha Inicial");
+        String FechaIni=sc.nextLine();
+        System.out.println("Da fecha Final");
+        String FechaFin=sc.nextLine();
+        //String apiUrl="http://172.26.52.36:8000/denserankingVentasGrafico?fecha_inicio=2000-09-28&fecha_fin=2008-08-01";
+        String encodedFechaIni = URLEncoder.encode(FechaIni, StandardCharsets.UTF_8);
+        String encodedFechaFin = URLEncoder.encode(FechaFin, StandardCharsets.UTF_8);
+        String apiUrl = "http://172.26.52.36:8000/denserankingVentasGrafico?fecha_inicio=" + encodedFechaIni + "&fecha_fin=" + encodedFechaFin;
+        
+ 
 
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
             HttpGet request = new HttpGet(apiUrl);
@@ -39,7 +54,8 @@ public class API {
                     ImageIcon icon = new ImageIcon(image);
                     JLabel label = new JLabel(icon);
                     JFrame frame = new JFrame();
-                    frame.setTitle("Gráfica");
+
+                    frame.setTitle("Grafica");
                     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                     frame.getContentPane().add(label, BorderLayout.CENTER);
                     frame.pack();
