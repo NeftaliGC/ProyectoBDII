@@ -99,18 +99,17 @@ public class SQLControlInventario implements Operable<ControlInventario, String>
 
             row = row.replace("(", "");
             row = row.replace(")", "");
-            row = row.replace("\"", "\'");
+            row = row.replace("\"", "");
 
             System.out.println(row);
-            
-            
+
             String tokens[] = row.split(",");
 
             return new ControlInventario(
                     Timestamp.valueOf(tokens[0]),
                     Integer.parseInt(tokens[1]),
-                    tokens[2],
-                    tokens[3]);
+                    String.format("'%s'", tokens[2]),
+                    String.format("'%s'", tokens[3]));
         } catch (SQLException ex) {
             Logger.getLogger(SQLVenta.class.getName()).log(Level.SEVERE, null, ex);
         }
