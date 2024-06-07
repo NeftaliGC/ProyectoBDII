@@ -1,5 +1,5 @@
-package Vista;
-import Controlador.ControladorVista;
+package main.java.ProyectoDB.frontend;
+import main.java.ProyectoDB.frontend.Controlador.ControladorVista;
 import java.awt.BorderLayout;
 import java.awt.Color;
 

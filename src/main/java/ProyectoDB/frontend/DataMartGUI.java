@@ -1,4 +1,4 @@
-package ProyectoDB.frontend;
+package main.java.ProyectoDB.frontend;
 
 import javax.swing.*;
 import java.awt.*;

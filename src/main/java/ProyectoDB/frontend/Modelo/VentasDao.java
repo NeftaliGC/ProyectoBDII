@@ -1,4 +1,4 @@
-package ProyectoDB.frontend.Modelo;
+package main.java.ProyectoDB.frontend.Modelo;
 import java.sql.PreparedStatement;
 import java.sql.CallableStatement;
 import java.sql.Connection;

@@ -1,4 +1,4 @@
-package Vista;
+/*package main.java.ProyectoDB.frontend;
 import Modelo.CategoriaDao;
 import Modelo.CategoriaData;
 import java.awt.Color;
@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class Inventario extends javax.swing.JPanel implements ActionListener{
-    CategoriaData catData;
+   /* CategoriaData catData;
     CategoriaDao catDao;
     public DefaultTableModel modelo = new DefaultTableModel();
     
@@ -505,4 +505,4 @@ public class Inventario extends javax.swing.JPanel implements ActionListener{
             autoIncrement();
         }
     }
-}
+}*/
