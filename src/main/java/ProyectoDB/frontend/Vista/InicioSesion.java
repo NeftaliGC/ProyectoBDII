@@ -50,7 +50,7 @@ public class InicioSesion extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/vector-patron-medico-fisuras-microscopio-medicina-cinta-roja-yeso-antibiotico-sangre-pulso-vitamina-.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/java/ProyectoDB/frontend/Images/vector-patron-medico-fisuras-microscopio-medicina-cinta-roja-yeso-antibiotico-sangre-pulso-vitamina-.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 330, 600));
 
         Header.setBackground(new java.awt.Color(255, 255, 255));
@@ -176,7 +176,7 @@ public class InicioSesion extends javax.swing.JFrame {
 
         btnRegistrar.setBackground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/anadir.png"))); // NOI18N
+        btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/java/ProyectoDB/frontend/Images/anadir.png"))); // NOI18N
         btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

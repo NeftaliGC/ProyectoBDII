@@ -33,17 +33,21 @@ public class MenuFarmacia extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         pVentas = new javax.swing.JPanel();
-        btnVentas = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         pInventario = new javax.swing.JPanel();
-        btnInven = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        btnVentas = new javax.swing.JLabel();
         pDatamart = new javax.swing.JPanel();
-        btnDatamart = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        btnDatamart = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         pCerrarS = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
         btnCerrarS = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        btnInven = new javax.swing.JLabel();
         Header = new javax.swing.JPanel();
         exitBtn = new javax.swing.JPanel();
         exitTxt = new javax.swing.JLabel();
@@ -52,6 +56,7 @@ public class MenuFarmacia extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         pPrincipal = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -63,7 +68,7 @@ public class MenuFarmacia extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_user_25px.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/java/ProyectoDB/frontend/Images/icons8_user_25px.png"))); // NOI18N
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 40, 40));
 
         jLabel1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
@@ -73,11 +78,18 @@ public class MenuFarmacia extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 32, 150, 40));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/7645092.png"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 180, -1));
 
         pVentas.setBackground(new java.awt.Color(153, 204, 255));
         pVentas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pVentas.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 40));
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/java/ProyectoDB/frontend/Images/ventas.png"))); // NOI18N
+        pVentas.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 30, 40));
+
+        pInventario.setBackground(new java.awt.Color(153, 204, 255));
+        pInventario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pInventario.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 40));
 
         btnVentas.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnVentas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -93,39 +105,15 @@ public class MenuFarmacia extends javax.swing.JFrame {
                 btnVentasMouseExited(evt);
             }
         });
-        pVentas.add(btnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 40));
+        pInventario.add(btnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 40));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ventas.png"))); // NOI18N
-        pVentas.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 40));
+        pVentas.add(pInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, -1));
 
         jPanel1.add(pVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 240, 40));
 
-        pInventario.setBackground(new java.awt.Color(153, 204, 255));
-        pInventario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnInven.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        btnInven.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnInven.setText("                  Control Inventario");
-        btnInven.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnInvenMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnInvenMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnInvenMouseExited(evt);
-            }
-        });
-        pInventario.add(btnInven, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 40));
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/inventario.png"))); // NOI18N
-        pInventario.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 40));
-
-        jPanel1.add(pInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 240, 40));
-
         pDatamart.setBackground(new java.awt.Color(153, 204, 255));
         pDatamart.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pDatamart.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 40));
 
         btnDatamart.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         btnDatamart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -141,18 +129,15 @@ public class MenuFarmacia extends javax.swing.JFrame {
                 btnDatamartMouseExited(evt);
             }
         });
-        pDatamart.add(btnDatamart, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 40));
+        pDatamart.add(btnDatamart, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 240, 40));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/grafico-de-barras.png"))); // NOI18N
-        pDatamart.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 40));
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/java/ProyectoDB/frontend/Images/grafico-de-barras.png"))); // NOI18N
+        pDatamart.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 30, 40));
 
         jPanel1.add(pDatamart, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 240, 40));
 
         pCerrarS.setBackground(new java.awt.Color(153, 204, 255));
         pCerrarS.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cerrar-sesion.png"))); // NOI18N
-        pCerrarS.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, 40));
 
         btnCerrarS.setBackground(new java.awt.Color(102, 102, 255));
         btnCerrarS.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -171,7 +156,33 @@ public class MenuFarmacia extends javax.swing.JFrame {
         });
         pCerrarS.add(btnCerrarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 40));
 
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/java/ProyectoDB/frontend/Images/cerrar-sesion.png"))); // NOI18N
+        pCerrarS.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 30, 40));
+
         jPanel1.add(pCerrarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 620, 240, 40));
+
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/java/ProyectoDB/frontend/Images/7645092.png"))); // NOI18N
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 180, 140));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/java/ProyectoDB/frontend/Images/inventario.png"))); // NOI18N
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 30, 50));
+
+        btnInven.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnInven.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnInven.setText("                  Control Inventario");
+        btnInven.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnInvenMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnInvenMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnInvenMouseExited(evt);
+            }
+        });
+        jPanel1.add(btnInven, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 210, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 680));
 
@@ -234,7 +245,6 @@ public class MenuFarmacia extends javax.swing.JFrame {
 
         minTxt.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         minTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        minTxt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_subtract_30px.png"))); // NOI18N
         minTxt.setToolTipText("");
         minTxt.setAlignmentX(1.0F);
         minTxt.setAlignmentY(1.0F);
@@ -267,7 +277,7 @@ public class MenuFarmacia extends javax.swing.JFrame {
 
         Header.add(minBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 0, 40, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_ambulance_40px_1.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/java/ProyectoDB/frontend/Images/icons8_ambulance_40px_1.png"))); // NOI18N
         Header.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 40, 40));
 
         jLabel6.setBackground(new java.awt.Color(121, 92, 52));
@@ -292,6 +302,9 @@ public class MenuFarmacia extends javax.swing.JFrame {
         );
 
         getContentPane().add(pPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, -1, 640));
+
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 180, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -432,6 +445,12 @@ public class MenuFarmacia extends javax.swing.JFrame {
     private javax.swing.JPanel exitBtn;
     private javax.swing.JLabel exitTxt;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -439,7 +458,6 @@ public class MenuFarmacia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel minBtn;
     private javax.swing.JLabel minTxt;
