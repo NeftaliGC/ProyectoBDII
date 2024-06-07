@@ -1,4 +1,5 @@
 package main.java.ProyectoDB.frontend.Modelo;
+
 import java.sql.PreparedStatement;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -6,21 +7,25 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import main.java.ProyectoDB.DBConnection;
 
 public class VentasDao {
-    Conexion cc = new Conexion();
-    Connection con;
-    PreparedStatement ps;
-    ResultSet rs;
+    private DBConnection dbConnection;
+    private Connection con;
+    private PreparedStatement ps;
+    private ResultSet rs;
+
+    public VentasDao(DBConnection dbConnection) {
+        this.dbConnection = dbConnection;    }
     
-    public List listar() {
+    public List<VentasData> listar() {
         List<VentasData> datos = new ArrayList<>();
         String query = "SELECT * FROM farma.venta ORDER BY id_venta ASC";
         try {
-            con = cc.establecerConexion();
+            con = dbConnection.getConnection();
             ps = con.prepareStatement(query);
             rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 VentasData vtaData = new VentasData();
                 vtaData.setIdVenta(rs.getString(1));
                 vtaData.setCantVendida(rs.getBigDecimal(2));
@@ -47,8 +52,8 @@ public class VentasDao {
         return datos;
     }
     
-    public void insertSales(VentasData venta){
-        con = cc.establecerConexion();
+    public void insertSales(VentasData venta) throws SQLException {
+        con = dbConnection.getConnection();
         CallableStatement cs = null;
         try {
             String query = "{call insertar_venta(?, ?, ?, ?, ?, ?, ?)}";
@@ -64,39 +69,39 @@ public class VentasDao {
             System.out.println("Insertado con exito");
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (cs != null) cs.close();
+                if (con != null) con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
     
-    public String deleteSale(String idVenta) {
-        con = cc.establecerConexion();
+    public String deleteSale(String idVenta) throws SQLException {
+        con = dbConnection.getConnection();
         String resultMessage = null;
         try {
-            con = cc.establecerConexion();
             ps = con.prepareStatement("SELECT eliminar_venta(?)");
-
             ps.setString(1, idVenta);
             ResultSet rs = ps.executeQuery();
-
             if (rs.next()) {
                 String mensaje = rs.getString(1);
                 System.out.println(mensaje);
+                resultMessage = mensaje;
             }
-            
-            ps.close();
-            con.close();
         } catch (Exception e) {
-            //e.printStackTrace();
-            System.out.println("Error en el delete"+e);
+            System.out.println("Error en el delete" + e);
         } finally {
             try {
-                if (con != null) {
-                    con.close();
-                }
-            } catch (Exception e) {
-                System.out.println("Error en el delete"+e);
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+                if (con != null) con.close();
+            } catch (SQLException e) {
+                System.out.println("Error en el delete" + e);
             }
         }
         return resultMessage;
     }
-    
 }

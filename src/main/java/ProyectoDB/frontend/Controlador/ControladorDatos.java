@@ -1,4 +1,5 @@
 package main.java.ProyectoDB.frontend.Controlador;
+
 import ProyectoDB.frontend.Modelo.VentasData;
 import main.java.ProyectoDB.frontend.Modelo.VentasDao;
 import main.java.ProyectoDB.frontend.Ventas;

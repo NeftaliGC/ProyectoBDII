@@ -1,4 +1,5 @@
-package ProyectoDB.frontend.Modelo;
+package main.java.ProyectoDB.frontend.Modelo;
+
 
 import java.math.BigDecimal;
 
