@@ -13,15 +13,12 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONObject;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.DefaultCategoryDataset;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 public class API_Prueba {
@@ -35,34 +32,23 @@ public class API_Prueba {
 
             HttpEntity entity = response.getEntity();
             if (entity != null) {
-                String result = EntityUtils.toString(entity);
-                JSONObject jsonResponse = new JSONObject(result);
+                byte[] imageBytes = EntityUtils.toByteArray(entity);
+                BufferedImage image = ImageIO.read(new ByteArrayInputStream(imageBytes));
 
-                // Suponiendo que la respuesta JSON contiene los datos necesarios para la gráfica
-                DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-                jsonResponse.getJSONArray("data").forEach(item -> {
-                    JSONObject dataPoint = (JSONObject) item;
-                    dataset.addValue(dataPoint.getDouble("value"), "Series1", dataPoint.getString("category"));
-                });
-
-                JFreeChart barChart = ChartFactory.createBarChart(
-                        "Gráfica de Ejemplo",
-                        "Categoría",
-                        "Valor",
-                        dataset,
-                        PlotOrientation.VERTICAL,
-                        true, true, false);
-
-                ChartPanel chartPanel = new ChartPanel(barChart);
-                chartPanel.setPreferredSize(new Dimension(800, 600));
-
-                JFrame frame = new JFrame();
-                frame.setTitle("Gráfica");
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.add(chartPanel);
-                frame.pack();
-                frame.setLocationRelativeTo(null);
-                frame.setVisible(true);
+                if (image != null) {
+                    // Mostrar la imagen en un JFrame
+                    ImageIcon icon = new ImageIcon(image);
+                    JLabel label = new JLabel(icon);
+                    JFrame frame = new JFrame();
+                    frame.setTitle("Gráfica");
+                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    frame.getContentPane().add(label, BorderLayout.CENTER);
+                    frame.pack();
+                    frame.setLocationRelativeTo(null);
+                    frame.setVisible(true);
+                } else {
+                    System.err.println("No se pudo convertir la respuesta en una imagen.");
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
