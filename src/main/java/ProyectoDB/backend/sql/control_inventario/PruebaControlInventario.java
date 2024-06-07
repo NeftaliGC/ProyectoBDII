@@ -24,7 +24,7 @@ public class PruebaControlInventario {
         int opc = 5;
 
         try {
-            DBConnection dbc = new DBConnection("localhost", "postgres", "farma", "5432", "postgres", "webos");
+            DBConnection dbc = new DBConnection("localhost", "farma", "farma", "5432", "postgres", "8133pqalO");
             Connection connection = dbc.getConnection();
             SQLControlInventario control = new SQLControlInventario(connection);
 
@@ -56,7 +56,8 @@ public class PruebaControlInventario {
                 case 5:
                     
 
-                    control.consulta(Timestamp.valueOf("1962-07-26 00:00:00.0"), "PROD002", "INV008");
+                    ControlInventario o = control.consulta(Timestamp.valueOf("1962-07-26 00:00:00.0"), "PROD002", "INV008");
+                    System.out.println(o.toString());
                     break;    
 
             }
