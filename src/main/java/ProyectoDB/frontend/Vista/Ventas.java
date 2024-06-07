@@ -1,7 +1,7 @@
-package ProyectoDB.frontend.Vista;
+package main.java.ProyectoDB.frontend.Vista;
 import java.awt.Color;
 import java.awt.event.ActionListener;
-import ProyectoDB.frontend.Modelo.VentasDao;
+import main.java.ProyectoDB.frontend.Modelo.VentasDao;
 import ProyectoDB.frontend.Modelo.VentasData;
 import java.awt.Font;
 import java.awt.event.ActionEvent;

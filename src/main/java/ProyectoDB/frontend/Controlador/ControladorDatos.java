@@ -1,7 +1,7 @@
-package ProyectoDB.frontend.Controlador;
+package main.java.ProyectoDB.frontend.Controlador;
 import ProyectoDB.frontend.Modelo.VentasData;
-import ProyectoDB.frontend.Modelo.VentasDao;
-import Vista.Ventas;
+import main.java.ProyectoDB.frontend.Modelo.VentasDao;
+import main.java.ProyectoDB.frontend.Ventas;
 import javax.swing.table.DefaultTableModel;
 
 public class ControladorDatos {
