@@ -4,7 +4,7 @@
  */
 package main.java.ProyectoDB.backend.sql.ventas;
 
-import ProyectoDB.DBConnection;
+import main.java.ProyectoDB.DBConnection;
 import ProyectoDB.backend.objetos.venta.Venta;
 import java.sql.Connection;
 import java.sql.SQLException;

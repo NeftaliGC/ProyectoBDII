@@ -17,6 +17,10 @@ public class VentasDao {
 
     public VentasDao(DBConnection dbConnection) {
         this.dbConnection = dbConnection;    }
+
+    public VentasDao() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     public List<VentasData> listar() {
         List<VentasData> datos = new ArrayList<>();
