@@ -35,11 +35,11 @@ public class GeneradorClientes {
                     System.out.println("¡Conectado a la base de datos!");
 
                     //Esoesificar el esquema con la tabla que contenga a cliente
-                    String sql = "INSERT INTO farmacia.cliente (rfc_cliente, nombre, primer_apellido, segundo_apellido, telefono, correo_electronico, direccion, codigo_postal) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                    String sql = "INSERT INTO farma2.cliente (rfc, nombre, primer_apellido, segundo_apellido, telefono, correo_electronico, direccion, codigo_postal, edad) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
                     PreparedStatement statement = conn.prepareStatement(sql);
 
-                    for (int i = 0; i < 50560; i++) { // Generar 100 clientes
+                    for (int i = 0; i < 1000000; i++) { // Generar 100 clientes
                         // Generar datos aleatorios
                         String[] nombreCompleto = fullNamesGenerator.generateFullName();
                         String nombre = nombreCompleto[0];
@@ -59,12 +59,10 @@ public class GeneradorClientes {
                         statement.setString(6, correo);
                         statement.setString(7, direccion);
                         statement.setInt(8, Integer.parseInt(codigoPostal));
+                        statement.setInt(9, rand.nextInt(70) + 18);
 
                         // Ejecutar la inserción
                         int rowsInserted = statement.executeUpdate();
-                        if (rowsInserted > 0) {
-                            System.out.println("¡Se insertó un nuevo usuario correctamente!" + i);
-                        }
 
                         // Escribir en el archivo de texto
                         try {

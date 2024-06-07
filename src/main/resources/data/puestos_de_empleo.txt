@@ -1,9 +1,4 @@
-Farmacéutico
-Técnico de Farmacia
-Cajero
-Asistente de Ventas
-Gerente de Farmacia
-Personal de Almacén
-Atención al Cliente
-Técnico de Laboratorio
-Encargado de Marketing
+'Farmacéutico', 20000.00
+'Asistente', 15000.00
+'Cajero', 12000.00
+'Almacén', 10000.00

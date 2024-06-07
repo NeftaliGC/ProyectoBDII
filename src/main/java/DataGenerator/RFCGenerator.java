@@ -15,6 +15,7 @@ public class RFCGenerator {
         rfc += apellidoMaterno.substring(0, 1);
         rfc += nombre.substring(0, 1);
         rfc += new DateGenerator().generateRandomDate(false);
+        System.out.printf("rfc: %s\n", rfc);
         rfc += generateHomoclave();
 
         rfc = rfc.toUpperCase();
@@ -58,6 +59,12 @@ public class RFCGenerator {
 
     private char getRandomLetter() {
         return letters.charAt(random.nextInt(letters.length()));
+    }
+
+
+    public static void main(String[] args) {
+        RFCGenerator rfcGenerator = new RFCGenerator();
+        System.out.println(rfcGenerator.generateRFC("Jose", "Gomez", "Martinez"));
     }
 
 }

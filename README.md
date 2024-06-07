@@ -14,13 +14,13 @@ Sientete libre de añadir tareas por hacer en esta sección si consideras que ha
 - [ ] 5. Crear las clases necesarias para consultar una venta
 > Si es necesario acceder a más de una tabla para una consulta deberá hacerse
 
-- [ ] 6, 7, 8, 9. Las mismas tareas pero para la tabla inventario (incluyendo las tablas necesarias que deban ser modificadas) 
+- [ ] 6, 7, 8, 9. Las mismas tareas pero para la tabla control_inventario (incluyendo las tablas necesarias que deban ser modificadas) 
 
 - [ ] 10. Traer los datos de la tablas catálogo que sean necesarios para crear, eliminar o actualizar registros de las tablas ventas e inventario
 
 > Todas las tablas que no estén relacionadas intrínsecamente con ventas e inventario serán catálogos. Por lo cual no se modificarán, solo se accederán a sus datos*
 
-- [ ] 11. Crear las clases necesarias para traer los datos del datamart para poder crear gráficas, deberán regresar la gráfica.
+- [ ] 11. Conexión API para traer la imagen de datamart del proceso correspondiente
 
 > Los querys del datamart y los querys exactos para traer los datos de las tablas aún no los terminan los DBAs, pero pueden trabajar en la estructura de sus clases. En cuanto tenga los querys se los mando
 
@@ -29,15 +29,18 @@ Sientete libre de añadir tareas por hacer en esta sección si consideras que ha
 > Añade aqui la tarea que estas realizando actualmente con un guion seguida por tu usuario de github o tu nombre.
 > Ejemplo: - [ ] Hacer que el proyecto se vea cool - @usuario
 
-- [ ] 1. Conectar a la base de datos en base a las claves ip, Nombre de la base de datos, Puerto, Usuario y contraseña. - @JFT-314
-- [ ] 2. Crear las clases para dar de alta (crear) una venta en la tabla venta - @JFT-314
-- [ ] 3. Crear las clases para dar de baja (eliminar) una venta en la tabla venta - @JFT-314
-- [ ] 4. Crear las clases necesarias para modificar un registro en la tabla ventas - @JFT-314
-- [ ] 5. Crear las clases necesarias para consultar una venta - @JFT-314
-
 
 ## Tareas realizadas
 - [x] Todas las tareas realizadas previamente se encuentra en commits anteriores.
+- [x] 1. Conectar a la base de datos en base a las claves ip, Nombre de la base de datos, Puerto, Usuario y contraseña.
+- [x] 2. Crear las clases para dar de alta (crear) una venta en la tabla venta - @JFT-314
+- [x] 5. Crear las clases necesarias para reporte de la tabla venta - @JFT-314
+- [x] 3. Crear las clases para dar de baja (eliminar) una venta en la tabla venta - @JFT-314
+- [x] 5. Crear las clases necesarias para consultar una venta - @JFT-314
+- [x] 4. Crear las clases necesarias para modificar un registro en la tabla ventas - @JFT-314
+- [x] 6. Crear las clases para dar de alta (crear) una venta en la tabla control_inventario - @JFT-314
+- [x] 7. Crear las clases para dar de baja (eliminar) registro en la tabla control_inventario - @JFT-314
+- [x] 5. Crear las clases necesarias para reporte de la tabla control_inventario - @JFT-314
 
 ## Estructura del proyecto
   El proyecto tiene la siguiente estructura:

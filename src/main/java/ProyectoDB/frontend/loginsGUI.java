@@ -1,8 +1,8 @@
-package ProyectoDB;
+package ProyectoDB.frontend;
 
+import ProyectoDB.DBConnection;
+import ProyectoDB.componentes.JlabelPersonalizado;
 import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,7 +12,6 @@ import java.awt.event.MouseMotionAdapter;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Random;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -25,57 +24,39 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 public class loginsGUI extends JFrame {
-    private JTextField textField; // Campo de texto para la dirección del servidor (IP/localhost)
-    private JTextField textField_1; // Campo de texto para la base de datos
-    private JTextField textField_2; // Campo de texto para el puerto
-    private JTextField textField_lbluser; // Campo de texto para el nombre de usuario
-    private JPasswordField passwordField; // Campo de contraseña para verificar la contraseña
-
+    private final JTextField textFieldServer;
+    private final JTextField textFieldDatabase;
+    private final JTextField textFieldPort;
+    private final JTextField textFieldUser;
+    private final JPasswordField passwordField;
     int xx, xy;
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    loginsGUI loginframe = new loginsGUI();
-                    loginframe.setUndecorated(true);
-                    loginframe.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
+   
 
     public loginsGUI() {
-        // Configuración de la ventana principal
         setBackground(Color.WHITE);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(729, 450); // Establecer el tamaño del marco
-        setLocationRelativeTo(null); // Centrar el marco en la pantalla
+        setSize(729, 450);
+        setLocationRelativeTo(null);
 
-        // Panel principal
         JPanel contentPane = new JPanel();
         contentPane.setBackground(Color.WHITE);
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
-        // Panel izquierdo con elementos gráficos y mensaje aleatorio
         JPanel panel = new JPanel();
         panel.setBackground(Color.DARK_GRAY);
         panel.setBounds(0, 0, 350, 450);
         contentPane.add(panel);
         panel.setLayout(null);
 
-        // Lista de mensajes
         String[] mensajes = { "¡Empezando un nuevo viaje!", "¡Creando nuevas posibilidades!",
                 "¡Bienvenido al comienzo de algo genial!", "¡Estás a un paso de la aventura!",
                 "¡Prepárate para explorar!", "¡Tu nueva experiencia comienza aquí!" };
 
         int indiceAleatorio = new Random().nextInt(mensajes.length);
 
-        // Crea el JLabel con el mensaje aleatorio
         JLabel lblNewLabel = new JLabel(mensajes[indiceAleatorio]);
         lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
         lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -84,8 +65,6 @@ public class loginsGUI extends JFrame {
         panel.add(lblNewLabel);
 
         JLabel label = new JLabel();
-
-        // Captura del evento de arrastrar la ventana
         label.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
@@ -105,7 +84,7 @@ public class loginsGUI extends JFrame {
         label.setBounds(-38, 0, 420, 300);
         label.setVerticalAlignment(SwingConstants.TOP);
         label.setIcon(new ImageIcon(loginsGUI.class.getResource("/images/flower.png")));
-        panel.add(label);        
+        panel.add(label);
 
         JLabel lblWeGotYou = new JLabel("... Estamos aquí para ayudarte ...");
         lblWeGotYou.setHorizontalAlignment(SwingConstants.CENTER);
@@ -114,7 +93,6 @@ public class loginsGUI extends JFrame {
         lblWeGotYou.setBounds(70, 343, 200, 27);
         panel.add(lblWeGotYou);
 
-        // Boton Login
         JButton buttonLogin = new JButton("Iniciar Servidor!");
         buttonLogin.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -126,11 +104,8 @@ public class loginsGUI extends JFrame {
         buttonLogin.setBounds(395, 363, 283, 50);
         contentPane.add(buttonLogin);
 
-        JLabel lblAlreadyHaveProblem = new JLabel("¿Tienes problemas?");
-        lblAlreadyHaveProblem.setForeground(new Color(30, 144, 255));
-        lblAlreadyHaveProblem.setFont(new Font("Tahoma", Font.PLAIN, 12));
+        JlabelPersonalizado lblAlreadyHaveProblem = new JlabelPersonalizado("¿Tienes problemas?");
         lblAlreadyHaveProblem.setBounds(395, 325, 300, 27);
-        lblAlreadyHaveProblem.setCursor(new Cursor(Cursor.HAND_CURSOR));
         contentPane.add(lblAlreadyHaveProblem);
         lblAlreadyHaveProblem.addMouseListener(new MouseAdapter() {
             @Override
@@ -147,12 +122,10 @@ public class loginsGUI extends JFrame {
             }
         });
 
-
-        // TextField para la dirección del servidor
-        textField = new JTextField();
-        textField.setBounds(395, 40, 283, 36);
-        contentPane.add(textField);
-        textField.setColumns(10);
+        textFieldServer = new JTextField();
+        textFieldServer.setBounds(395, 40, 283, 36);
+        contentPane.add(textFieldServer);
+        textFieldServer.setColumns(10);
 
         JLabel lblUsername = new JLabel("SERVIDOR (IP/LOCALHOST):");
         lblUsername.setBounds(395, 20, 200, 14);
@@ -162,87 +135,78 @@ public class loginsGUI extends JFrame {
         lblEmail.setBounds(395, 80, 150, 14);
         contentPane.add(lblEmail);
 
-        // TextField para la base de datos
-        textField_1 = new JTextField();
-        textField_1.setColumns(10);
-        textField_1.setBounds(395, 100, 283, 36);
-        contentPane.add(textField_1);
+        textFieldDatabase = new JTextField();
+        textFieldDatabase.setColumns(10);
+        textFieldDatabase.setBounds(395, 100, 283, 36);
+        contentPane.add(textFieldDatabase);
 
         JLabel lblPassword = new JLabel("PUERTO [5432]:");
         lblPassword.setBounds(395, 140, 150, 14);
         contentPane.add(lblPassword);
 
-        // TextField para el puerto
-        textField_2 = new JTextField();
-        textField_2.setColumns(10);
-        textField_2.setBounds(395, 160, 283, 36);
-        contentPane.add(textField_2);
+        textFieldPort = new JTextField();
+        textFieldPort.setColumns(10);
+        textFieldPort.setBounds(395, 160, 283, 36);
+        contentPane.add(textFieldPort);
 
-        JLabel lbluser = new JLabel("USUARIO:");
-        lbluser.setBounds(395, 200, 150, 14);
-        contentPane.add(lbluser);
+        JLabel lblUser = new JLabel("USUARIO:");
+        lblUser.setBounds(395, 200, 150, 14);
+        contentPane.add(lblUser);
 
-        // TextField para el nombre de usuario
-        textField_lbluser = new JTextField();
-        textField_lbluser.setColumns(10);
-        textField_lbluser.setBounds(395, 220, 283, 36);
-        contentPane.add(textField_lbluser);
+        textFieldUser = new JTextField();
+        textFieldUser.setColumns(10);
+        textFieldUser.setBounds(395, 220, 283, 36);
+        contentPane.add(textFieldUser);
 
         JLabel lblRepeatPassword = new JLabel("CONTRASEÑA:");
         lblRepeatPassword.setBounds(395, 260, 150, 14);
         contentPane.add(lblRepeatPassword);
 
-        // Campo de contraseña para verificar la contraseña
         passwordField = new JPasswordField();
         passwordField.setBounds(395, 280, 283, 36);
         contentPane.add(passwordField);
 
-        // Botón para cerrar la ventana
-        JLabel lbl_close = new JLabel("X");
-        lbl_close.addMouseListener(new MouseAdapter() {
+        JLabel lblClose = new JLabel("X");
+        lblClose.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent arg0) {
-                System.exit(0); // Sale de la aplicación al hacer clic
+                System.exit(0);
             }
         });
 
-        lbl_close.setHorizontalAlignment(SwingConstants.CENTER);
-        lbl_close.setForeground(new Color(241, 57, 83));
-        lbl_close.setFont(new Font("Tahoma", Font.PLAIN, 18));
-        lbl_close.setBounds(691, 0, 37, 27);
-        contentPane.add(lbl_close);
+        lblClose.setHorizontalAlignment(SwingConstants.CENTER);
+        lblClose.setForeground(new Color(241, 57, 83));
+        lblClose.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        lblClose.setBounds(691, 0, 37, 27);
+        contentPane.add(lblClose);
     }
 
     public void connectToServer() {
-        String server = textField.getText();
-        String database = textField_1.getText();
-        String port = textField_2.getText(); // Puerto
-        String user = textField_lbluser.getText(); // Nombre de usuario
+        String server = textFieldServer.getText();
+        String database = textFieldDatabase.getText();
+        String port = textFieldPort.getText();
+        String user = textFieldUser.getText();
         String password = new String(passwordField.getPassword());
-
+    
         if (server.isEmpty() || database.isEmpty() || port.isEmpty() || user.isEmpty() || password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Por favor, completa todos los campos");
             return;
         }
-
+    
         DBConnection dbConnection = new DBConnection(server, database, port, user, password);
-
+    
         try {
             Connection connection = dbConnection.getConnection();
             if (connection != null) {
-                JOptionPane.showMessageDialog(this, "Conexión exitosa!"); // Muestra un mensaje si la conexión es exitosa
-                System.out.println(server + " " + database + " " + port + " " + user + " " + password);
-                // Agregar estas líneas para cerrar la interfaz actual y abrir otra interfaz
+                //JOptionPane.showMessageDialog(this, "Conexión exitosa!");
                 dispose();
-                /*new OtraInterfaz().setVisible(true);*/
-
+                new MainPanelGUI(connection).setVisible(true); // Aquí pasamos la conexión a AltaVentasGUI
             } else {
-                JOptionPane.showMessageDialog(this, "Error al conectar al servidor."); // Muestra un mensaje de error si no se puede conectar
-                System.out.println(server + " " + database + " " + port + " " + user + " " + password);
+                JOptionPane.showMessageDialog(this, "Error al conectar al servidor.");
             }
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, "Error al conectar al servidor: " + ex.getMessage()); // Muestra un mensaje de error detallado
-            System.out.println(server + " " + database + " " + port + " " + user + " " + password);
+            JOptionPane.showMessageDialog(this, "Error al conectar al servidor: " + ex.getMessage());
         }
     }
+    
 }

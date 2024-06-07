@@ -34,7 +34,7 @@ public class FarmaciaGenerator {
                 if (conn != null) {
                     System.out.println("¡Conectado a la base de datos!");
 
-                    String sql = "INSERT INTO farmacia.farmacia (Id_farmacia, Nombre_farmacia, Direccion, Horario, Correo_electronico, Telefono, Licencia_permiso) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                    String sql = "INSERT INTO farma2.farmacia (Id_farmacia, Nombre_farmacia, Direccion, Horario, Correo_electronico, Telefono, Licencia_permiso) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
                     PreparedStatement statement = conn.prepareStatement(sql);
 
