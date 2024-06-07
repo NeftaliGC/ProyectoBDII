@@ -17,7 +17,7 @@ public class VentasDao {
         List<VentasData> datos = new ArrayList<>();
         String query = "SELECT * FROM farma.venta ORDER BY id_venta ASC";
         try {
-            con = cc.establecerConexion();
+           con = cc.establecerConexion();
             ps = con.prepareStatement(query);
             rs = ps.executeQuery();
             while(rs.next()){
