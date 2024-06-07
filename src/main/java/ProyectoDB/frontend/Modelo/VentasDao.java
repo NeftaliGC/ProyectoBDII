@@ -1,5 +1,4 @@
-package Modelo;
-import conexionProyecto.Conexion;
+package ProyectoDB.frontend.Modelo;
 import java.sql.PreparedStatement;
 import java.sql.CallableStatement;
 import java.sql.Connection;

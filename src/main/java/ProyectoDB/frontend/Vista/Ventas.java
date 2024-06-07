@@ -1,8 +1,8 @@
-package Vista;
+package ProyectoDB.frontend.Vista;
 import java.awt.Color;
 import java.awt.event.ActionListener;
-import Modelo.VentasDao;
-import Modelo.VentasData;
+import ProyectoDB.frontend.Modelo.VentasDao;
+import ProyectoDB.frontend.Modelo.VentasData;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.math.BigDecimal;

@@ -1,5 +1,5 @@
-package Vista;
-import Controlador.ControladorVista;
+package ProyectoDB.frontend.Vista;
+import ProyectoDB.frontend.Controlador.ControladorVista;
 import java.awt.Color;
 
 public class InicioSesion extends javax.swing.JFrame {

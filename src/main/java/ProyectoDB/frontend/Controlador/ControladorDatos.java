@@ -1,11 +1,7 @@
-package Controlador;
-import java.math.BigDecimal;
-import Modelo.Inventario;
-import Modelo.InventarioDao;
-import Modelo.VentasData;
-import Modelo.VentasDao;
+package ProyectoDB.frontend.Controlador;
+import ProyectoDB.frontend.Modelo.VentasData;
+import ProyectoDB.frontend.Modelo.VentasDao;
 import Vista.Ventas;
-import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 public class ControladorDatos {

@@ -1,4 +1,4 @@
-package Modelo;
+package ProyectoDB.frontend.Modelo;
 
 public class Inventario {
     private String id_inventario;

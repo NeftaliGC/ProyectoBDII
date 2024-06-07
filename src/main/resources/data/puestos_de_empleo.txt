@@ -1,4 +1,0 @@
-'Farmacéutico', 20000.00
-'Asistente', 15000.00
-'Cajero', 12000.00
-'Almacén', 10000.00

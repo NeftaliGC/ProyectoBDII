@@ -1,4 +1,4 @@
-package Controlador;
+package ProyectoDB.frontend.Controlador;
 
 public class Main {
     

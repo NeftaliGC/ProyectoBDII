@@ -1,15 +1,12 @@
-package Modelo;
-import conexionProyecto.Conexion;
+package ProyectoDB.frontend.Modelo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class InventarioDao {
-    private Conexion cc;
     private Connection con;
 
     public InventarioDao() {
-        cc = new Conexion();
     }
     
     
@@ -17,7 +14,6 @@ public class InventarioDao {
         
         try {
             String query = "INSERT INTO farma.inventario (id_inventario, cantidad_disponible, cantidad_minima, cantidad_limite) VALUES (?, ?, ?, ?)";
-            con = cc.establecerConexion();
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, inv.getId_inventario());
             ps.setDouble(2, inv.getCantidadDis());
@@ -36,7 +32,6 @@ public class InventarioDao {
     public void deleteInventory(String idInventario){
         try {
             String query = "DELETE FROM farma.inventario WHERE id_inventario = ?";
-            con = cc.establecerConexion();
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, idInventario);
             int filasAfectadas = ps.executeUpdate();
@@ -54,7 +49,6 @@ public class InventarioDao {
     public void modifyInventory(Inventario inv) {
         try {
             String query = "UPDATE farma.inventario SET cantidad_disponible = ?, cantidad_minima = ?, cantidad_limite = ? WHERE id_inventario = ?";
-            con = cc.establecerConexion();
             PreparedStatement ps = con.prepareStatement(query);
 
             ps.setDouble(1, inv.getCantidadDis());
@@ -77,9 +71,7 @@ public class InventarioDao {
     public void showInventory(){
         try {
             String query = "SELECT * FROM farma.inventario";
-            con = cc.establecerConexion();
-            PreparedStatement ps = con.prepareStatement(query);
-            ResultSet rs = ps.executeQuery();
+            ResultSet rs = null;
             while (rs.next()) {
                 String idInventario = rs.getString("id_inventario");
                 double cantidadDisponible = rs.getDouble("cantidad_disponible");

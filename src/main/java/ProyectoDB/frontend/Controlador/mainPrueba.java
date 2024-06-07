@@ -1,4 +1,4 @@
-package Controlador;
+package ProyectoDB.frontend.Controlador;
 
 public class mainPrueba {
     public static void main(String[] args) {
