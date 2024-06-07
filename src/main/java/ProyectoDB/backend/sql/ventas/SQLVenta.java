@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ProyectoDB.backend.sql.ventas;
+package main.java.ProyectoDB.backend.sql.ventas;
 
 import ProyectoDB.backend.objetos.venta.Venta;
 import java.sql.CallableStatement;

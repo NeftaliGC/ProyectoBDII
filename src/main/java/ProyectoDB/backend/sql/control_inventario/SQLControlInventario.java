@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ProyectoDB.backend.sql.control_inventario;
+package main.java.ProyectoDB.backend.sql.control_inventario;
 
-import ProyectoDB.backend.objetos.control_inventario.ControlInventario;
+import main.java.ProyectoDB.backend.objetos.control_inventario.ControlInventario;
 import ProyectoDB.backend.sql.Operable;
-import ProyectoDB.backend.sql.ventas.SQLVenta;
+import main.java.ProyectoDB.backend.sql.ventas.SQLVenta;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -47,8 +47,7 @@ public class SQLControlInventario implements Operable<ControlInventario, String>
     }
 
     public String bajaId(String id_producto, String id_inventario) {
-        String sql = String.format(
-                "{? = call baja_control_inventario('%s', '%s')}",
+        String sql = String.format("{? = call baja_control_inventario('%s', '%s')}",
                 id_producto,
                 id_inventario);
 
@@ -86,14 +85,41 @@ public class SQLControlInventario implements Operable<ControlInventario, String>
         return null;
     }
 
-    @Override
-    public ControlInventario consulta(String param) {
+    public ControlInventario consulta(Timestamp fechaRegistro, String id_producto, String id_inventario) {
+        String sql = String.format("select consultar_control_inventario('%s','%s','%s')", fechaRegistro, id_producto, id_inventario);
+        System.out.println(sql);
+
+        try {
+            CallableStatement callableStatement = connection.prepareCall(sql);
+            ResultSet resultSet = callableStatement.executeQuery();
+
+            resultSet.next();
+
+            String row = resultSet.getString(1);
+
+            row = row.replace("(", "");
+            row = row.replace(")", "");
+            row = row.replace("\"", "\'");
+
+            System.out.println(row);
+            
+            
+            String tokens[] = row.split(",");
+
+            return new ControlInventario(
+                    Timestamp.valueOf(tokens[0]),
+                    Integer.parseInt(tokens[1]),
+                    tokens[2],
+                    tokens[3]);
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLVenta.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return null;
     }
 
     @Override
     public List<ControlInventario> reporte() {
-        String sql = "select  consultar_control_inventario() ";
+        String sql = "select  consultar_control_inventario()";
         List<ControlInventario> controlInventario = null;
 
         try {
@@ -109,7 +135,7 @@ public class SQLControlInventario implements Operable<ControlInventario, String>
                 String tokens[] = row.split(",");
 
                 controlInventario.add(new ControlInventario(
-                        Timestamp.valueOf(tokens[0].concat(" 00:00:00")),
+                        Timestamp.valueOf(tokens[0].concat(" 00:00:00.0")),
                         Integer.parseInt(tokens[1]),
                         tokens[2],
                         tokens[3]));
@@ -142,6 +168,17 @@ public class SQLControlInventario implements Operable<ControlInventario, String>
      */
     @Override
     public ControlInventario modifica(ControlInventario controlInventario) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    /**
+     * No usar, usar el sobrecargado
+     *
+     * @param controlInventario
+     * @return
+     */
+    @Override
+    public ControlInventario consulta(String param) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
