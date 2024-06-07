@@ -54,7 +54,8 @@ public class API {
                     ImageIcon icon = new ImageIcon(image);
                     JLabel label = new JLabel(icon);
                     JFrame frame = new JFrame();
-                    frame.setTitle("Gráfica");
+
+                    frame.setTitle("Grafica");
                     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                     frame.getContentPane().add(label, BorderLayout.CENTER);
                     frame.pack();

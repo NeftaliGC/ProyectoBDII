@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 public class PruebaControlInventario {
 
     public static void main(String[] args) {
-        int opc = 3;
+        int opc = 4;
 
         try {
             DBConnection dbc = new DBConnection("localhost", "farma", "5432", "postgres", "8133pqalO");
@@ -45,6 +45,12 @@ public class PruebaControlInventario {
                     for (ControlInventario controlInventario : l) {
                         System.out.println(controlInventario);
                     }
+                    break;
+
+                case 4:
+                    ControlInventario c2 = new ControlInventario(Timestamp.valueOf("2078-04-04 08:15:12.0"), 9000, "PROD006", "INV004");
+
+                    control.modifica("PROD006", "INV004", c2);
                     break;
 
             }
