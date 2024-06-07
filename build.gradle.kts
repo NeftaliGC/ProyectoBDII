@@ -17,6 +17,7 @@ implementation("org.postgresql:postgresql:42.6.0")
 
     implementation("org.json:json:20210307")
     implementation("org.jfree:jfreechart:1.5.3")
+    implementation("org.apache.httpcomponents:httpclient:4.5.13")
 }
 
 subprojects {
