@@ -2,11 +2,11 @@ package main.java.ProyectoDB.frontend.Vista;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import main.java.ProyectoDB.frontend.Modelo.VentasDao;
-import ProyectoDB.frontend.Modelo.VentasData;
 import main.java.ProyectoDB.frontend.Modelo.VentasData;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
+import java.sql.SQLException;
 import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
@@ -95,7 +95,7 @@ public class Ventas extends javax.swing.JPanel implements ActionListener{
         txtIDTicket.setText("");
     }
     
-    public void agregar(){
+    public void agregar() throws SQLException{
         String id = txtIDVenta.getText();
         BigDecimal cantidadVendida = new BigDecimal(txtCantidadVendida.getText());
         BigDecimal totalVenta = new BigDecimal(txtTotalVenta.getText());
