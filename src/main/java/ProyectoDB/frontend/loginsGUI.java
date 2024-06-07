@@ -24,14 +24,13 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 public class loginsGUI extends JFrame {
+
     private final JTextField textFieldServer;
     private final JTextField textFieldDatabase;
     private final JTextField textFieldPort;
     private final JTextField textFieldUser;
     private final JPasswordField passwordField;
     int xx, xy;
-
-   
 
     public loginsGUI() {
         setBackground(Color.WHITE);
@@ -51,9 +50,9 @@ public class loginsGUI extends JFrame {
         contentPane.add(panel);
         panel.setLayout(null);
 
-        String[] mensajes = { "¡Empezando un nuevo viaje!", "¡Creando nuevas posibilidades!",
-                "¡Bienvenido al comienzo de algo genial!", "¡Estás a un paso de la aventura!",
-                "¡Prepárate para explorar!", "¡Tu nueva experiencia comienza aquí!" };
+        String[] mensajes = {"¡Empezando un nuevo viaje!", "¡Creando nuevas posibilidades!",
+            "¡Bienvenido al comienzo de algo genial!", "¡Estás a un paso de la aventura!",
+            "¡Prepárate para explorar!", "¡Tu nueva experiencia comienza aquí!"};
 
         int indiceAleatorio = new Random().nextInt(mensajes.length);
 
@@ -110,13 +109,13 @@ public class loginsGUI extends JFrame {
         lblAlreadyHaveProblem.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                String message = "Abre la línea de comandos (CMD).\n" +
-                        "Navega hasta la carpeta donde está instalado PostgreSQL. Por lo general, es algo como C:\\Program Files\\PostgreSQL\\13\\bin. Puedes hacerlo con el comando cd, por ejemplo:\n" +
-                        "cd \"C:\\Program Files\\PostgreSQL\\13\\bin\"\n\n" +
-                        "Conéctate a la base de datos PostgreSQL con el comando psql. Necesitarás proporcionar el nombre de la base de datos, el nombre de usuario y la contraseña. Aquí te dejo un ejemplo:\n" +
-                        "psql -h localhost -p 5433 -U postgres -d postgres\n\n" +
-                        "Una vez que estés conectado, puedes ejecutar el siguiente comando SQL para obtener la información que necesitas:\n" +
-                        "SELECT current_database(), inet_server_port(), inet_server_addr(), current_user;";
+                String message = "Abre la línea de comandos (CMD).\n"
+                        + "Navega hasta la carpeta donde está instalado PostgreSQL. Por lo general, es algo como C:\\Program Files\\PostgreSQL\\13\\bin. Puedes hacerlo con el comando cd, por ejemplo:\n"
+                        + "cd \"C:\\Program Files\\PostgreSQL\\13\\bin\"\n\n"
+                        + "Conéctate a la base de datos PostgreSQL con el comando psql. Necesitarás proporcionar el nombre de la base de datos, el nombre de usuario y la contraseña. Aquí te dejo un ejemplo:\n"
+                        + "psql -h localhost -p 5433 -U postgres -d postgres\n\n"
+                        + "Una vez que estés conectado, puedes ejecutar el siguiente comando SQL para obtener la información que necesitas:\n"
+                        + "SELECT current_database(), inet_server_port(), inet_server_addr(), current_user;";
 
                 JOptionPane.showMessageDialog(loginsGUI.this, message);
             }
@@ -186,15 +185,16 @@ public class loginsGUI extends JFrame {
         String database = textFieldDatabase.getText();
         String port = textFieldPort.getText();
         String user = textFieldUser.getText();
+        String schema = "farma";
         String password = new String(passwordField.getPassword());
-    
+
         if (server.isEmpty() || database.isEmpty() || port.isEmpty() || user.isEmpty() || password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Por favor, completa todos los campos");
             return;
         }
-    
-        DBConnection dbConnection = new DBConnection(server, database, port, user, password);
-    
+
+        DBConnection dbConnection = new DBConnection(server, database, schema, port, user, password);
+
         try {
             Connection connection = dbConnection.getConnection();
             if (connection != null) {
@@ -208,5 +208,5 @@ public class loginsGUI extends JFrame {
             JOptionPane.showMessageDialog(this, "Error al conectar al servidor: " + ex.getMessage());
         }
     }
-    
+
 }

@@ -28,7 +28,7 @@ public class PruebaVenta {
 
     private static void pruebaFunciones() throws SQLException {
         int op = 5;
-        DBConnection dbc = new DBConnection("localhost", "farma", "5432", "postgres", "8133pqalO");
+        DBConnection dbc = new DBConnection("localhost", "farma", "farma", "5432", "postgres", "8133pqalO");
         Connection connection = dbc.getConnection();
         SQLVenta sqlVenta = new SQLVenta(connection);
 
