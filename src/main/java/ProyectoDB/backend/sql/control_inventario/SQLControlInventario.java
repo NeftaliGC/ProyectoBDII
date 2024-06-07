@@ -5,12 +5,17 @@
 package ProyectoDB.backend.sql.control_inventario;
 
 import ProyectoDB.backend.objetos.control_inventario.ControlInventario;
+import ProyectoDB.backend.objetos.venta.Venta;
 import ProyectoDB.backend.sql.Operable;
 import ProyectoDB.backend.sql.ventas.SQLVenta;
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.sql.Types;
+import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -69,12 +74,40 @@ public class SQLControlInventario implements Operable<ControlInventario, String>
 
     @Override
     public ControlInventario consulta(String param) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
+        return null;
     }
 
     @Override
     public List<ControlInventario> reporte() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "select  consultar_control_inventario() ";
+        List<ControlInventario> controlInventario = null;
+
+        try {
+            CallableStatement callableStatement = connection.prepareCall(sql);
+            ResultSet resultSet = callableStatement.executeQuery();
+
+            controlInventario = new ArrayList<>();
+
+            while (resultSet.next()) {
+                String row = resultSet.getString(1);
+                row = row.replace("(", "").replace(")", "").trim();
+
+                String tokens[] = row.split(",");
+
+                controlInventario.add(new ControlInventario(
+                        Timestamp.valueOf(tokens[0].concat(" 00:00:00")),
+                        Integer.parseInt(tokens[1]),
+                        tokens[2],
+                        tokens[3]));
+            }
+
+            return controlInventario;
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLVenta.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return controlInventario;
+
     }
 
     /**

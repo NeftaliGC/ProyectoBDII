@@ -32,7 +32,7 @@ public class ControlInventario {
     public String toString() {
 
         return String.format("'%s', %d, '%s', '%s'",
-                fechaRegistro,
+                fechaRegistro.toString(),
                 cantidadVendida,
                 id_producto,
                 id_inventario);

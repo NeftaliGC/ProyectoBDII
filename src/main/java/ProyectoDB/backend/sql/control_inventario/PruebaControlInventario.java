@@ -6,11 +6,11 @@ package ProyectoDB.backend.sql.control_inventario;
 
 import ProyectoDB.DBConnection;
 import ProyectoDB.backend.objetos.control_inventario.ControlInventario;
-import ProyectoDB.backend.sql.ventas.SQLVenta;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 public class PruebaControlInventario {
 
     public static void main(String[] args) {
-        int opc = 2;
+        int opc = 3;
 
         try {
             DBConnection dbc = new DBConnection("localhost", "farma", "5432", "postgres", "8133pqalO");
@@ -37,6 +37,14 @@ public class PruebaControlInventario {
                 case 2:
                     String c1 = control.bajaId("PROD004", "INV010");
                     System.out.println(c1);
+                    break;
+
+                case 3:
+                    List<ControlInventario> l = control.reporte();
+
+                    for (ControlInventario controlInventario : l) {
+                        System.out.println(controlInventario);
+                    }
                     break;
 
             }
