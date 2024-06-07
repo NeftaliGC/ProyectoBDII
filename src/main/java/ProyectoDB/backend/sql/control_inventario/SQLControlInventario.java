@@ -67,8 +67,35 @@ public class SQLControlInventario implements Operable<ControlInventario, String>
         return null;
     }
 
+    public ControlInventario modifica(String idProducto, String idInventario, ControlInventario controlInventario) {
+        String sql = String.format(
+                "select modificar_control_inventario('%s', '%s', '%s', %d, '%s', '%s')",
+                idProducto,
+                idInventario,
+                controlInventario.getFechaRegistro().toString(),
+                controlInventario.getCantidadVendida(),
+                controlInventario.getId_producto(),
+                controlInventario.getId_inventario());
+        System.out.println(sql);
+
+        try {
+            CallableStatement callableStatement = connection.prepareCall(sql);
+            callableStatement.execute();
+            return controlInventario;
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLVenta.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    /**
+     * No usar, usar el sobrecargado
+     *
+     * @param controlInventario
+     * @return
+     */
     @Override
-    public ControlInventario modifica(ControlInventario param) {
+    public ControlInventario modifica(ControlInventario controlInventario) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
