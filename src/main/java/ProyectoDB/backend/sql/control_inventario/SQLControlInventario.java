@@ -5,7 +5,6 @@
 package ProyectoDB.backend.sql.control_inventario;
 
 import ProyectoDB.backend.objetos.control_inventario.ControlInventario;
-import ProyectoDB.backend.objetos.venta.Venta;
 import ProyectoDB.backend.sql.Operable;
 import ProyectoDB.backend.sql.ventas.SQLVenta;
 import java.sql.CallableStatement;
@@ -14,7 +13,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.sql.Types;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -88,20 +86,8 @@ public class SQLControlInventario implements Operable<ControlInventario, String>
         return null;
     }
 
-    /**
-     * No usar, usar el sobrecargado
-     *
-     * @param controlInventario
-     * @return
-     */
-    @Override
-    public ControlInventario modifica(ControlInventario controlInventario) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
     @Override
     public ControlInventario consulta(String param) {
-
         return null;
     }
 
@@ -138,13 +124,24 @@ public class SQLControlInventario implements Operable<ControlInventario, String>
     }
 
     /**
-     * No usar para este tipo de Dato Control Inventario
+     * No usar para este tipo de Dato Control Inventario, usar el sobrecargado
      *
      * @param param
      * @return
      */
     @Override
     public String baja(String param) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    /**
+     * No usar, usar el sobrecargado
+     *
+     * @param controlInventario
+     * @return
+     */
+    @Override
+    public ControlInventario modifica(ControlInventario controlInventario) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
