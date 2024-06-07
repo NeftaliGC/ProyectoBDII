@@ -4,7 +4,7 @@
  */
 package main.java.ProyectoDB.backend.sql.control_inventario;
 
-import ProyectoDB.DBConnection;
+import main.java.ProyectoDB.DBConnection;
 import main.java.ProyectoDB.backend.objetos.control_inventario.ControlInventario;
 import java.sql.Connection;
 import java.sql.SQLException;

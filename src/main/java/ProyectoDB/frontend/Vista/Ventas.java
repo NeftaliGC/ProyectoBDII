@@ -2,11 +2,14 @@ package main.java.ProyectoDB.frontend.Vista;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import main.java.ProyectoDB.frontend.Modelo.VentasDao;
-import ProyectoDB.frontend.Modelo.VentasData;
+import main.java.ProyectoDB.frontend.Modelo.VentasData;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -94,7 +97,7 @@ public class Ventas extends javax.swing.JPanel implements ActionListener{
         txtIDTicket.setText("");
     }
     
-    public void agregar(){
+    public void agregar() throws SQLException{
         String id = txtIDVenta.getText();
         BigDecimal cantidadVendida = new BigDecimal(txtCantidadVendida.getText());
         BigDecimal totalVenta = new BigDecimal(txtTotalVenta.getText());
@@ -485,7 +488,11 @@ public class Ventas extends javax.swing.JPanel implements ActionListener{
             }
         }
         if(e.getSource() == btnInsert){
-            agregar();
+            try {
+                agregar();
+            } catch (SQLException ex) {
+                Logger.getLogger(Ventas.class.getName()).log(Level.SEVERE, null, ex);
+            }
             limpiarTablaC();
             listar();
             //autoIncrement();
@@ -496,7 +503,11 @@ public class Ventas extends javax.swing.JPanel implements ActionListener{
             if(fila == -1){
                 JOptionPane.showMessageDialog(null, "Seleccionar un registro");
             }else{
-                vtaDao.deleteSale(id);
+                try {
+                    vtaDao.deleteSale(id);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Ventas.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
             limpiarTablaC();
             listar();
