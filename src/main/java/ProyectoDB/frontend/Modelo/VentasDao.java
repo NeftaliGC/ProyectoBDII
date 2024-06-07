@@ -1,4 +1,5 @@
 package main.java.ProyectoDB.frontend.Modelo;
+
 import java.sql.PreparedStatement;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -6,9 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import main.java.ProyectoDB.DBConnection;
 
 public class VentasDao {
-    Conexion cc = new Conexion();
+    DBConnection cc = new DBConnection();
     Connection con;
     PreparedStatement ps;
     ResultSet rs;
@@ -17,7 +19,7 @@ public class VentasDao {
         List<VentasData> datos = new ArrayList<>();
         String query = "SELECT * FROM farma.venta ORDER BY id_venta ASC";
         try {
-            con = cc.establecerConexion();
+            con = cc.getConnection()
             ps = con.prepareStatement(query);
             rs = ps.executeQuery();
             while(rs.next()){

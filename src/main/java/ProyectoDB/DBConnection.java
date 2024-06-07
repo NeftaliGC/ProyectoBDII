@@ -1,4 +1,4 @@
-package ProyectoDB;
+package main.java.ProyectoDB;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
