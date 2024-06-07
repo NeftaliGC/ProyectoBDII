@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ProyectoDB.backend.sql.control_inventario;
+package main.java.ProyectoDB.backend.sql.control_inventario;
 
 import ProyectoDB.DBConnection;
-import ProyectoDB.backend.objetos.control_inventario.ControlInventario;
+import main.java.ProyectoDB.backend.objetos.control_inventario.ControlInventario;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -21,10 +21,10 @@ import java.util.logging.Logger;
 public class PruebaControlInventario {
 
     public static void main(String[] args) {
-        int opc = 4;
+        int opc = 5;
 
         try {
-            DBConnection dbc = new DBConnection("localhost", "farma", "farma", "5432", "postgres", "8133pqalO");
+            DBConnection dbc = new DBConnection("localhost", "postgres", "farma", "5432", "postgres", "webos");
             Connection connection = dbc.getConnection();
             SQLControlInventario control = new SQLControlInventario(connection);
 
@@ -52,6 +52,12 @@ public class PruebaControlInventario {
 
                     control.modifica("PROD006", "INV004", c2);
                     break;
+                    
+                case 5:
+                    
+
+                    control.consulta(Timestamp.valueOf("1962-07-26 00:00:00.0"), "PROD002", "INV008");
+                    break;    
 
             }
         } catch (SQLException ex) {

@@ -1,5 +1,6 @@
 package main.java.ProyectoDB.frontend.Modelo;
 
+
 import java.math.BigDecimal;
 
 public class VentasData {

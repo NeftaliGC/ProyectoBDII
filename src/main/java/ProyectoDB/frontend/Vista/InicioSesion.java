@@ -1,6 +1,6 @@
-package main.java.ProyectoDB.frontend.Vista;
-import main.java.ProyectoDB.frontend.Controlador.ControladorVista;
+package ProyectoDB.frontend.Vista;
 import java.awt.Color;
+import main.java.ProyectoDB.frontend.Controlador.ControladorVista;
 
 public class InicioSesion extends javax.swing.JFrame {
     int xMouse, yMouse;
