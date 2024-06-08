@@ -1,7 +1,7 @@
 package main.java.ProyectoDB.frontend.Controlador;
 
 
-import ProyectoDB.frontend.Vista.InicioSesion;
+import main.java.ProyectoDB.frontend.Vista.InicioSesion;
 import Modelo.connectionData;
 import main.java.ProyectoDB.frontend.Vista.MenuFarmacia;
 

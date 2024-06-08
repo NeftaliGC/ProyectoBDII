@@ -1,4 +1,4 @@
-package ProyectoDB.frontend.Vista;
+package main.java.ProyectoDB.frontend.Vista;
 import java.awt.Color;
 import main.java.ProyectoDB.frontend.Controlador.ControladorVista;
 
